@@ -7,10 +7,25 @@ button {
 	margin: 20px;
 }
 
+#LoginForm {
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+@media screen and (max-width: 1920px) {
+	#logo{
+			width: 200px;
+			margin: 50px auto;
+	}
+	input {
+		width: 150px;
+		margin: 50px;
+	}
+}
 @media screen and (max-width: 980px) {
 	#logo{
 			width: 150px;
-			margin: 50px;
+			margin: 50px auto;
 	}
 	input {
 		width: 150px;
@@ -26,16 +41,4 @@ button {
 		width: 150px;
 	}
 }
-
-@media screen and (max-width: 524px) {
-	#logo{
-		width: 100px;
-	}
-	input {
-		width: 150px;
-	}
 	
-}
-	
-
-
