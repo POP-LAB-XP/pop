@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+  
+  #devise_for :users, :controllers => { :registrations => "registrations" }
+
   #get 'static_pages/welcome'
   root 'static_pages#welcome'
   # The priority is based upon order of creation: first created -> highest priority.
