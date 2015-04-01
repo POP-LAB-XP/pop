@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
          validates_confirmation_of :password
+
+         belongs_to :sub_prefeitura
+         validates :sub_prefeitura, :presence => true
+
+        @codigo
+		def codigo
+		    @codigo
+		 end
 end

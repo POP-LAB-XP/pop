@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327195543) do
+ActiveRecord::Schema.define(version: 20150401183338) do
+
+  create_table "forums", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sub_prefeituras", force: true do |t|
+    t.string   "nome"
+    t.string   "codigo"
+    t.integer  "limite_de_usuarios"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "forum_id"
+  end
+
+  add_index "sub_prefeituras", ["forum_id"], name: "index_sub_prefeituras_on_forum_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -26,9 +43,11 @@ ActiveRecord::Schema.define(version: 20150327195543) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sub_prefeitura_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["sub_prefeitura_id"], name: "index_users_on_sub_prefeitura_id"
 
 end
