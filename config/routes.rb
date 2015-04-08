@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   #devise_for :users
   
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   #devise_for :users, :controllers => { :registrations => "registrations" }
+=======
+  get 'interface/index'
+>>>>>>> login
 
   #get 'static_pages/welcome'
   root 'static_pages#welcome'
