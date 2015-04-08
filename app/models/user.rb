@@ -9,9 +9,4 @@ class User < ActiveRecord::Base
 
          belongs_to :sub_prefeitura
          validates :sub_prefeitura, :presence => true
-
-        @codigo
-		def codigo
-		    @codigo
-		 end
 end

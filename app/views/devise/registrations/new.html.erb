@@ -1,7 +1,6 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <div><%= f.text_field :codigo, :placeholder => "código de acesso", :autofocus => true %></div>
+  <div><%= text_field_tag "codigo", nil, placeholder: 'código de acesso', autofocus: true %></div>
 
   <div><%= f.email_field :email, :placeholder => "e-mail" %></div>
 
