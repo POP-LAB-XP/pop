@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'interface/index'
+  get 'interface/cadastro'
 
   #get 'static_pages/welcome'
   root 'static_pages#welcome'

@@ -2,12 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+#TituloCadastro {
+    text-align: center;
+    font-size: 2.5em;
+}
+#NomeForum {
+    text-align: center;
+    font-size: 2em;
+}
 button {
 	width: 150px;
 	margin: 20px;
 }
 
-#LoginForm {
+#cadastroForm {
 	padding-right: 50px;
 	padding-left: 50px;
 }
@@ -18,7 +27,6 @@ button {
 			margin: 50px auto;
 	}
 	input {
-		width: 150px;
 		margin: 50px;
 	}
 }
@@ -28,7 +36,6 @@ button {
 			margin: 50px auto;
 	}
 	input {
-		width: 150px;
 		margin: 50px;
 	}
 }
@@ -36,9 +43,6 @@ button {
 @media screen and (max-width: 758px) {
 	#logo{
 		width: 100px;
-	}
-	input {
-		width: 150px;
 	}
 }
 	
