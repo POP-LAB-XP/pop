@@ -8,5 +8,8 @@ class User < ActiveRecord::Base
          validates_confirmation_of :password
 
          belongs_to :sub_prefeitura
+         has_many :propostas
+         has_many :votos
          validates :sub_prefeitura, :presence => true
+
 end
