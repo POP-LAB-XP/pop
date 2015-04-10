@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401183338) do
+ActiveRecord::Schema.define(version: 20150410174305) do
 
   create_table "forums", force: true do |t|
     t.string   "nome"
@@ -19,12 +19,14 @@ ActiveRecord::Schema.define(version: 20150401183338) do
     t.datetime "updated_at"
   end
 
-  create_table "logins", force: true do |t|
-    t.string   "login"
-    t.string   "senha"
+  create_table "proposta", force: true do |t|
+    t.string   "descricao"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "proposta", ["user_id"], name: "index_proposta_on_user_id"
 
   create_table "sub_prefeituras", force: true do |t|
     t.string   "nome"
@@ -56,5 +58,15 @@ ActiveRecord::Schema.define(version: 20150401183338) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["sub_prefeitura_id"], name: "index_users_on_sub_prefeitura_id"
+
+  create_table "votos", force: true do |t|
+    t.integer  "proposta_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votos", ["proposta_id"], name: "index_votos_on_proposta_id"
+  add_index "votos", ["user_id"], name: "index_votos_on_user_id"
 
 end
