@@ -1,0 +1,24 @@
+
+<h2>Propostas</h2>
+<div class= "col-sm-4 col-sm-offset-4">
+	<ul class="list-group">
+		<% @list.each do |proposta| %>
+			<li class="list-group-item">
+				<span class="badge"><%= proposta.votos.count %></span>
+				<%=label_tag proposta.descricao.truncate(20) %> 
+
+				<span class="glyphicon glyphicon-search" aria-hidden="true"data-toggle="collapse",data-target="#<%= proposta.id %>" aria-expanded="false" aria-controls="<%= proposta.id %>"></span>
+				</button>
+				<div class="collapse" id="<%= proposta.id %>">
+				  <div class="well">
+				    <%=label_tag proposta.descricao %> 
+				  </div>
+				</div>
+			</li>
+		<% end %>
+	</ul>
+</div>
+
+
+
+
