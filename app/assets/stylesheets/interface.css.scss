@@ -4,17 +4,28 @@
 
 
 #TituloCadastro {
-    text-align: center;
     font-size: 2.5em;
 }
 #NomeForum {
-    text-align: center;
     font-size: 2em;
 }
+
+.textoEstaticoCadastro {
+	text-align: center;
+	padding-right: 25px;
+	padding-left: 25px;
+	padding-bottom: 25px;
+}
+
+
+
 button {
 	width: 150px;
 	margin: 20px;
 }
+
+
+
 
 #cadastroForm {
 	padding-right: 50px;
@@ -29,6 +40,8 @@ button {
 	input {
 		margin: 50px;
 	}
+
+	
 }
 @media screen and (max-width: 980px) {
 	#logo{
@@ -40,9 +53,19 @@ button {
 	}
 }
 
-@media screen and (max-width: 758px) {
+@media screen and (max-width: 768px) {
 	#logo{
 		width: 100px;
 	}
+
+	#NomeForum {
+		font-size: 1em;
+	}
+
+	#TituloCadastro {
+		font-size: 1.5em;
+	}
+
+	
 }
 	

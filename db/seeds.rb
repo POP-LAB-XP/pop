@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+forum = Forum.create({ nome: 'Teste'})
+
+sub_prefeitura = SubPrefeitura.create({ 
+	nome: 'SubPrefeitura de Teste', 
+	codigo: '12345678', 
+	limite_de_usuarios: 3, 
+	forum: forum
+})
