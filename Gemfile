@@ -49,4 +49,4 @@ end
 
 gem "binding_of_caller"
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
