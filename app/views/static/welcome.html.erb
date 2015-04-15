@@ -1,3 +1,10 @@
+<%
+	@path = new_user_registration_path
+	if user_signed_in?
+		@path = propostas_path
+	end
+%>
+
 <% content_for :title do %>
   Bem Vindo ao POP!
 <% end %>
@@ -9,6 +16,6 @@
 <img id="logo_indx" src="/assets/logo_indx.jpg" >
 
 <script type="text/javascript">
-	 setInterval(function(){ window.location.href = '<%= new_user_session_path %>'; }, 3000);
+	 setInterval(function(){ window.location.href = '<%= @path %>'; }, 3000);
 </script>
 
