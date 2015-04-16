@@ -1,8 +1,6 @@
 class PropostasController < ApplicationController
 	def index
-		@list = Proposta.joins(:votos)
-		.group("votos.proposta_id")
-		.order("count(votos.proposta_id) desc")
+		@list = Proposta.order_por_votos
 	end
 end
 

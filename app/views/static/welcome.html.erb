@@ -1,12 +1,9 @@
 <%
-	@path = new_user_registration_path
-	if user_signed_in?
-		@path = propostas_path
-	end
+	@path = propostas_path
 %>
 
 <% content_for :title do %>
-  Bem Vindo ao POP!
+  POP | Bem Vindo!
 <% end %>
 
 <!-- Inserir imagem do logo POP-->

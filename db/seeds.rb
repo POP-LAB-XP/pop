@@ -11,73 +11,84 @@ forum = Forum.create({ nome: 'Teste'})
 sub_prefeitura = SubPrefeitura.create({ 
 	nome: 'SubPrefeitura de Teste', 
 	codigo: '12345678', 
-	limite_de_usuarios: 3, 
+	limite_de_usuarios: 100, 
 	forum: forum
 })
+
 user = User.create({
-	
 	email: "pop@ime.com",
 	password: "12345678",
 	password_confirmation: "12345678",
 	sub_prefeitura: sub_prefeitura
 })
+
 p1 = Proposta.create({
 	descricao: "test1",
 	user: user
-	})
+})
+
 p2 = Proposta.create({
 	descricao: "test2",
 	user: user
-	})
+})
+
 p3 = Proposta.create({
 	descricao: "test3",
 	user: user
-	})
+})
 
 Voto.create({
 	user: user,
 	proposta: p1
-	})
+})
+
 Voto.create({
 	user: user,
 	proposta: p1
-	})
+})
+
 Voto.create({
 	user: user,
 	proposta: p1
-	})
+})
+
 Voto.create({
 	user: user,
 	proposta: p1
-	})
+})
+
 Voto.create({
 	user: user,
 	proposta: p1
-	})
+})
+
 Voto.create({
 	user: user,
 	proposta: p1
-	})
+})
 
 Voto.create({
 	user: user,
 	proposta: p2
-	})
+})
+
 Voto.create({
 	user: user,
 	proposta: p2
-	})
+})
 
 Voto.create({
 	user: user,
 	proposta: p3
-	})
+})
+
 Voto.create({
 	user: user,
 	proposta: p3
-	})
+})
+
 Voto.create({
 	user: user,
 	proposta: p3
-	})
+})
 
