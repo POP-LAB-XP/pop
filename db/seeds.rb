@@ -100,7 +100,47 @@ acaoVeto = AcaoTipo.create({
 acaoCriacao = AcaoTipo.create({
 	nome: "Criacao"
 })
-acaousuario = Acao.create({
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
 	user:user,
 	acao_tipo:acaoCriacao,
 	proposta:p1
