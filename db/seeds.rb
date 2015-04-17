@@ -91,4 +91,17 @@ Voto.create({
 	user: user,
 	proposta: p3
 })
-
+acaoApoio = AcaoTipo.create({
+	nome: "Apoio"
+})
+acaoVeto = AcaoTipo.create({
+	nome: "Veto"
+})
+acaoCriacao = AcaoTipo.create({
+	nome: "Criacao"
+})
+acaousuario = Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
