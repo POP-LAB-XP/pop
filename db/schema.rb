@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150410174305) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "forums", force: true do |t|
     t.string   "nome"
     t.datetime "created_at"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150410174305) do
     t.datetime "updated_at"
   end
 
-  add_index "proposta", ["user_id"], name: "index_proposta_on_user_id"
+  add_index "proposta", ["user_id"], name: "index_proposta_on_user_id", using: :btree
 
   create_table "sub_prefeituras", force: true do |t|
     t.string   "nome"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150410174305) do
     t.integer  "forum_id"
   end
 
-  add_index "sub_prefeituras", ["forum_id"], name: "index_sub_prefeituras_on_forum_id"
+  add_index "sub_prefeituras", ["forum_id"], name: "index_sub_prefeituras_on_forum_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -55,9 +58,9 @@ ActiveRecord::Schema.define(version: 20150410174305) do
     t.integer  "sub_prefeitura_id"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["sub_prefeitura_id"], name: "index_users_on_sub_prefeitura_id"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["sub_prefeitura_id"], name: "index_users_on_sub_prefeitura_id", using: :btree
 
   create_table "votos", force: true do |t|
     t.integer  "proposta_id"
@@ -66,7 +69,7 @@ ActiveRecord::Schema.define(version: 20150410174305) do
     t.datetime "updated_at"
   end
 
-  add_index "votos", ["proposta_id"], name: "index_votos_on_proposta_id"
-  add_index "votos", ["user_id"], name: "index_votos_on_user_id"
+  add_index "votos", ["proposta_id"], name: "index_votos_on_proposta_id", using: :btree
+  add_index "votos", ["user_id"], name: "index_votos_on_user_id", using: :btree
 
 end
