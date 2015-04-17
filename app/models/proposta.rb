@@ -1,5 +1,7 @@
 class Proposta < ActiveRecord::Base
   belongs_to :user
+  has_many :tema_propostas
+  has_many :temas, through: :tema_propostas
   has_many :votos
   validates :descricao, length:{maximum: 255}, :presence => true
 

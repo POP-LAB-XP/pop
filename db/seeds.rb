@@ -6,6 +6,101 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+tSaude = Tema.create({
+	nome: 'SAUDE'
+	})
+
+tEducacao = Tema.create({
+	nome: 'EDUCAÇÃO'
+	})
+
+
+tTransporte = Tema.create({
+	nome: 'TRANSPORTE'
+	})
+
+tSeguranca = Tema.create({
+	nome: 'SEGURANÇA'
+	})
+
+tAssistenciaSocial = Tema.create({
+	nome: 'ASSISTENCIA SOCIAL'
+	})
+
+tEsporte = Tema.create({
+	nome: 'ESPORTE'
+	})
+
+tMeioAmbiente = Tema.create({
+	nome: 'MEIO AMBIENTE'
+	})
+
+tInfraEstrutura = Tema.create({
+	nome: 'INFRA ESTRUTURA'
+	})
+
+tServico = Tema.create({
+	nome: 'SERVIÇO'
+	})
+
+tHabitacao = Tema.create({
+	nome: 'HABITAÇÃO'
+	})
+
+tComercio = Tema.create({
+	nome: 'COMERCIO'
+	})
+
+tAmbienteUrbano = Tema.create({
+	nome: 'AMBIENTE URBANO'
+	})
+
+tAtendimento = Tema.create({
+	nome: 'ATENDIMENTO'
+	})
+
+tCrianca = Tema.create({
+	nome: 'CRIANÇA'
+	})
+
+
+tAdolescente = Tema.create({
+	nome: 'ADOLESCENTE'
+	})
+
+tIdoso = Tema.create({
+	nome: 'IDOSO'
+	})
+
+
+tIluminacao = Tema.create({
+	nome: 'ILUMINAÇÃO'
+	})
+
+tLixo = Tema.create({
+	nome: 'LIXO'
+	})
+
+tImposto = Tema.create({
+	nome: 'IMPOSTO'
+	})
+
+tAgua = Tema.create({
+	nome: 'AGUA'
+	})
+
+tArvore = Tema.create({
+	nome: 'ARVORE'
+	})
+
+tEscola = Tema.create({
+	nome: 'ESCOLA'
+	})
+
+tHospital = Tema.create({
+	nome: 'HOSPITAL'
+	})
+
 forum = Forum.create({ nome: 'Teste'})
 
 sub_prefeitura = SubPrefeitura.create({ 
@@ -36,6 +131,31 @@ p3 = Proposta.create({
 	descricao: "test3",
 	user: user
 })
+
+TemasProposta.create({
+	proposta: p1,
+	tema: tSaude
+	})
+
+TemaProposta.create({
+	proposta: p1,
+	tema: tTransporte
+	})
+
+TemaProposta.create({
+	proposta: p2,
+	tema: tSaude
+	})
+
+TemaProposta.create({
+	proposta: p3,
+	tema: tSaude
+	})
+
+TemaProposta.create({
+	proposta: p3,
+	tema: tHospital
+	})
 
 Voto.create({
 	user: user,
