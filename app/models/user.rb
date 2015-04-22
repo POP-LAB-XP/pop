@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
          has_many :votos
          validates :sub_prefeitura, :presence => true
 
-  def self.count_user_actions
+  def count_user_actions
     Acao.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day))
-      .where("user_id = user.id").count
+      .where("user_id = #{self.id}").count
   end
 end
