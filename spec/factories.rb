@@ -14,4 +14,5 @@ FactoryGirl.define do
     password_confirmation "12345678"
     association :sub_prefeitura, factory: :sub_prefeitura
   end
+
 end
