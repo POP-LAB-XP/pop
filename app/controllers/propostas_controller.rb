@@ -8,8 +8,8 @@ class PropostasController < ApplicationController
 		if current_user.limite_acoes_atingido
 			flash[:notice] = "Limite de acoes atingido!"
 		else
-			acaoApoio = AcaoTipo.find_by_id(2)
-			proposta = Proposta.find_by_id(params["id"])
+			acaoApoio = AcaoTipo.getApoiar
+			proposta = Proposta.find_by_id(params[:id])
 			acao = Acao.create({
 				user:current_user,
 				proposta: proposta,
