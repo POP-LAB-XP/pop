@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
     Acao.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day))
       .where("user_id = #{self.id}").count
   end
+
+  def limite_acoes_atingido
+    count_user_actions >= 8
+  end
 end

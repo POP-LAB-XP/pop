@@ -37,7 +37,7 @@ p3 = Proposta.create({
 	user: user
 })
 
-Voto.create({
+/Voto.create({
 	user: user,
 	proposta: p1
 })
@@ -90,7 +90,7 @@ Voto.create({
 Voto.create({
 	user: user,
 	proposta: p3
-})
+})/
 acaoApoio = AcaoTipo.create({
 	nome: "Apoio"
 })
@@ -100,7 +100,7 @@ acaoVeto = AcaoTipo.create({
 acaoCriacao = AcaoTipo.create({
 	nome: "Criacao"
 })
-Acao.create({
+/Acao.create({
 	user:user,
 	acao_tipo:acaoCriacao,
 	proposta:p1
@@ -145,3 +145,4 @@ Acao.create({
 	acao_tipo:acaoCriacao,
 	proposta:p1
 })
+/
