@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 tSaude = Tema.create({
 	nome: 'SAUDE'
 	})
@@ -119,43 +120,23 @@ user = User.create({
 
 p1 = Proposta.create({
 	descricao: "test1",
-	user: user
+	user: user,
+	tema_1: tSaude,
+	tema_2: tTransporte,
+	palavra_chave: 'teste_palavra'
 })
 
 p2 = Proposta.create({
 	descricao: "test2",
-	user: user
+	user: user,
+	tema_1: tEducacao
 })
 
 p3 = Proposta.create({
 	descricao: "test3",
-	user: user
+	user: user,
+	tema_2: tArvore,
 })
-
-TemasProposta.create({
-	proposta: p1,
-	tema: tSaude
-	})
-
-TemaProposta.create({
-	proposta: p1,
-	tema: tTransporte
-	})
-
-TemaProposta.create({
-	proposta: p2,
-	tema: tSaude
-	})
-
-TemaProposta.create({
-	proposta: p3,
-	tema: tSaude
-	})
-
-TemaProposta.create({
-	proposta: p3,
-	tema: tHospital
-	})
 
 Voto.create({
 	user: user,
