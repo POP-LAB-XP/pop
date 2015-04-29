@@ -11,6 +11,7 @@ class PropostasController < ApplicationController
 
 	def create
 		@proposta = Proposta.create(proposta_params)
+		@proposta.user_id = current_user.id
 		if @proposta.save
 			redirect_to propostas_path
 		else

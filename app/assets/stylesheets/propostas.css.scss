@@ -1,3 +1,46 @@
 // Place all the styles related to the propostas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#TituloNovaProposta {
+    font-size: 2.5em;
+    text-align: center;
+	padding-right: 25px;
+	padding-left: 25px;
+	padding-bottom: 25px;
+}
+
+button {
+	width: 150px;
+	margin: 20px;
+}
+
+#NovaPropostaForm {
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+@media screen and (max-width: 1920px) {
+	
+	input {
+		margin: 50px;
+	}
+
+	
+}
+@media screen and (max-width: 980px) {
+	
+	input {
+		margin: 50px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+
+	#TituloNovaProposta {
+		font-size: 1.5em;
+	}
+
+	
+}
+	
