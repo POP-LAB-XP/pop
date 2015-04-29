@@ -1,10 +1,11 @@
 FactoryGirl.define do
+    
   factory :forum, aliases: [:forum_teste] do
-  	nome "teste forum"
+    nome "teste forum"
   end
 
   factory :sub_prefeitura, aliases: [:subprefeitura_teste] do
-  	nome "teste subprefeitura"
+    nome "teste subprefeitura"
     association :forum, factory: :forum
   end
 
@@ -15,16 +16,34 @@ FactoryGirl.define do
     association :sub_prefeitura, factory: :sub_prefeitura
   end
 
-  factory :tema , aliases: [:tema1, :tema2] do
-    nome "tema teste 1"
+  factory :acao_tipo_apoiar, class: AcaoTipo do
+    nome "apoiar"
+  end
+
+  factory :acao_tipo_vetar , class: AcaoTipo do
+    nome "vetar"
+  end
+
+  factory :acao_tipo_criar , class: AcaoTipo do
+    nome "criar"
+  end
+
+  factory :tema1, class: Tema do
+    nome "tema1"
   end
 
   factory :proposta do
-    descricao "Teste legal! ;)"
-    palavra_chave "word key"
-    association :tema_1_id, factory: :tema1
-    association :tema_2_id, factory: :tema2
-    association :user_id, factory: :user
+    descricao "proposta 1"
+    palavra_chave "key word"
+    association :user, factory: :user
+    association :tema_1, factory: :tema1
+    association :tema_2, factory: :tema1
+  end
+
+  factory :acao do
+    association :user, factory: :user
+    association :proposta, factory: :proposta
+    association :acao_tipo, factory: :acao_tipo
   end
 
 end
