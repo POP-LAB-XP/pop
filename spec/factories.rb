@@ -15,4 +15,16 @@ FactoryGirl.define do
     association :sub_prefeitura, factory: :sub_prefeitura
   end
 
+  factory :tema , aliases: [:tema1, :tema2] do
+    nome "tema teste 1"
+  end
+
+  factory :proposta do
+    descricao "Teste legal! ;)"
+    palavra_chave "word key"
+    association :tema_1_id, factory: :tema1
+    association :tema_2_id, factory: :tema2
+    association :user_id, factory: :user
+  end
+
 end
