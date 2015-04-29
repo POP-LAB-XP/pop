@@ -13,8 +13,27 @@
 
 ActiveRecord::Schema.define(version: 20150424184504) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "acao_tipos", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "acaos", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "acao_tipo_id"
+    t.integer  "proposta_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "acaos", ["acao_tipo_id"], name: "index_acaos_on_acao_tipo_id", using: :btree
+  add_index "acaos", ["proposta_id"], name: "index_acaos_on_proposta_id", using: :btree
+  add_index "acaos", ["user_id"], name: "index_acaos_on_user_id", using: :btree
 
   create_table "forums", force: true do |t|
     t.string   "nome"

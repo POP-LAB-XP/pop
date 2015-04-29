@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         if not subPrefeitura.limite_usuario_atingido
           resource.sub_prefeitura = subPrefeitura
           resource.save
+	  p resource.errors
         else
           flash[:notice] = "Limite de usuários atingido!"
         end

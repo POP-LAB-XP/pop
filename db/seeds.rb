@@ -138,7 +138,7 @@ p3 = Proposta.create({
 	tema_2: tArvore,
 })
 
-Voto.create({
+/Voto.create({
 	user: user,
 	proposta: p1
 })
@@ -191,5 +191,59 @@ Voto.create({
 Voto.create({
 	user: user,
 	proposta: p3
+})/
+acaoApoio = AcaoTipo.create({
+	nome: "Apoio"
 })
-
+acaoVeto = AcaoTipo.create({
+	nome: "Veto"
+})
+acaoCriacao = AcaoTipo.create({
+	nome: "Criacao"
+})
+/Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+Acao.create({
+	user:user,
+	acao_tipo:acaoCriacao,
+	proposta:p1
+})
+/
