@@ -14,6 +14,9 @@ class PropostasController < ApplicationController
 		@proposta = Proposta.create(proposta_params)
 		@proposta.user_id = current_user.id
 		if @proposta.save
+			acao_criar = AcaoTipo.getCriar
+			insere_acao( acao_criar, @proposta)
+			insere_voto( @proposta)
 			redirect_to propostas_path
 		else
 			flash[:notice] = "Não foi possível criar proposta!"
@@ -27,19 +30,12 @@ class PropostasController < ApplicationController
 		else
 			acaoApoio = AcaoTipo.getApoiar
 			proposta = Proposta.find_by_id(params[:id])
-			acao = Acao.create({
-				user:current_user,
-				proposta: proposta,
-				acao_tipo:acaoApoio
-			})
-			voto = Voto.create({
-				user: current_user,
-				proposta: proposta
-			})
+			insere_acao( acaoApoio, proposta)
+			insere_voto( proposta)
 		end
 	end
 
-	private
+    private
     # Using a private method to encapsulate the permissible parameters
     # is just a good pattern since you'll be able to reuse the same
     # permit list between create and update. Also, you can specialize
@@ -48,8 +44,20 @@ class PropostasController < ApplicationController
       params.require(:proposta).permit(:descricao, :palavra_chave, :tema_1, :tema_2, :tema_1_id, :tema_2_id)
     end
 
-	
+    def insere_acao( acao_tipo, proposta )	
+	Acao.create({
+	    user:current_user,
+	    proposta: proposta,
+            acao_tipo:acao_tipo	
+	})
+    end
 
+    def insere_voto( proposta )	
+	Voto.create({
+            user: current_user,
+	    proposta: proposta
+	})
+    end
 end
 
 
