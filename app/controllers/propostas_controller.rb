@@ -1,7 +1,8 @@
 class PropostasController < ApplicationController
 
 	def index
-		@list = Proposta.order_por_votos
+		#@list = Proposta.order_por_votos.page(params[:page]).per(5)
+		@list = Proposta.order(:id).page(params[:page]).per(10)
 	end
 
 
@@ -45,7 +46,7 @@ class PropostasController < ApplicationController
     # permit list between create and update. Also, you can specialize
     # this method with per-user checking of permissible attributes.
     def proposta_params
-      params.require(:proposta).permit(:descricao, :palavra_chave, :tema_1, :tema_2, :tema_1_id, :tema_2_id)
+      params.require(:proposta).permit(:descricao, :palavra_chave, :tema_1, :tema_2, :tema_1_id, :tema_2_id, :page)
     end
 
 end
