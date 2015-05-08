@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSubPrefeituras < ActiveRecord::Migration
   def change
     create_table :sub_prefeituras do |t|

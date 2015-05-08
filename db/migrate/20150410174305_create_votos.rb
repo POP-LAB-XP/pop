@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateVotos < ActiveRecord::Migration
   def change
     create_table :votos do |t|

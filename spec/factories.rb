@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 FactoryGirl.define do
   factory :forum, aliases: [:forum_teste] do
   	nome "teste forum"

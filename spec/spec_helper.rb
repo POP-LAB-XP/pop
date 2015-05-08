@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'factory_girl'
 require 'mocha'

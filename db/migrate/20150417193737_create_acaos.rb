@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAcaos < ActiveRecord::Migration
   def change
     create_table :acaos do |t|

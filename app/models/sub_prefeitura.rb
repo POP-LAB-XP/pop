@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SubPrefeitura < ActiveRecord::Base
 	belongs_to :forum, :inverse_of => :sub_prefeituras
 	has_many :users, :inverse_of => :sub_prefeitura

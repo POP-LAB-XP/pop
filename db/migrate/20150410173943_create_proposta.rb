@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateProposta < ActiveRecord::Migration
   def change
     create_table :proposta do |t|
