@@ -139,12 +139,13 @@ p3 = Proposta.create({
 })
 
 
-(1..100).each do |p|
+
+(3..100).each do |i|
 	Proposta.create({
-		descricao: "test_" << p,
-		user: user,
-		tema_2: tArvore,
-	})
+	descricao: "Test " << i.to_s,
+	user: user,
+	tema_2: tArvore,
+   })
 end
 
 /Voto.create({
