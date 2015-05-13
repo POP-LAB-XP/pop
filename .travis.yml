@@ -1,0 +1,19 @@
+lannguage: ruby
+rvm:
+  - 2.2.0
+
+before_script:
+  - bundle exec rake db:setup
+  - export BUNDLE_GEMFILE=$PWD/Gemfile
+
+script:
+  - bundle exec rake spec
+  - bundle exec rake cucumber #ainda não está sendo utilizado, mas também não interfere no resto
+
+notifications:
+  email:
+    recipients:
+	- pop-lab-xp-2015@googlegroups.com
+    on_success: change
+    on_failure: always
+
