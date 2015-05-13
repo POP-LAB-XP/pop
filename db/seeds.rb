@@ -138,6 +138,15 @@ p3 = Proposta.create({
 	tema_2: tArvore,
 })
 
+
+(1..100).each do |p|
+	Proposta.create({
+		descricao: "test_" << p,
+		user: user,
+		tema_2: tArvore,
+	})
+end
+
 /Voto.create({
 	user: user,
 	proposta: p1

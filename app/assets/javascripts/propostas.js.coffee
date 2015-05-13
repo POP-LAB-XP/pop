@@ -1,10 +1,5 @@
-$ ->
-  # Configure infinite table
-  $('.infinite-table').infinitePages
-    # debug: true
-    loading: ->
-      $(this).text('Loading next page...')
-    success: ->
-      $(this).text('Success')
-    error: ->
-      $(this).button('There was an error, please try again')
+$(document).ready ->
+  $("#propostas-table").infinitescroll
+    navSelector: "nav.pagination" # selector for the paged navigation (it will be hidden)
+    nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
+    itemSelector: "#propostas-table" # selector for all items you'll retrieve
