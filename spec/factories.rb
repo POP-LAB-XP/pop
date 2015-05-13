@@ -43,7 +43,11 @@ FactoryGirl.define do
   factory :acao do
     association :user, factory: :user
     association :proposta, factory: :proposta
-    association :acao_tipo, factory: :acao_tipo
+    association :acao_tipo, factory: :acao_tipo_criar
   end
 
+  factory :voto do
+    association :user, factory: :user
+    association :proposta, factory: :proposta
+  end
 end

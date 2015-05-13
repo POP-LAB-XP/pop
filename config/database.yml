@@ -9,10 +9,15 @@ default: &default
 development:
   <<: *default
   database: pop_development
+  username: pop
+  password: 12345678
+
 
 test:
   <<: *default
   database: pop_test
+  username: pop
+  password: 12345678
 
 production:
   <<: *default

@@ -28,6 +28,7 @@ class PropostasController < ApplicationController
 			redirect_to propostas_path
 		else
 			flash[:notice] = "Não foi possível criar proposta!"
+			redirect_to new_proposta_path 
 		end
 	end
 

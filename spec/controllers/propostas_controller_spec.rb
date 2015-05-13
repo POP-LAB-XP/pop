@@ -2,13 +2,12 @@ require 'rails_helper'
 
 describe PropostasController, type: :controller do
 	describe 'listar' do
-		subject { get :index }
 
 		context 'quando estiver logado' do
 			before(:each) do
 		      @request.env["devise.mapping"] = Devise.mappings[:user]
-		      user = FactoryGirl.create(:user)
-		      sign_in user
+		      sign_in FactoryGirl.create(:user)
+              get :index 
 		    end
 			it 'o usuário pode acessar a lista de propostas' do
 				response.should be_success
@@ -16,22 +15,34 @@ describe PropostasController, type: :controller do
 		end
 	end
 	
-	/
+	
 	describe 'criar' do
-		subject { get :new }
+        let!(:proposta){
+            FactoryGirl.build(:proposta)
+        }
+        let!(:proposta_params){
+           {"descricao"=>"teste controller proposta", "tema_1_id"=>"1", "tema_2_id"=>"2", "palavra_chave"=>"key-word"}
+        }
+        let!(:acao){
+            FactoryGirl.build(:acao)
+        }
+        let!(:voto){
+            FactoryGirl.build(:voto)
+        }
+        before(:each) do
+	      Proposta.expects(:create).with(proposta_params).returns(proposta)
+	      Acao.expects(:create).returns(acao)
+	      Voto.expects(:create).returns(voto)
+        end
 		context 'quando criar proposta' do
 			before(:each) do
 		      @request.env["devise.mapping"] = Devise.mappings[:user]
-		      user = FactoryGirl.create(:user)
-		      sign_in user
+		      sign_in FactoryGirl.create(:user) 
+			  post :create, params: proposta_params
 		    end
-			it 'é esperado que a proposta tenha um voto quando criada' do
-				post :create, {'proposta'=>{"descricao"=>"teste controller proposta", "tema_1_id"=>"1", "tema_2_id"=>"2", "palavra_chave"=>"key-word"}}
-
-				expect{Proposta.count}.to change{Proposta.count}.by(1)
-				expect{Voto.count}.to change{Voto.count}.by(1)
+			it 'é esperado que o usuário seja redirecionado para a página de listagem de proposta' do
+              expect(subject).to render_template(proposta_path)
 			end
 		end
 	end
-	/
 end
