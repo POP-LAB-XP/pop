@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails_helper'
 
 describe PropostasController, type: :controller do

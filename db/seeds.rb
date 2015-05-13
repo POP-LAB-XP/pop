@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -49,7 +50,7 @@ tHabitacao = Tema.create({
 	})
 
 tComercio = Tema.create({
-	nome: 'COMERCIO'
+	nome: 'COMÉRCIO'
 	})
 
 tAmbienteUrbano = Tema.create({
@@ -87,11 +88,11 @@ tImposto = Tema.create({
 	})
 
 tAgua = Tema.create({
-	nome: 'AGUA'
+	nome: 'ÁGUA'
 	})
 
 tArvore = Tema.create({
-	nome: 'ARVORE'
+	nome: 'ÁRVORE'
 	})
 
 tEscola = Tema.create({
