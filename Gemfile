@@ -53,6 +53,8 @@ gem "binding_of_caller"
 
 gem 'rails_12factor', group: :production
 
+gem 'kaminari'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
