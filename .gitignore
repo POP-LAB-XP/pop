@@ -4,6 +4,8 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+Gemfile
+
 # Arquivos de segurança do vim
 *.swp
 *.*~
@@ -18,3 +20,5 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+/config/database.yml

@@ -6,7 +6,7 @@ class AddVotosCountToProposta < ActiveRecord::Migration
 	Proposta.reset_column_information
 
 	Proposta.all.each do |proposta|
-	  Proposta.update_counters(proposta.id, :votos_count => proposta.votos.length
+	  Proposta.update_counters(proposta.id, :votos_count => proposta.votos.length)
 	end
 
   end
