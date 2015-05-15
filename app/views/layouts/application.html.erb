@@ -27,6 +27,11 @@
 	<% if alert %>
 	  <p class="alert alert-danger"><%= alert %></p>
 	<% end %>
+ <p>
+ <% if user_signed_in? %>
+ <%= link_to "Sair",destroy_user_session_path, :method => :delete %>
+ <% end %>
+</p>
  <div class="container-fluid" style="text-align: center;">
  	<%= yield %>
  </div>
