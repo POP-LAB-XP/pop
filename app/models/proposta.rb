@@ -8,6 +8,6 @@ class Proposta < ActiveRecord::Base
   belongs_to :tema_2, :class_name => "Tema"
 
   def self.order_por_votos
-    order('votos_count desc')
+    order('votos_count desc, id')
   end
 end

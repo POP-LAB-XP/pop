@@ -108,7 +108,8 @@ sub_prefeitura = SubPrefeitura.create({
 	nome: 'SubPrefeitura de Teste', 
 	codigo: '12345678', 
 	limite_de_usuarios: 100, 
-	forum: forum
+	forum: forum,
+	cidade: 'São Paulo'
 })
 
 user = User.create({
@@ -118,28 +119,7 @@ user = User.create({
 	sub_prefeitura: sub_prefeitura
 })
 
-p1 = Proposta.create({
-	descricao: "test1",
-	user: user,
-	tema_1: tSaude,
-	tema_2: tTransporte,
-	palavra_chave: 'teste_palavra'
-})
-
-p2 = Proposta.create({
-	descricao: "test2",
-	user: user,
-	tema_1: tEducacao
-})
-
-p3 = Proposta.create({
-	descricao: "test3",
-	user: user,
-	tema_1: tArvore
-})
-
-
-(3..100).each do |i|
+(1..100).each do |i|
 	Proposta.create({
 	descricao: "Test " << i.to_s,
 	user: user,
