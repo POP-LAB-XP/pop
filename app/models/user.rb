@@ -21,4 +21,9 @@ class User < ActiveRecord::Base
   def limite_acoes_atingido
     count_user_actions >= 8
   end
+
+  def usuario_realizou_acao_hoje( proposta)
+    Acao.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day))
+      .where("user_id = #{self.id}").where( "proposta_id = #{proposta.id}").any?
+  end
 end
