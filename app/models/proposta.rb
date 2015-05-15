@@ -8,9 +8,6 @@ class Proposta < ActiveRecord::Base
   belongs_to :tema_2, :class_name => "Tema"
 
   def self.order_por_votos
-	#Proposta.all.sort{|x| x.votos.count}
-	Proposta.all.joins("LEFT JOIN votos ON votos.proposta_id = proposta.id")
-				.group("proposta.id, votos.proposta_id")
-				.order("count(votos.proposta_id) DESC")
+    order('votos_count desc')
   end
 end
