@@ -17,7 +17,7 @@
 	</div>
 </div>	
 
-<div class = "row">
+<div class ="row" style="display:none;">
 	<div class= "col-md-offset-4 col-md-4">
 		<p class="pagination">
 			<%= paginate @list %>
@@ -30,9 +30,7 @@
 <script>
 	// Update pagination link
 	<% if @list.last_page? %>
-	  $('.pagination').html("Fim!");
+	  $('.pagination').html("");
 	<% end %>
-
-
 </script>
 
