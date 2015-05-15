@@ -17,11 +17,16 @@ describe PropostasController, type: :controller do
 	
 	
 	describe 'criar' do
+		let!(:user){
+		 FactoryGirl.create(:user) 
+		}
         let!(:proposta){
             FactoryGirl.build(:proposta)
         }
+       
         let!(:proposta_params){
-           {"descricao"=>"teste controller proposta", "tema_1_id"=>"1", "tema_2_id"=>"2", "palavra_chave"=>"key-word"}
+           {"descricao"=>"teste controller proposta","tema_1_id"=>"1", "tema_2_id"=>"2", "palavra_chave"=>"key-word"}
+
         }
         let!(:acao){
             FactoryGirl.build(:acao)
@@ -37,11 +42,11 @@ describe PropostasController, type: :controller do
 		context 'quando criar proposta' do
 			before(:each) do
 		      @request.env["devise.mapping"] = Devise.mappings[:user]
-		      sign_in FactoryGirl.create(:user) 
-			  post :create, params: proposta_params
+		      sign_in user
+			  post :create, proposta: proposta_params
 		    end
 			it 'é esperado que o usuário seja redirecionado para a página de listagem de proposta' do
-              expect(subject).to render_template(proposta_path)
+			    is_expected.to redirect_to propostas_path
 			end
 		end
 	end

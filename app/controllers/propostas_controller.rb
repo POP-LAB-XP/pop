@@ -1,5 +1,5 @@
 class PropostasController < ApplicationController
-
+	
 	def index
 		@list = Proposta.order_por_votos
 	end
@@ -15,10 +15,6 @@ class PropostasController < ApplicationController
 	end
 
 	def create
-		# Descomentar para passar nos testes e comenatar para rodar!! :D
-		#respond_to do |f|
-		#	f.html { render nothing: true } # prevents rendering a nonexistent template file
-		#end
 		@proposta = Proposta.create(proposta_params)
 		@proposta.user_id = current_user.id
 		if @proposta.save

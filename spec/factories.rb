@@ -6,14 +6,14 @@ FactoryGirl.define do
 
   factory :sub_prefeitura, aliases: [:subprefeitura_teste] do
     nome "teste subprefeitura"
-    association :forum, factory: :forum
+    association :forum, factory: :forum, strategy: :build
   end
 
   factory :user do
     email "pop@pop.com"
     password "12345678"
     password_confirmation "12345678"
-    association :sub_prefeitura, factory: :sub_prefeitura
+    association :sub_prefeitura, factory: :sub_prefeitura, strategy: :build
   end
 
   factory :acao_tipo_apoiar, class: AcaoTipo do
@@ -35,19 +35,19 @@ FactoryGirl.define do
   factory :proposta do
     descricao "proposta 1"
     palavra_chave "key word"
-    association :user, factory: :user
-    association :tema_1, factory: :tema1
-    association :tema_2, factory: :tema1
+    association :user, factory: :user, strategy: :build
+    association :tema_1, factory: :tema1, strategy: :build
+    association :tema_2, factory: :tema1, strategy: :build
   end
 
   factory :acao do
-    association :user, factory: :user
-    association :proposta, factory: :proposta
-    association :acao_tipo, factory: :acao_tipo_criar
+    association :user, factory: :user, strategy: :build
+    association :proposta, factory: :proposta, strategy: :build
+    association :acao_tipo, factory: :acao_tipo_criar, strategy: :build
   end
 
   factory :voto do
-    association :user, factory: :user
-    association :proposta, factory: :proposta
+    association :user, factory: :user, strategy: :build
+    association :proposta, factory: :proposta, strategy: :build
   end
 end
