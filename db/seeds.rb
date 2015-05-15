@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -9,98 +8,98 @@
 
 
 tSaude = Tema.create({
-	nome: 'SAUDE'
+	nome: 'saúde'
 	})
 
 tEducacao = Tema.create({
-	nome: 'EDUCAÇÃO'
+	nome: 'educação'
 	})
 
 
 tTransporte = Tema.create({
-	nome: 'TRANSPORTE'
+	nome: 'transporte'
 	})
 
 tSeguranca = Tema.create({
-	nome: 'SEGURANÇA'
+	nome: 'segurança'
 	})
 
 tAssistenciaSocial = Tema.create({
-	nome: 'ASSISTENCIA SOCIAL'
+	nome: 'assistencia social'
 	})
 
 tEsporte = Tema.create({
-	nome: 'ESPORTE'
+	nome: 'esporte'
 	})
 
 tMeioAmbiente = Tema.create({
-	nome: 'MEIO AMBIENTE'
+	nome: 'meio ambiente'
 	})
 
 tInfraEstrutura = Tema.create({
-	nome: 'INFRA ESTRUTURA'
+	nome: 'infra estrutura'
 	})
 
 tServico = Tema.create({
-	nome: 'SERVIÇO'
+	nome: 'serviço'
 	})
 
 tHabitacao = Tema.create({
-	nome: 'HABITAÇÃO'
+	nome: 'habitação'
 	})
 
 tComercio = Tema.create({
-	nome: 'COMÉRCIO'
+	nome: 'comércio'
 	})
 
 tAmbienteUrbano = Tema.create({
-	nome: 'AMBIENTE URBANO'
+	nome: 'ambiente urbano'
 	})
 
 tAtendimento = Tema.create({
-	nome: 'ATENDIMENTO'
+	nome: 'atendimento'
 	})
 
 tCrianca = Tema.create({
-	nome: 'CRIANÇA'
+	nome: 'criança'
 	})
 
 
 tAdolescente = Tema.create({
-	nome: 'ADOLESCENTE'
+	nome: 'adolecente'
 	})
 
 tIdoso = Tema.create({
-	nome: 'IDOSO'
+	nome: 'idoso'
 	})
 
 
 tIluminacao = Tema.create({
-	nome: 'ILUMINAÇÃO'
+	nome: 'iluminação'
 	})
 
 tLixo = Tema.create({
-	nome: 'LIXO'
+	nome: 'lixo'
 	})
 
 tImposto = Tema.create({
-	nome: 'IMPOSTO'
+	nome: 'imposto'
 	})
 
 tAgua = Tema.create({
-	nome: 'ÁGUA'
+	nome: 'Agua'
 	})
 
 tArvore = Tema.create({
-	nome: 'ÁRVORE'
+	nome: 'Arvore'
 	})
 
 tEscola = Tema.create({
-	nome: 'ESCOLA'
+	nome: 'escola'
 	})
 
 tHospital = Tema.create({
-	nome: 'HOSPITAL'
+	nome: 'hospital'
 	})
 
 forum = Forum.create({ nome: 'Teste'})
@@ -136,16 +135,15 @@ p2 = Proposta.create({
 p3 = Proposta.create({
 	descricao: "test3",
 	user: user,
-	tema_2: tArvore,
+	tema_1: tArvore
 })
-
 
 
 (3..100).each do |i|
 	Proposta.create({
 	descricao: "Test " << i.to_s,
 	user: user,
-	tema_2: tArvore,
+	tema_1: tArvore
    })
 end
 
