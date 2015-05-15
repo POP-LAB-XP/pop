@@ -1,12 +1,37 @@
 <ul class="list-group">
-	
 		<% @list.each do |proposta| %>
 			<li class="list-group-item" data-toggle="collapse" data-target="#proposta_<%= proposta.id %>" aria-expanded="false" aria-controls="proposta_<%= proposta.id %>">
+				<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
 				<span class="badge"><%= proposta.votos.count %></span>
 				<%=label_tag proposta.descricao.truncate(15) %>
 				<div class="collapse" id="proposta_<%= proposta.id %>">
 			    	<div class="well"> 
-			    		<%=label_tag proposta.descricao%> 	
+			    		PROPOSTA:<%=label_tag proposta.id%>
+			    		 	<br>			
+			    		 	<%=label_tag proposta.descricao%> 
+			    		<hr>
+			    		<div class="row" >
+			    			<div class = "col-lg-2"> </div>
+			    			<div class = "col-lg-2"> Votos: </div>
+			    			<div class = "col-lg-4"> SP REF <br> CIDADE </div>
+			    			<div class = "col-lg-4"> <%= proposta.votos.count %> <br> <%= proposta.votos.count %> </div>  
+						</div>
+			    		<hr>
+			    		<div class="row" >
+			    			<div class = "col-lg-2"> </div>
+			    			<div class = "col-lg-2"> Rank: </div>
+			    			<div class = "col-lg-4"> SP REF <br> CIDADE </div>
+			    			<div class = "col-lg-4"> Colocacao <br> Colocacao </div>  
+						</div>
+			    		<hr>
+			    		<div class="row" >
+			    			<div class = "col-lg-2"> </div>
+			    			<div class = "col-lg-2"> Tema </div>
+			    			<div class = "col-lg-4"> <%=label_tag proposta.tema_1.nome%> 
+							<% unless proposta.tema_2.nil? %>
+				    			<br><%=label_tag proposta.tema_2.nome%> </div>
+							<% end %>
+			    		</div>		
 			    	</div>
 				</div>
 			</li>
@@ -15,6 +40,8 @@
 					<%= button_to('Apoiar', new_voto_proposta_path(proposta.id), :class => 'btn btn-warning -block btn-xs', :method => :post) %>
 				</div>
 			<!--<div class="col-xs-offset-4"><button type="button" class="btn btn-warning btn-xs">Veto</button></div-->
-			</li>
+			</li> 
+			<br/>
+
 		<% end %>
 </ul>
