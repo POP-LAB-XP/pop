@@ -13,7 +13,7 @@ script:
 notifications:
   email:
     recipients:
-	- pop-lab-xp-2015@googlegroups.com
+	     - pop-lab-xp-2015@googlegroups.com
     on_success: change
     on_failure: always
 
