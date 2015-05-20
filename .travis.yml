@@ -1,4 +1,6 @@
 lannguage: ruby
+
+#versao
 rvm:
   - 2.2.0
 
