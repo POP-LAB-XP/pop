@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.btn, .btn-default, .dropdown-toggle, .glyphicon, .glyphicon-option-vertical {
+	width: 35px;
+	height: 35px;
+}
