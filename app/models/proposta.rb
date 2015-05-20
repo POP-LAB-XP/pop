@@ -12,6 +12,6 @@ class Proposta < ActiveRecord::Base
   validates :tema_1, :presence => true
 
   def self.order_por_votos
-    order('votos_count desc')
+    order('votos_count desc, id')
   end
 end
