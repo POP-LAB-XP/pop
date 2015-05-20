@@ -1,5 +1,10 @@
 # -*- encoding : utf-8 -*-
-FactoryGirl.define do
+FactoryGirl.define do  factory :veto do
+    descricao "MyString"
+user nil
+proposta nil
+  end
+
     
   factory :forum, aliases: [:forum_teste] do
     nome "teste forum"

@@ -190,6 +190,12 @@ acaoVeto = AcaoTipo.create({
 acaoCriacao = AcaoTipo.create({
 	nome: "Criacao"
 })
+
+Veto.create({
+	user: user,
+	proposta: Proposta.first,
+	descricao: "Descricao de teste blablabla"
+})
 /Acao.create({
 	user:user,
 	acao_tipo:acaoCriacao,

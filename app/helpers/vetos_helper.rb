@@ -1,0 +1,2 @@
+module VetosHelper
+end
