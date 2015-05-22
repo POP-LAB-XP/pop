@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<link href='http://fonts.googleapis.com/css?family=Raleway:600' rel='stylesheet' type='text/css'>
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  	<%= csrf_meta_tags %>
- 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
- 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:600' rel='stylesheet' type='text/css'>
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	  	<%= csrf_meta_tags %>
+ 		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>
-		<%= yield :title %>
-	</title>
-</head>
+		<title>
+			<%= yield :title %>
+		</title>
+	</head>
 	<body>
 	<nav class="navbar navbar-default navbar-fixed-top" id="masterPageNavBar">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
+			<ul class="nav navbar-nav navbar-left">
+				<li class="dropdown">
+					<button class="btn btn-default dropdown-toggle glyphicon glyphicon-align-justify" type="button" id="salsichaMenu" data-toggle="dropdown" aria-expanded="true"></button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">Meus interesses</a></li>
+						<li><a href="#">Meus apoios</a></li>
+						<li><a href="#">(+) Sub-Prefeitura</a></li>
+						<li><a href="#">(+) Cidade</a></li>
+						<li><a href="#">Mapa</a></li>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Extrato</a></li>
+					</ul>
+				</li>
+			</ul>
 			<div class="navbar-header">
 				<a class="navbar-brand" id="popBrand"href="#">POP</a>
 			</div>
@@ -43,20 +57,20 @@
 		</div>
 	</nav>
 
-		<p class="navbar-text pull-right">
+	<p class="navbar-text pull-right">
 
-		<% if notice %>
-	  		<p class="alert alert-success"><%= notice %></p>
-		<% end %>
+	<% if notice %>
+		<p class="alert alert-success"><%= notice %></p>
+	<% end %>
 
-		<% if alert %>
-			<p class="alert alert-danger"><%= alert %></p>
-		<% end %>
+	<% if alert %>
+		<p class="alert alert-danger"><%= alert %></p>
+	<% end %>
 
-		<div class="container-fluid" style="text-align: center;">
- 			<%= yield %>
-		</div>
+	<div class="container-fluid" style="text-align: center;">
+ 		<%= yield %>
+	</div>
+
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.js"></script>
 	</body>
-
  </html>
