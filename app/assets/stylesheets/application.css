@@ -37,3 +37,19 @@
 	padding: 0.7em;
 	font-weight: bold;
 }
+
+#botaoNovaPropostaNavBar {
+	margin-top: 0.9em;
+	margin-right: 5em;
+	background-color: #EC971F;
+	color: white;
+	border-color: white;
+	height: 2.5em;
+	font-size: 1.25em;
+
+}
+
+#botaoNovaPropostaNavBar:hover {
+	background-color: white;
+	color: #EC971F;
+}
