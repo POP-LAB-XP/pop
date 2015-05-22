@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  descricao: MyString
-  user_id: 
-
-two:
-  descricao: MyString
-  user_id: 

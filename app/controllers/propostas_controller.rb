@@ -20,7 +20,7 @@ class PropostasController < ApplicationController
 		@proposta.user_id = current_user.id
 		if @proposta.save
 			acao_criar = AcaoTipo.getCriar
-			insere_acao( acao_criar, @proposta)
+			Acao.insere_acao( acao_criar, @proposta, current_user)
 			insere_voto( @proposta)
 			redirect_to propostas_path
 		else
