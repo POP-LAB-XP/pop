@@ -29,6 +29,7 @@ class PropostasController < ApplicationController
 		end
 	end
 
+
 	def new_voto
 		redirect_to :back
 		proposta = Proposta.find_by_id(params[:id])

@@ -14,9 +14,7 @@
 		<%= yield :title %>
 	</title>
 </head>
-
 	<body>
-
 	<nav class="navbar navbar-default navbar-fixed-top" id="masterPageNavBar">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -32,7 +30,13 @@
 						<li><a href="#">Fale Conosco</a></li>
 						<li><a href="#">Como Funciona</a></li>
 						<li class="divider"></li>
-						<li><a href="#">Sair</a></li>
+						<% if user_signed_in? %>
+							<li>
+								<%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+							</li>
+						<% end %>
+
+
 					</ul>
 				</li>
 			</ul>
@@ -55,4 +59,4 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.js"></script>
 	</body>
 
-</html>
+ </html>
