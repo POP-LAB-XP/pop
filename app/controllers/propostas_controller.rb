@@ -18,6 +18,7 @@ class PropostasController < ApplicationController
 	def create
 		@proposta = Proposta.create(proposta_params)
 		@proposta.user_id = current_user.id
+		@proposta.status = 1
 		if @proposta.save
 			acao_criar = AcaoTipo.getCriar
 			insere_acao( acao_criar, @proposta)
