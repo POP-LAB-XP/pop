@@ -20,7 +20,7 @@ class PropostasController < ApplicationController
 		@proposta.user_id = current_user.id
 		if @proposta.save
 			acao_criar = AcaoTipo.getCriar
-			insere_acao( acao_criar, @proposta)
+			Acao.insere_acao( acao_criar, @proposta, current_user)
 			insere_voto( @proposta)
 			redirect_to propostas_path
 		else
@@ -39,7 +39,7 @@ class PropostasController < ApplicationController
 			flash[:notice] = "Você já apoiou essa proposta hoje!"
 		else
 			acaoApoio = AcaoTipo.getApoiar
-			insere_acao( acaoApoio, proposta)
+			Acao.insere_acao( acaoApoio, proposta,current_user)
 			insere_voto( proposta)
 		end
 	end
@@ -53,17 +53,11 @@ class PropostasController < ApplicationController
       params.require(:proposta).permit(:descricao, :palavra_chave, :tema_1, :tema_2, :tema_1_id, :tema_2_id, :page)
     end
 
-    def insere_acao( acao_tipo, proposta )	
-	Acao.create({
-	    user: current_user,
-	    proposta: proposta,
-        acao_tipo: acao_tipo	
-	})
-    end
+    
 
-    def insere_voto( proposta )	
+  def insere_voto( proposta )	
 	Voto.create({
-            user: current_user,
+        user: current_user,
 	    proposta: proposta
 	})
     end

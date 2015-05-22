@@ -1,6 +1,14 @@
 # -*- encoding : utf-8 -*-
 Rails.application.routes.draw do
 
+  get 'vetos/new'
+
+  get 'vetos/create'
+
+  get 'vetos/show'
+
+  resources :vetos
+
   #devise_for :users
   
   devise_for :users, controllers: { registrations: "users/registrations" }

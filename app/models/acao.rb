@@ -10,5 +10,14 @@ class Acao < ActiveRecord::Base
       	if self.user.limite_acoes_atingido
       		errors.add(:acao, "Limite de ações atingido!")
       	end
-  	end
+  end
+
+  def self.insere_acao( acao_tipo, proposta, user )	
+		Acao.create({
+	    	user: user,
+	    	proposta: proposta,
+        acao_tipo: acao_tipo	
+		})
+  end
+
 end

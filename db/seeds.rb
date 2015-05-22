@@ -113,6 +113,13 @@ sub_prefeitura = SubPrefeitura.create({
 })
 
 user = User.create({
+	email: "axleirner@gmail.com",
+	password: "12345678",
+	password_confirmation: "12345678",
+	sub_prefeitura: sub_prefeitura
+})
+
+user_pop = User.create({
 	email: "pop@ime.com",
 	password: "12345678",
 	password_confirmation: "12345678",
@@ -189,6 +196,12 @@ acaoVeto = AcaoTipo.create({
 })
 acaoCriacao = AcaoTipo.create({
 	nome: "Criacao"
+})
+
+Veto.create({
+	user: user,
+	proposta: Proposta.first,
+	descricao: "Descricao de teste blablabla"
 })
 /Acao.create({
 	user:user,
