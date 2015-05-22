@@ -20,6 +20,10 @@ class VetosController < ApplicationController
 
   def show
   	@veto = Veto.find_by_id(params[:id])
+
+    unless @veto.present?
+      render :text => 'Not Found', :status => '404'
+    end
   end
 
   private
@@ -28,10 +32,10 @@ class VetosController < ApplicationController
     end
 
     def insere_veto( veto )	
-	Veto.create({
-        user: current_user,
-	    descricao: veto.descricao,
-	    proposta: veto.proposta
-	})
+    	Veto.create({
+          user: current_user,
+    	    descricao: veto.descricao,
+    	    proposta: veto.proposta
+    	})
     end
 end
