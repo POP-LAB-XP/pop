@@ -36,6 +36,7 @@ FactoryGirl.define do
   factory :proposta do
     descricao "proposta 1"
     palavra_chave "key word"
+    status 1
     association :user, factory: :user, strategy: :build
     association :tema_1, factory: :tema1, strategy: :build
     association :tema_2, factory: :tema1, strategy: :build

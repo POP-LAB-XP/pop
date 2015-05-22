@@ -1,9 +1,29 @@
 <ul class="list-group">
 		<% @list.each do |proposta| %>
 			<li class="list-group-item" data-toggle="collapse" data-target="#proposta_<%= proposta.id %>" aria-expanded="false" aria-controls="proposta_<%= proposta.id %>">
-				<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
-				<span class="badge"><%= proposta.votos.count %></span>
-				<%=label_tag proposta.descricao.truncate(15) %>
+				<div class="row" >
+					<% if (current_user.usuario_realizou_acao_hoje( proposta))
+							classe_glyphicon = "glyphicon glyphicon-ok-sign"
+							estilo_glyphicon = "font-size:large; color:green"
+						elsif (proposta.esta_ativa)
+							classe_glyphicon = "glyphicon glyphicon-record"
+							estilo_glyphicon = "font-size:large; color:grey"
+						else
+							classe_glyphicon = "glyphicon glyphicon-remove-sign"
+							estilo_glyphicon = "font-size:large; color:black"
+						end %>
+					<div class = "col-lg-1"><span class="<%= classe_glyphicon %>" style="<%= estilo_glyphicon %>" aria-hidden="true"></span></div>
+
+					<div class = "col-lg-2"></div>
+					<div class = "col-lg-6"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+					<%=label_tag proposta.descricao.truncate(15) %>
+					</div>	
+					<div class = "col-lg-1"></div>
+					<div class = "col-lg-2">
+						<span class="badge"><%= proposta.votos.count %></span>
+					</div>
+				</div>
+
 				<div class="collapse" id="proposta_<%= proposta.id %>">
 			    	<div class="well"> 
 			    		PROPOSTA:<%=label_tag proposta.id%>
@@ -33,9 +53,20 @@
 				</div>
 			</li>
 			<li class="list-group-item">
-				<div class="col-xs-offset">
-					<%= button_to('Apoiar', new_voto_proposta_path(proposta.id), :class => 'btn btn-warning -block btn-xs', :method => :post) %>
+				<div class="row" >
+					<% ja_votou = current_user.usuario_realizou_acao_hoje( proposta) %>
+					<% esta_ativa =  proposta.esta_ativa%>
+					<div class="col-xs-6">
+						<%= button_to('Apoiar', new_voto_proposta_path(proposta.id), :class => 'btn btn-warning -block btn-xs', :method => :post,  disabled: (ja_votou || !esta_ativa)) %>
+
+					</div>
+					<div class="col-xs-6">
+
+						<%= button_to('Vetar', vetos_new(proposta.id), :class => 'btn btn-danger -block btn-xs', :method => :post, disabled: (!esta_ativa)) %>
+					</div>
 				</div>
+				
+				
 			<!--<div class="col-xs-offset-4"><button type="button" class="btn btn-warning btn-xs">Veto</button></div-->
 			</li> 
 			<br/>

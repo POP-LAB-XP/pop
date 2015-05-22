@@ -14,4 +14,13 @@ class Proposta < ActiveRecord::Base
   def self.order_por_votos
     order('votos_count desc, id')
   end
+
+  def esta_ativa
+    if(self.status == 1)
+      return true
+    else 
+      return false
+    end
+  end
+
 end

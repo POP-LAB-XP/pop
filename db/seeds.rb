@@ -119,13 +119,27 @@ user = User.create({
 	sub_prefeitura: sub_prefeitura
 })
 
+p1 = Proposta.create({
+	descricao: "Vetada",
+	user: user,
+	tema_1: tArvore,
+	status: 0
+   })
+
+
 (1..100).each do |i|
 	Proposta.create({
 	descricao: "Test " << i.to_s,
 	user: user,
-	tema_1: tArvore
+	tema_1: tArvore,
+	status: 1
    })
 end
+
+Voto.create({
+	user: user,
+	proposta: p1
+})
 
 /Voto.create({
 	user: user,

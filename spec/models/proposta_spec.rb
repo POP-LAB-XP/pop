@@ -35,4 +35,8 @@ RSpec.describe Proposta, type: :model do
         proposta = build(:proposta, :palavra_chave => "12345678901234567890123456789012").should be_valid
   end
 
+  it "deve ter status Ativo (1) " do 
+     proposta.status.should == 1
+  end
+
 end
