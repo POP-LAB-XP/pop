@@ -14,7 +14,26 @@
  *= require_self
  */
 
-.btn, .btn-default, .dropdown-toggle, .glyphicon, .glyphicon-option-vertical {
-	width: 35px;
-	height: 35px;
+#salsichaMenu {
+	width: 3em;
+	height: 3em;
+	margin: 1em;
+	background-color: #FFF;
+	color: #EC971F;
+	border-style: none;
+}
+
+#masterPageNavBar {
+	background-color: #EC971F;
+	height: 5em;
+}
+
+#popBrand {
+	color: #FFF;
+	font-size: 2em;
+}
+
+.navbar-header {
+	padding: 0.7em;
+	font-weight: bold;
 }
