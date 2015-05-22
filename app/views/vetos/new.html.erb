@@ -1,2 +1,30 @@
-<h1>Vetos#new</h1>
-<p>Find me in app/views/vetos/new.html.erb</p>
+<div id="TituloNovoVeto" class="textoEstaticoNovoVeto">
+	Vetar proposta <%= @veto.proposta_id%>
+</div>
+
+<p><%= @veto.proposta.descricao %></p>
+
+<%= form_for @veto, url: vetos_path(@veto), html: { method: :post,class: 'form-horizontal' , id: 'NovoVetoForm'} do |f| %>
+
+	<%= f.hidden_field :proposta_id %>
+
+	<div class="form-group">
+	    <div class="col-sm-4 col-sm-offset-4">
+	      <%= f.text_area :descricao, :placeholder => "Descrição", :autofocus => true, :required => true, class: 'form-control', :rows => 10 %>
+	    </div>
+	</div>
+
+
+	  <div class="form-group">
+	    <div class="col-sm-offset-4 col-sm-4">
+		  <%= f.submit "Vetar", :class => "btn btn-warning center-block" %>
+		  <br>
+		  <%= link_to("Cancelar",propostas_path,:class => 'btn btn-default -block btn') %>
+
+	    </div>
+	  </div>
+
+
+<% end %>
+
+
