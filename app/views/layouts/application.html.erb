@@ -38,28 +38,36 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
 				<li>
 					<%= button_to( 'Nova Proposta',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoNovaPropostaNavBar") %>
 				</li>
-					<button class="btn btn-default dropdown-toggle glyphicon glyphicon-option-vertical" type="button" id="salsichaMenu" data-toggle="dropdown" aria-expanded="true"></button>
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">Minha Conta</a></li>
-						<li><a href="#">Termos de Uso</a></li>
-						<li><a href="#">Fale Conosco</a></li>
-						<li><a href="#">Como Funciona</a></li>
-						<li class="divider"></li>
-						<% if user_signed_in? %>
-							<li>
-								<%= link_to "Sair", destroy_user_session_path, :method => :delete %>
-							</li>
-						<% end %>
-					</ul>
+				<li class="dropdown">
+					<li>
+						<button class="btn btn-default dropdown-toggle glyphicon glyphicon-option-vertical" type="button" id="salsichaMenu" data-toggle="dropdown" aria-expanded="true"></button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Minha Conta</a></li>
+							<li><a href="#">Termos de Uso</a></li>
+							<li><a href="#">Fale Conosco</a></li>
+							<li><a href="#">Como Funciona</a></li>
+							<li class="divider"></li>
+							<% if user_signed_in? %>
+								<li>
+									<%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+								</li>
+							<% end %>
+						</ul>
+					</li>
+				</li>
+			</ul>
+		</div>
+		<div id="statusNavBar">
+			<ul class="nav navbar-nav navbar-left">
+				<li>
+					Ações restantes:
 				</li>
 			</ul>
 		</div>
 	</nav>
-
 	<p class="navbar-text pull-right">
 
 	<% if notice %>
