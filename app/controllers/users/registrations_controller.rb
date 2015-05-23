@@ -5,16 +5,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
    super do |resource|
         subPrefeitura = SubPrefeitura.find_by_codigo(params[:codigo])
-        if not subPrefeitura.limite_usuario_atingido
-          resource.sub_prefeitura = subPrefeitura
-          resource.save
-	  p resource.errors
+        
+        unless subPrefeitura.present?
+          flash[:alert] = "Código de subprefeitura inválido!"
         else
-          flash[:notice] = "Limite de usuários atingido!"
+          if not subPrefeitura.limite_usuario_atingido
+            resource.sub_prefeitura = subPrefeitura
+            resource.save
+          else
+            flash[:alert] = "O limite de usuários dessa subprefeitura atingido!"
+          end
         end
     end
  end
-
-  protected
 
 end
