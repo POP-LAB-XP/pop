@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-FactoryGirl.define do
+FactoryGirl.define do  
     
   factory :forum, aliases: [:forum_teste] do
     nome "teste forum"
@@ -52,4 +52,11 @@ FactoryGirl.define do
     association :user, factory: :user, strategy: :build
     association :proposta, factory: :proposta, strategy: :build
   end
+
+  factory :veto do
+    descricao "veto 1"
+    association :user, factory: :user, strategy: :build
+    association :proposta, factory: :proposta, strategy: :build
+  end
+
 end

@@ -20,3 +20,7 @@
 /tmp
 
 /config/database.yml
+
+#Ignore code coverage reports
+coverage
+
