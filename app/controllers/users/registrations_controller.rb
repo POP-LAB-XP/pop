@@ -13,7 +13,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
           flash[:notice] = "Limite de usuários atingido!"
         end
     end
- end
+
+    @user = User.new()
+    if @user.save
+      # Tell the UserMailer to send a welcome email after save
+      PopMailer.termos_email(@user).deliver
+    end
+
+  end
 
   protected
 
