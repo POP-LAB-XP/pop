@@ -28,7 +28,7 @@
 	margin-bottom: 1.25em;
 	background-color: #FFEB9D;
 	color: #EC971F;
-	padding-top: 0.3em;
+	padding-top: 0em;
 	border-style: none;
 	padding-left: 2em;
 }
@@ -58,6 +58,10 @@
 	height: 2.5em;
 	font-size: 1.25em;
 
+}
+
+.navbar{
+    margin-bottom: 0em !important;
 }
 
 #botaoNovaPropostaNavBar:hover {
