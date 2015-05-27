@@ -17,5 +17,5 @@ test:
 production:
   <<: *default
   database: pop_production
-  username: ospite
+  username: pop
   password: <%= ENV['POP_DATABASE_PASSWORD'] %>
