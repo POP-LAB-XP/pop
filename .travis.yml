@@ -5,6 +5,7 @@ rvm:
   - 2.2.0
 
 before_script:
+  - cp config/database_sample.yml config/database.yml 
   - bundle exec rake db:setup
   - export BUNDLE_GEMFILE=$PWD/Gemfile
 
