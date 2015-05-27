@@ -5,7 +5,8 @@ rvm:
   - 2.2.0
 
 before_script:
-  - cp config/database_sample.yml config/database.yml 
+  - cp config/database_sample.yml config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
   - bundle exec rake db:setup
   - export BUNDLE_GEMFILE=$PWD/Gemfile
 
