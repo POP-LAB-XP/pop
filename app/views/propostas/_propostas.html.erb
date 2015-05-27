@@ -62,7 +62,7 @@
 					</div>
 					<div class="col-xs-6">
 
-						<%= button_to('Vetar', vetos_new(proposta.id), :class => 'btn btn-danger -block btn-xs', :method => :post, disabled: (!esta_ativa)) %>
+						<%= link_to('Vetar', new_veto_path(:proposta_id => proposta.id), :class => 'btn btn-danger -block btn-xs', :method => :get, disabled: (!esta_ativa)) %>
 					</div>
 				</div>
 				
