@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Rails.application.routes.draw do
 
+  get 'votos/create'
+
   get 'vetos/new'
 
   get 'vetos/create'
@@ -35,6 +37,8 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
  # post "/propostas/:id/new_voto" => "propostas#new_voto"
+
+  resources :votos
 
   resources :propostas do
     member do

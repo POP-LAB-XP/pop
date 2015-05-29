@@ -57,7 +57,7 @@
 					<% ja_votou = current_user.usuario_realizou_acao_hoje( proposta) %>
 					<% esta_ativa =  proposta.esta_ativa%>
 					<div class="col-xs-6">
-						<%= button_to('Apoiar', new_voto_proposta_path(proposta.id), :class => 'btn btn-warning -block btn-xs', :method => :post,  disabled: (ja_votou || !esta_ativa)) %>
+						<%= button_to('Apoiar', votos_create_path(:proposta_id => proposta.id), :class => 'btn btn-warning -block btn-xs', :method => :post,  disabled: (ja_votou || !esta_ativa)) %>
 
 					</div>
 					<div class="col-xs-6">
