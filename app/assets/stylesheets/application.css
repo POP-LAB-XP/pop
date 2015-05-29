@@ -14,14 +14,44 @@
  *= require_self
  */
 
+
 body{
 	background-color: gray !important;
 }
-#content-interno{
-    margin: 0 25% 0 25% !important;
-	background-color: white !important;
 
+@media screen and (max-width: 800px) {
+	body {
+		background-color: white !important;
+	}
 }
+
+#content-interno{
+	margin: 15em 25% 0 25% !important;
+	background-color: white !important;
+}
+
+#v-v-rapidao {
+	margin-top: 1.4em;
+}
+
+@media screen and (max-width: 473px) {
+	#content-interno {
+		margin: 25em 25% 0 25% !important;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#content-interno {
+		margin: 20em 25% 0 25% !important;
+	}
+}
+
+@media screen and (max-width: 330px) {
+	#content-interno {
+		margin: 28em 25% 0 25% !important;
+	}
+}
+
 #salsichaMenu {
 	width: 3em;
 	height: 3em;
@@ -43,7 +73,6 @@ body{
 
 #masterPageNavBar {
 	background-color: #EC971F;
-	height: 5em;
 	border-style: none;
 }
 
@@ -58,21 +87,62 @@ body{
 }
 
 #botaoNovaPropostaNavBar {
-	margin-top: 0.9em;
-	margin-right: 5em;
+	margin-top: 1em;
 	background-color: #EC971F;
 	color: white;
 	border-color: white;
 	height: 2.5em;
+	width:8em;
 	font-size: 1.25em;
-
+	border-radius: 0px;
 }
 
-.navbar{
-    margin-bottom: 0em !important;
+
+#botaoVetarNavBar {
+	margin-top: 1em;
+	background-color: #EC971F;
+	color: white;
+	border-color: white;
+	height: 2.5em;
+	width:8em;
+	font-size: 1.25em;
+	border-radius: 0px;
+}
+
+
+#botaoApoiarNavBar {
+	margin-top: 1em;
+	background-color: #EC971F;
+	color: white;
+	border-color: white;
+	height: 2.5em;
+	width:8em;
+	font-size: 1.25em;
+	border-radius: 0px;
+}
+
+.navbar {
+	margin-bottom: 0em !important;
+}
+.container-fluid ul.nav.navbar-nav.navbar-left {
+	margin-bottom: 0px;
+}
+.remove-margin-bottom {
+	margin-bottom: 0px;
+	margin-top: 0px;
 }
 
 #botaoNovaPropostaNavBar:hover {
+	background-color: white;
+	color: #EC971F;
+}
+
+#botaoApoiarNavBar:hover {
+	background-color: white;
+	color: #EC971F;
+}
+
+#botaoVetarNavBar:hover {
 	background-color: white;
 	color: #EC971F;
 }
@@ -85,11 +155,51 @@ display: block!important;
 float: left !important;
 }
 
-.navbar-nav.navbar-right:last-child {
-margin-right: -15px !important;
+
+.botoes-acao-navbar {
+	width:8em;
+	margin-top: 1em;
+	background-color: #EC971F;
+	color: white;
+	border-color: white;
+	height: 2.5em;
+	font-size: 1.25em;
+	border-radius: 0px;
 }
+
 
 .navbar-right {
 float: right!important;
 }
 
+
+.navbar > .alert {
+	margin-bottom: 0px !important;
+}
+
+#botoesAcaoNavBar {
+	margin-top: 0px;
+	margin-right: 30%;
+}
+
+@media screen and (max-width: 1130px) {
+	#botoesAcaoNavBar {
+		margin-right:23%;
+	}
+}
+
+
+@media screen and (max-width: 832px) {
+	#botoesAcaoNavBar {
+		margin-right:17%;
+	}
+}
+
+.navbar-secundaria {
+	margin-bottom: 0px !important;
+	color: #fff;
+	border-radius: 0px;
+	background-color: #808080;
+	text-align: center;
+	border-width: 0px;
+}

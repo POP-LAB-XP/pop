@@ -37,10 +37,9 @@
 					</div>
 				</li>
 			</ul>
+
 			<ul class="nav navbar-nav navbar-right remove-margin-bottom" style="margin: 0 auto;">
-				<li>
-					<%= button_to( 'Nova Proposta',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoNovaPropostaNavBar") %>
-				</li>
+				
 				<li class="dropdown">
 					<li>
 						<button class="btn btn-default dropdown-toggle glyphicon glyphicon-option-vertical" type="button" id="salsichaMenu" data-toggle="dropdown" aria-expanded="true"></button>
@@ -59,17 +58,34 @@
 					</li>
 				</li>
 			</ul>
+			<% unless current_user.nil? %>
+			<ul id="botoesAcaoNavBar" class="nav navbar-nav navbar-right remove-margin-bottom " >
+				<li>
+						<%= button_to( 'Nova Proposta',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoNovaPropostaNavBar") %>
+				</li>
+				<li>
+						<%= button_to( 'Apoiar',  new_proposta_path , :class => 'btn btn-default center-block ', :method => :get, id: "botaoApoiarNavBar") %>
+				</li>
+				<li>
+						<%= button_to( 'Vetar',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoVetarNavBar") %>
+				</li>
+			</ul >
+			<%end%>
+
 		</div>
-	<div class="alert alert-success">Ações restantes: <%= current_user.count_user_actions%></div>
+		<% unless current_user.nil? %>
+			<div class=" alert navbar-secundaria">Ações restantes: <%= 8 - current_user.count_user_actions%></div>
+		<% end %>
+
+			<% if notice %>
+				<div class="alert alert-success "><%= notice %></div>
+			<% end %>
+
+			<% if alert %>
+				<div class="alert alert-danger"><%= alert %></div>
+			<% end %>
 	</nav>
 
-	<% if notice %>
-		<p class="alert alert-success"><%= notice %></p>
-	<% end %>
-
-	<% if alert %>
-		<p class="alert alert-danger"><%= alert %></p>
-	<% end %>
 
 	<div id="content-interno" class="container-fluid" style="text-align: center; margin-top: 5em;">
         <h1>
