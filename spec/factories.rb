@@ -47,6 +47,13 @@ FactoryGirl.define do
     association :proposta, factory: :proposta, strategy: :build
     association :acao_tipo, factory: :acao_tipo_criar, strategy: :build
   end
+  
+  factory :acao_vetar, class: Acao do
+    association :user, factory: :user, strategy: :build
+    association :proposta, factory: :proposta, strategy: :build
+    association :acao_tipo, factory: :acao_tipo_vetar, strategy: :build
+  end
+
 
   factory :voto do
     association :user, factory: :user, strategy: :build

@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+ # post "/propostas/:id/new_voto" => "propostas#new_voto"
+
   resources :propostas do
     member do
       post 'new_voto'
