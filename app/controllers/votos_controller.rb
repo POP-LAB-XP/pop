@@ -8,10 +8,17 @@ class VotosController < ApplicationController
         elsif not proposta.esta_ativa
 			flash[:notice] = "Você não pode apoiar uma proposta vetada!"
 		else
-			acaoApoio = AcaoTipo.getApoiar
-			Acao.insere_acao( acaoApoio, proposta,current_user)
-			insere_voto( proposta)
+			Acao.insere_acao( AcaoTipo.getApoiar, proposta, current_user)
+			insere_voto(proposta)
 		end
 		redirect_to :back
   end
+
+  def insere_voto(proposta)	
+	Voto.create({
+        user: current_user,
+	    proposta: proposta
+	})
+  end
+
 end

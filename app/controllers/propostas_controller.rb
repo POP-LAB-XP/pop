@@ -38,15 +38,6 @@ class PropostasController < ApplicationController
     def proposta_params
       params.require(:proposta).permit(:descricao, :palavra_chave, :tema_1, :tema_2, :tema_1_id, :tema_2_id, :page)
     end
-
-    
-
-  def insere_voto( proposta )	
-	Voto.create({
-        user: current_user,
-	    proposta: proposta
-	})
-    end
 end
 
 

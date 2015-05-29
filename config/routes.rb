@@ -1,8 +1,6 @@
 # -*- encoding : utf-8 -*-
 Rails.application.routes.draw do
 
-  get 'votos/create'
-
   get 'vetos/new'
 
   get 'vetos/create'
@@ -10,6 +8,8 @@ Rails.application.routes.draw do
   get 'vetos/show'
 
   resources :vetos
+
+  post 'votos/create'
 
   #devise_for :users
   
@@ -38,13 +38,8 @@ Rails.application.routes.draw do
   #   resources :products
  # post "/propostas/:id/new_voto" => "propostas#new_voto"
 
-  resources :votos
+  resources :propostas
 
-  resources :propostas do
-    member do
-      post 'new_voto'
-    end
-  end 
   # Example resource route with options:
   #   resources :products do
   #     member do
