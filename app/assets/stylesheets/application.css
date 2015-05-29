@@ -93,7 +93,7 @@ body{
 	border-color: white;
 	height: 2.5em;
 	width:8em;
-	font-size: 1.25em;
+	font-size: 1em;
 	border-radius: 0px;
 }
 
@@ -105,7 +105,7 @@ body{
 	border-color: white;
 	height: 2.5em;
 	width:8em;
-	font-size: 1.25em;
+	font-size: 1em;
 	border-radius: 0px;
 }
 
@@ -117,7 +117,7 @@ body{
 	border-color: white;
 	height: 2.5em;
 	width:8em;
-	font-size: 1.25em;
+	font-size: 1em;
 	border-radius: 0px;
 }
 
@@ -192,6 +192,24 @@ float: right!important;
 @media screen and (max-width: 832px) {
 	#botoesAcaoNavBar {
 		margin-right:17%;
+	}
+}
+
+@media screen and (max-width: 680px) {
+	#botoesAcaoNavBar {
+		margin-right:0%;
+	}
+}
+
+@media screen and (max-width: 570px) {
+	#botoesAcaoNavBar {
+		margin-right:20%;
+	}
+}
+
+@media screen and (max-width: 402px) {
+	#botoesAcaoNavBar {
+		margin-right:0%;
 	}
 }
 
