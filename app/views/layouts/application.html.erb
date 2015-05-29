@@ -15,10 +15,10 @@
 		</title>
 	</head>
 	<body>
-	<nav class="navbar navbar-default navbar-static-top" id="masterPageNavBar">
+	<nav class="navbar navbar-default navbar-fixed-top" id="masterPageNavBar">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
-			<ul class="nav navbar-nav navbar-left">
+			<ul class="nav navbar-nav navbar-left remove-margin-bottom" style="margin: 0 auto;">
 				<li class="dropdown">
 					<button class="btn btn-default dropdown-toggle glyphicon glyphicon-align-justify" type="button" id="salsichaMenu" data-toggle="dropdown" aria-expanded="true"></button>
                     <ul class="dropdown-menu" role="menu">
@@ -37,7 +37,7 @@
 					</div>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right remove-margin-bottom" style="margin: 0 auto;">
 				<li>
 					<%= button_to( 'Nova Proposta',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoNovaPropostaNavBar") %>
 				</li>
@@ -60,11 +60,9 @@
 				</li>
 			</ul>
 		</div>
+	<div class="alert alert-success">Ações restantes: <%= current_user.count_user_actions%></div>
 	</nav>
 
-	<p class="navbar-text pull-right">
-
-	<p class="alert alert-success">Ações restantes: <%= current_user.count_user_actions%></p>
 	<% if notice %>
 		<p class="alert alert-success"><%= notice %></p>
 	<% end %>
