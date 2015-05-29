@@ -22,7 +22,7 @@ class PropostasController < ApplicationController
 		if @proposta.save
 			acao_criar = AcaoTipo.getCriar
 			Acao.insere_acao( acao_criar, @proposta, current_user)
-			insere_voto( @proposta)
+			Voto.insere_voto( current_user, @proposta)
 			redirect_to propostas_path
 		else
 			flash[:notice] = "Não foi possível criar proposta!"
