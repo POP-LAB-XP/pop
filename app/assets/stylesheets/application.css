@@ -221,3 +221,28 @@ float: right!important;
 	text-align: center;
 	border-width: 0px;
 }
+
+@media screen and (max-width: 767px) {
+
+	#right-dropdown {
+		position: absolute !important;
+		left: -6em !important;
+		box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+		background-color: #FFF;
+	}
+
+	#left-dropdown {
+		position: absolute !important;
+		box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+		background-color: #FFF;
+	}
+
+	#left-dropdown > li > a {
+		color: #262626;
+	}
+
+	#right-dropdown > li > a {
+		color: #262626;
+	}
+}
+
