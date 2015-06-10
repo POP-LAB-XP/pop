@@ -8,9 +8,10 @@ class VetosController < ApplicationController
   	@veto = Veto.create(veto_params)
 		@veto.user_id = current_user.id
 		if @veto.save
-			acao_vetar = AcaoTipo.getVetar
-			Acao.insere_acao( acao_vetar, @veto.proposta, current_user)
+      @veto.proposta.desabilitar
+			Acao.insere_acao( AcaoTipo.getVetar, @veto.proposta, current_user)
 			insere_veto(@veto)
+      PopMailer.avisar_veto(@veto.proposta, @veto).deliver
 			redirect_to @veto	
 		else
 			flash[:notice] = "Não foi possível vetar a proposta!"

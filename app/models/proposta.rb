@@ -12,7 +12,7 @@ class Proposta < ActiveRecord::Base
   validates :tema_1, :presence => true
 
   def self.order_por_votos
-    order('votos_count desc, id')
+    order('status desc, votos_count desc, id')
   end
 
   def esta_ativa
@@ -21,6 +21,11 @@ class Proposta < ActiveRecord::Base
     else 
       return false
     end
+  end
+
+  def desabilitar
+    self.status = 0
+    self.save
   end
 
 end
