@@ -42,7 +42,7 @@ body{
 
 @media screen and (max-width: 800px) {
 	#content-interno {
-		margin: 20em 25% 0 25% !important;
+		margin: 20em 0% 0 0% !important;
 	}
 }
 
