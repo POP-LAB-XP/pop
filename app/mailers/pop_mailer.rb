@@ -9,10 +9,8 @@ class PopMailer < ActionMailer::Base
 	def avisar_veto(proposta, veto)
 		@veto = veto
 		@proposta = proposta
-		destinatarios = proposta.votos.map{|v| v.user.email}
+		destinatarios = proposta.get_emails_dos_apoiadores
 		mail(bcc:destinatarios.join("; "), subject: '[POP] A proposta foi vetada!!' )
 		#mail(to: @veto.user.email, subject: '[POP] Voc^e vetou a proposta com sucesso' )
-
-
 	end
 end

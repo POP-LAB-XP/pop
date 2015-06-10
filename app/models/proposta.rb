@@ -28,4 +28,7 @@ class Proposta < ActiveRecord::Base
     self.save
   end
 
+  def get_emails_dos_apoiadores
+    self.votos.map{|v| v.user.email}
+  end
 end

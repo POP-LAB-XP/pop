@@ -43,8 +43,10 @@ RSpec.describe VetosController, type: :controller do
     }
   
     before(:each) do
-        Veto.stubs(:create).returns(veto) #o expects dava erro!
+        Veto.stubs(:create).returns(veto)
         Acao.expects(:create).returns(acao)
+        PopMailer.stubs(:avisar_veto).returns(mock)
+        PopMailer.stubs(:deliver)
     end
 
     context 'quando criar veto' do
