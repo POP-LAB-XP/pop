@@ -65,20 +65,22 @@ RSpec.describe VotosController, type: :controller do
 
             it 'não pode votar se seu limite de ações for atingido' do
               Proposta.expects(:find_by_id).returns(proposta_normal)
+
+              controller.stubs(:current_user).returns(current_user)
               current_user.stubs(:limite_acoes_atingido).returns(true)
               current_user.stubs(:usuario_realizou_acao_hoje).returns(false)
 
               post :create, :id => proposta_normal.id
 
-              #TODO nao funciona
-              #expect(flash[:warning]).to be_present
-              #flash[:warning].should eq("Limite de ações atingido!")
+              expect(flash[:warning]).to be_present
+              flash[:warning].should eq("Limite de ações atingido!")
 
               response.should redirect_to back
             end
 
             it 'não pode votar duas vezes na mesma proposta' do
               Proposta.expects(:find_by_id).returns(proposta_normal)
+              controller.stubs(:current_user).returns(current_user)
               current_user.stubs(:limite_acoes_atingido).returns(false)
               current_user.stubs(:usuario_realizou_acao_hoje)
                           .with(proposta_normal)
@@ -87,16 +89,16 @@ RSpec.describe VotosController, type: :controller do
               post :create, :id => proposta_normal.id
 
               #TODO nao funciona
-              #expect(flash[:warning]).to be_present
-              #flash[:warning].should eq("Você já apoiou essa proposta hoje!")
+              expect(flash[:warning]).to be_present
+              flash[:warning].should eq("Você já apoiou essa proposta hoje!")
 
               response.should redirect_to back
             end
 
             it 'não pode apoiar uma proposta vetada' do
               Proposta.expects(:find_by_id).returns(proposta_vetada)
-			  current_user.stubs(:limite_acoes_atingido).returns(false)
-			  current_user.stubs(:usuario_realizou_acao_hoje).returns(false)
+			           current_user.stubs(:limite_acoes_atingido).returns(false)
+			           current_user.stubs(:usuario_realizou_acao_hoje).returns(false)
 
               post :create, :id => proposta_vetada.id
 
