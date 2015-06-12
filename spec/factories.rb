@@ -7,6 +7,7 @@ FactoryGirl.define do
 
   factory :sub_prefeitura, aliases: [:subprefeitura_teste] do
     nome "teste subprefeitura"
+    limite_de_usuarios 1
     association :forum, factory: :forum, strategy: :build
   end
 
