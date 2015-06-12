@@ -2,15 +2,16 @@
 		<% @list.each do |proposta| %>
 			<li class="list-group-item" data-toggle="collapse" data-target="#proposta_<%= proposta.id %>" aria-expanded="false" aria-controls="proposta_<%= proposta.id %>">
 				<div class="row" >
-					<% if (current_user.usuario_realizou_acao_hoje( proposta))
-							classe_glyphicon = "glyphicon glyphicon-ok-sign"
-							estilo_glyphicon = "font-size:large; color:green"
-						elsif (proposta.esta_ativa)
-							classe_glyphicon = "glyphicon glyphicon-record"
-							estilo_glyphicon = "font-size:large; color:grey"
-						else
+					<% if(!proposta.esta_ativa)
 							classe_glyphicon = "glyphicon glyphicon-remove-sign"
 							estilo_glyphicon = "font-size:large; color:black"
+						elsif (current_user.usuario_realizou_acao_hoje( proposta)&& (proposta.esta_ativa))
+							classe_glyphicon = "glyphicon glyphicon-ok-sign"
+							estilo_glyphicon = "font-size:large; color:green"
+						
+						else 
+							classe_glyphicon = "glyphicon glyphicon-record"
+							estilo_glyphicon = "font-size:large; color:grey"
 						end %>
 					<div class = "col-lg-1"><span class="<%= classe_glyphicon %>" style="<%= estilo_glyphicon %>" aria-hidden="true"></span></div>
 

@@ -126,13 +126,6 @@ user_pop = User.create({
 	sub_prefeitura: sub_prefeitura
 })
 
-p1 = Proposta.create({
-	descricao: "Vetada",
-	user: user,
-	tema_1: tArvore,
-	status: 0
-   })
-
 
 (1..100).each do |i|
 	Proposta.create({
@@ -142,11 +135,6 @@ p1 = Proposta.create({
 	status: 1
    })
 end
-
-Voto.create({
-	user: user,
-	proposta: p1
-})
 
 /Voto.create({
 	user: user,
@@ -212,11 +200,6 @@ acaoCriacao = AcaoTipo.create({
 	nome: "Criacao"
 })
 
-Veto.create({
-	user: user,
-	proposta: Proposta.first,
-	descricao: "Descricao de teste blablabla"
-})
 /Acao.create({
 	user:user,
 	acao_tipo:acaoCriacao,

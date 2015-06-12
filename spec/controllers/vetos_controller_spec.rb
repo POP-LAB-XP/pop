@@ -35,6 +35,7 @@ RSpec.describe VetosController, type: :controller do
     let!(:proposta){ FactoryGirl.build(:proposta) }
     let!(:veto){ FactoryGirl.build(:veto) }
     let!(:acao){ FactoryGirl.build(:acao) }
+    let!(:mail){ Mail::Message.new }
        
     let!(:veto_params){
       { "descricao" => "teste controller veto", 
@@ -43,8 +44,10 @@ RSpec.describe VetosController, type: :controller do
     }
   
     before(:each) do
-        Veto.stubs(:create).returns(veto) #o expects dava erro!
+        Veto.stubs(:create).returns(veto)
         Acao.expects(:create).returns(acao)
+        PopMailer.stubs(:avisar_veto).returns(mail)
+        mail.stubs(:deliver)
     end
 
     context 'quando criar veto' do
