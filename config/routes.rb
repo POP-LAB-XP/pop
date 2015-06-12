@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :vetos
 
+  post 'votos/create'
+
   #devise_for :users
   
   devise_for :users, controllers: { registrations: "users/registrations" }
@@ -34,11 +36,10 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :propostas do
-    member do
-      post 'new_voto'
-    end
-  end 
+ # post "/propostas/:id/new_voto" => "propostas#new_voto"
+
+  resources :propostas
+
   # Example resource route with options:
   #   resources :products do
   #     member do

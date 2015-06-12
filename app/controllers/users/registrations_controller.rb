@@ -11,6 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           if not subPrefeitura.limite_usuario_atingido
             resource.sub_prefeitura = subPrefeitura
             resource.save
+            PopMailer.termos_email(resource).deliver
           else
             flash[:alert] = "O limite de usuários dessa subprefeitura atingido!"
           end
