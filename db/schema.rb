@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150522172223) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "acao_tipos", force: true do |t|
+  create_table "poss", force: true do |t|
     t.string   "nome"
     t.datetime "created_at"
     t.datetime "updated_at"

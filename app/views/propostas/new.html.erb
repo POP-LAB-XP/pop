@@ -31,7 +31,7 @@
 
 	  <div class="form-group">
 	    <div class="col-sm-offset-4 col-sm-4">
-		  <%= f.submit "Criar", :class => "btn btn-warning center-block" %>
+		  <%= f.submit("Criar", :class => "btn btn-warning center-block", disabled: (current_user.limite_acoes_atingido)) %>
 		  <br>
 		  <%= link_to("Voltar",propostas_path,:class => 'btn btn-danger -block btn') %>
 

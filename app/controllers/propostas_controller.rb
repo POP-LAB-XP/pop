@@ -6,27 +6,31 @@ class PropostasController < ApplicationController
 	end
 
 	def new
+		@proposta = Proposta.new
+		@lista_temas = Tema.all
+
 		if current_user.limite_acoes_atingido
-			redirect_to :back
-			flash[:notice] = "Limite de ações atingido!"
-		else
-			@lista_temas = Tema.all
-			@proposta = Proposta.new
+			flash[:warning] = "Limite de ações atingido!"
 		end
 	end
 
 	def create
-		@proposta = Proposta.create(proposta_params)
-		@proposta.user_id = current_user.id
-		@proposta.status = 1
-		if @proposta.save
-			acao_criar = AcaoTipo.getCriar
-			Acao.insere_acao( acao_criar, @proposta, current_user)
-			Voto.insere_voto( current_user, @proposta)
-			redirect_to propostas_path
+		if current_user.limite_acoes_atingido
+ 			flash[:warning] = "Proposta não foi criada. Limite de ações atingido!"
+
 		else
-			flash[:notice] = "Não foi possível criar proposta!"
-			redirect_to new_proposta_path 
+			@proposta = Proposta.create(proposta_params)
+			@proposta.user_id = current_user.id
+			@proposta.status = 1
+			if @proposta.save
+				acao_criar = AcaoTipo.getCriar
+				Acao.insere_acao( acao_criar, @proposta, current_user)
+				Voto.insere_voto( current_user, @proposta)
+				redirect_to propostas_path
+			else
+				flash[:warning] = "Não foi possível criar proposta!"
+				redirect_to new_proposta_path 
+			end
 		end
 	end
 

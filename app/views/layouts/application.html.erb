@@ -27,6 +27,12 @@
 	<% if alert %>
 	  <p class="alert alert-danger"><%= alert %></p>
 	<% end %>
+	<% if flash[:warning] %>
+	  <p class="alert alert-danger"><%= flash[:warning] %></p>
+	<% end %>
+	<% if flash[:error] %>
+	  <p class="alert alert-danger"><%= flash[:error] %></p>
+	<% end %>
  <p>
  <% if user_signed_in? %>
  <%= link_to "Sair",destroy_user_session_path, :method => :delete %>
