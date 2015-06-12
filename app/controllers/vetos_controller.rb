@@ -11,7 +11,8 @@ class VetosController < ApplicationController
       @veto.proposta.desabilitar
 			Acao.insere_acao( AcaoTipo.getVetar, @veto.proposta, current_user)
 			insere_veto(@veto)
-      PopMailer.avisar_veto(@veto.proposta, @veto).deliver
+      mailer = PopMailer.avisar_veto(@veto.proposta, @veto)
+      mailer.deliver
 			redirect_to @veto	
 		else
 			flash[:notice] = "Não foi possível vetar a proposta!"

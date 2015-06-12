@@ -14,7 +14,7 @@ RSpec.describe PopMailer, type: :mailer do
     end
  
     it "é esperado que o campo 'from' seja preenchido" do
-      expect(mail.from).to eql(['pop@ime.com'])
+      expect(mail.from).to eql(['pop.lab.xp@gmail.com'])
     end
  
     it 'é esperado que o login do usuário apareça no email' do
@@ -34,6 +34,7 @@ RSpec.describe PopMailer, type: :mailer do
   end
 
   describe 'vetar' do
+    let(:user) { build(:user, email: 'teste@email.com') }
     let!(:proposta){
       FactoryGirl.build(:proposta)
     }
@@ -49,25 +50,29 @@ RSpec.describe PopMailer, type: :mailer do
     }
  
     before(:each) do
-        Proposta.stubs(:get_emails_dos_apoiadores).returns(lista_apoiadores)
+        proposta.stubs(:get_emails_dos_apoiadores).returns(lista_apoiadores)
     end
 
     it 'é esperado que haja um assunto' do
-      expect(mail.subject).to eql('Seja bem vindo ao POP!!')
+      expect(mail.subject).to eql('[POP] A proposta foi vetada!!')
     end
  
     it 'é esperado que o email tenha como destinatários os 
       apoiadores da proposta' do
 
-      expect(mail.to).to eql(lista_apoiadores.join("; "))
+      expect(mail.bcc).to eql(lista_apoiadores)
     end
  
     it "é esperado que o campo 'from' seja preenchido" do
-      expect(mail.from).to eql(['pop@ime.com'])
+      expect(mail.from).to eql(['pop.lab.xp@gmail.com'])
     end
  
-    it 'é esperado que o login do usuário apareça no email' do
-      expect(mail.body.encoded).to match(user.email)
+    it 'é esperado que a descrição da proposta apareça no email' do
+      expect(mail.body.encoded).to match(proposta.descricao)
+    end
+
+    it 'é esperado que a descrição do veto apareça no email' do
+      expect(mail.body.encoded).to match(veto.descricao)
     end
 
     #TODO
