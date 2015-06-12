@@ -15,6 +15,8 @@
  */
 
 body{
+	
+	height: 100%;
 	background-color: gray !important;
 }
 
@@ -27,6 +29,12 @@ body{
 #content-interno{
 	margin: 15em 25% 0 25% !important;
 	background-color: white !important;
+}
+
+#content-interno-sem-navbar{
+	margin: 3em 25% 0 25% !important;
+	background-color: white !important;
+	height: 45em;
 }
 
 #v-v-rapidao {
