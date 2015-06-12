@@ -1,28 +1,29 @@
+<div class="container">
 <div id="TituloNovaProposta" class="textoEstaticoNovaProposta">
 	Nova Proposta
 </div>
 
 <%= form_for @proposta, url: propostas_path(@proposta), html: { method: :post,class: 'form-horizontal' , id: 'NovaPropostaForm'} do |f| %>
 	<div class="form-group">
-	    <div class="col-sm-4 col-sm-offset-4">
+	    <div class="col-sm-8  col-sm-offset-2">
 	      <%= f.text_field :descricao, :placeholder => "Descrição", :autofocus => true, :required => true, class: 'form-control' %>
 	    </div>
 	</div>
 
   	<div class="form-group">
-	      <div class="col-sm-4 col-sm-offset-4">
+	    <div class="col-sm-8  col-sm-offset-2">
 	      	<%= f.collection_select(:tema_1_id, @lista_temas, :id, :nome, {:prompt => 'Tema prioritário'}, {class: 'form-control' ,:required => true}) %>
 	      </div> 
 	</div>
 
   	<div class="form-group">
-	      <div class="col-sm-4 col-sm-offset-4">
+	    <div class="col-sm-8  col-sm-offset-2">
 	      	<%= f.collection_select(:tema_2_id, @lista_temas, :id, :nome, {:prompt => 'Tema secundário'}, {class: 'form-control'} ) %>
 	      </div> 
 	</div>
 
 	<div class="form-group">
-	    <div class="col-sm-4 col-sm-offset-4">
+	    <div class="col-sm-8  col-sm-offset-2">
 	      <%= f.text_field :palavra_chave, :placeholder => "Palavra-chave", :autofocus => true, class: 'form-control' %>
 	    </div>
 	</div>
@@ -30,15 +31,12 @@
 
 
 	  <div class="form-group">
-	    <div class="col-sm-offset-4 col-sm-4">
+	    <div class="col-sm-8  col-sm-offset-2">
 		  <%= f.submit "Criar", :class => "btn btn-warning center-block" %>
 		  <br>
-		  <%= link_to("Voltar",propostas_path,:class => 'btn btn-danger -block btn') %>
-
+		  <%= link_to("Voltar",propostas_path,:class => 'btn btn-default -block btn') %>
 	    </div>
 	  </div>
-
-
 <% end %>
 
-
+</div>

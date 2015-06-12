@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:600' rel='stylesheet' type='text/css'>
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	  	<%= csrf_meta_tags %>
+ 		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>
+			<%= yield :title %>
+		</title>
+	</head>
+	<body>
+
+	<div id="content-interno" class="container-fluid" style="text-align: center; margin-top: 5em;">
+        <h1>
+	       <%= yield :content_title %>
+        </h1>
+ 		<%= yield %>
+	</div>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.js"></script>
+	</body>
+ </html>

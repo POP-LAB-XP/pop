@@ -1,40 +1,99 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link href='http://fonts.googleapis.com/css?family=Raleway:600' rel='stylesheet' type='text/css'>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<head>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:600' rel='stylesheet' type='text/css'>
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	  	<%= csrf_meta_tags %>
+ 		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  	<%= csrf_meta_tags %>
- 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
- 	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>
+			<%= yield :title %>
+		</title>
+	</head>
+	<body>
+	<nav class="navbar navbar-default navbar-fixed-top" id="masterPageNavBar">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<ul class="nav navbar-nav navbar-left remove-margin-bottom" style="margin: 0 auto;">
+				<li class="dropdown">
+					<button class="btn btn-default dropdown-toggle glyphicon glyphicon-align-justify" type="button" id="salsichaMenu" data-toggle="dropdown" aria-expanded="true"></button>
+                    <ul id="left-dropdown" class="dropdown-menu" role="menu">
+                    <li><a href="#">Meus interesses</a></li>
+						<li><a href="#">Meus apoios</a></li>
+						<li><a href="#">(+) Sub-Prefeitura</a></li>
+                        <li><a href="#">(+) Cidade</a></li>
+						<li><a href="#">Mapa</a></li>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Extrato</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="navbar-header">
+						<a class="navbar-brand" id="popBrand"href="#">POP</a>
+					</div>
+				</li>
+			</ul>
 
-	
+			<ul class="nav navbar-nav navbar-right remove-margin-bottom" style="margin: 0 auto;">
+				
+				<li class="dropdown">
+					<li>
+						<button class="btn btn-default dropdown-toggle glyphicon glyphicon-option-vertical" type="button" id="salsichaMenu" data-toggle="dropdown" aria-expanded="true"></button>
+						<ul id="right-dropdown" class="dropdown-menu" role="menu">
+							<li><a href="#">Minha Conta</a></li>
+							<li><a href="#">Termos de Uso</a></li>
+							<li><a href="#">Fale Conosco</a></li>
+							<li><a href="#">Como Funciona</a></li>
+							<li class="divider"></li>
+							<% if user_signed_in? %>
+								<li>
+									<%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+								</li>
+							<% end %>
+						</ul>
+					</li>
+				</li>
+			</ul>
+			<% unless current_user.nil? %>
+			<ul id="botoesAcaoNavBar" class="nav navbar-nav navbar-right remove-margin-bottom " >
+				<li>
+						<%= button_to( 'Criar',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoNovaPropostaNavBar") %>
+				</li>
+				<li>
+						<%= button_to( 'Apoiar',  new_proposta_path , :class => 'btn btn-default center-block ', :method => :get, id: "botaoApoiarNavBar") %>
+				</li>
+				<li>
+						<%= button_to( 'Vetar',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoVetarNavBar") %>
+				</li>
+			</ul >
+			<%end%>
 
-	<!-- Latest compiled JavaScript -->
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<title>
-	  <%= yield :title %>
-	</title>
-</head>
-<body>
-	<p class="navbar-text pull-right">
-	<% if notice %>
-  	<p class="alert alert-success"><%= notice %></p>
-	<% end %>
-	<% if alert %>
-	  <p class="alert alert-danger"><%= alert %></p>
-	<% end %>
- <p>
- <% if user_signed_in? %>
- <%= link_to "Sair",destroy_user_session_path, :method => :delete %>
- <% end %>
-</p>
- <div class="container-fluid" style="text-align: center;">
- 	<%= yield %>
- </div>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.js"></script>
-</body>
-</html>
+		</div>
+		<% unless current_user.nil? %>
+			<div class=" alert navbar-secundaria">Ações restantes: <%= 8 - current_user.count_user_actions%></div>
+		<% end %>
+
+			<% if notice %>
+				<div class="alert alert-success "><%= notice %></div>
+			<% end %>
+
+			<% if alert %>
+				<div class="alert alert-danger"><%= alert %></div>
+			<% end %>
+	</nav>
+
+
+	<div id="content-interno" class="container-fluid" style="text-align: center; margin-top: 5em;">
+        <h1>
+	       <%= yield :content_title %>
+        </h1>
+ 		<%= yield %>
+	</div>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.js"></script>
+	</body>
+ </html>

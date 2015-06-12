@@ -3,9 +3,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-   super do |resource|
+    super do |resource|
         subPrefeitura = SubPrefeitura.find_by_codigo(params[:codigo])
-        
         unless subPrefeitura.present?
           flash[:alert] = "Código de subprefeitura inválido!"
         else
@@ -17,13 +16,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
           end
         end
     end
-
-    @user = User.new()
-    if @user.save
-      # Tell the UserMailer to send a welcome email after save
-      PopMailer.termos_email(@user).deliver
-    end
-
   end
 
 end

@@ -1,18 +1,14 @@
 <% content_for :title do %>
   POP | Propostas
 <% end %>
+<% content_for :content_title do %>
+  Propostas
+<% end %>
 <br>
 <br>
 <br>
 <div class = "row">
-<div class="col-md-offset-4 col-md-4">
-<h1><%= button_to( 'Nova Proposta',  new_proposta_path , :class => 'btn btn-warning center-block', :method => :get, id: "botaoNovaProposta") %><h1>
-</div>
-</div>
-<br>
-<br>
-<div class = "row">
-	<div id="propostas-table" class= "col-sm-4 col-sm-offset-4">
+	<div id="propostas-table" class= "col-sm-8 col-sm-offset-2">
 		<%= render(:partial => 'propostas', :object => @list) %>
 	</div>
 </div>	

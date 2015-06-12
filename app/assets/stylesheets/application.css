@@ -14,4 +14,233 @@
  *= require_self
  */
 
+body{
+	background-color: gray !important;
+}
 
+@media screen and (max-width: 800px) {
+	body {
+		background-color: white !important;
+	}
+}
+
+#content-interno{
+	margin: 15em 25% 0 25% !important;
+	background-color: white !important;
+}
+
+#v-v-rapidao {
+	margin-top: 1.4em;
+}
+
+@media screen and (max-width: 473px) {
+	#content-interno {
+		margin: 25em 25% 0 25% !important;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#content-interno {
+		margin: 20em 0% 0 0% !important;
+	}
+}
+
+@media screen and (max-width: 330px) {
+	#content-interno {
+		margin: 28em 25% 0 25% !important;
+	}
+}
+
+#salsichaMenu {
+	width: 3em;
+	height: 3em;
+	margin: 1em;
+	background-color: #FFF;
+	color: #EC971F;
+	border-style: none;
+}
+
+#statusNavBar {
+	height: 2em;
+	margin-bottom: 1.25em;
+	background-color: #FFEB9D;
+	color: #EC971F;
+	padding-top: 0em;
+	border-style: none;
+	padding-left: 2em;
+}
+
+#masterPageNavBar {
+	background-color: #EC971F;
+	border-style: none;
+}
+
+#popBrand {
+	color: #FFF;
+	font-size: 2em;
+}
+
+.navbar-header {
+	padding: 0.7em;
+	font-weight: bold;
+}
+
+#botaoNovaPropostaNavBar {
+	margin-top: 1em;
+	background-color: #EC971F;
+	color: white;
+	border-color: white;
+	height: 2.5em;
+	width:8em;
+	font-size: 1em;
+	border-radius: 0px;
+}
+
+
+#botaoVetarNavBar {
+	margin-top: 1em;
+	background-color: #EC971F;
+	color: white;
+	border-color: white;
+	height: 2.5em;
+	width:8em;
+	font-size: 1em;
+	border-radius: 0px;
+}
+
+
+#botaoApoiarNavBar {
+	margin-top: 1em;
+	background-color: #EC971F;
+	color: white;
+	border-color: white;
+	height: 2.5em;
+	width:8em;
+	font-size: 1em;
+	border-radius: 0px;
+}
+
+.navbar {
+	margin-bottom: 0em !important;
+}
+.container-fluid ul.nav.navbar-nav.navbar-left {
+	margin-bottom: 0px;
+}
+.remove-margin-bottom {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+#botaoNovaPropostaNavBar:hover {
+	background-color: white;
+	color: #EC971F;
+}
+
+#botaoApoiarNavBar:hover {
+	background-color: white;
+	color: #EC971F;
+}
+
+#botaoVetarNavBar:hover {
+	background-color: white;
+	color: #EC971F;
+}
+
+.navbar-collapse.collapse {
+display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+float: left !important;
+}
+
+
+.botoes-acao-navbar {
+	width:8em;
+	margin-top: 1em;
+	background-color: #EC971F;
+	color: white;
+	border-color: white;
+	height: 2.5em;
+	font-size: 1.25em;
+	border-radius: 0px;
+}
+
+
+.navbar-right {
+float: right!important;
+}
+
+
+.navbar > .alert {
+	margin-bottom: 0px !important;
+}
+
+#botoesAcaoNavBar {
+	margin-top: 0px;
+	margin-right: 30%;
+}
+
+@media screen and (max-width: 1130px) {
+	#botoesAcaoNavBar {
+		margin-right:23%;
+	}
+}
+
+
+@media screen and (max-width: 832px) {
+	#botoesAcaoNavBar {
+		margin-right:17%;
+	}
+}
+
+@media screen and (max-width: 680px) {
+	#botoesAcaoNavBar {
+		margin-right:0%;
+	}
+}
+
+@media screen and (max-width: 570px) {
+	#botoesAcaoNavBar {
+		margin-right:20%;
+	}
+}
+
+@media screen and (max-width: 402px) {
+	#botoesAcaoNavBar {
+		margin-right:0%;
+	}
+}
+
+.navbar-secundaria {
+	margin-bottom: 0px !important;
+	color: #fff;
+	border-radius: 0px;
+	background-color: #808080;
+	text-align: center;
+	border-width: 0px;
+}
+
+@media screen and (max-width: 767px) {
+
+	#right-dropdown {
+		position: absolute !important;
+		left: -6em !important;
+		box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+		background-color: #FFF;
+	}
+
+	#left-dropdown {
+		position: absolute !important;
+		box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+		background-color: #FFF;
+	}
+
+	#left-dropdown > li > a {
+		color: #262626;
+	}
+
+	#right-dropdown > li > a {
+		color: #262626;
+	}
+}
