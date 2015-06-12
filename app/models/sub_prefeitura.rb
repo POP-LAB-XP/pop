@@ -8,7 +8,7 @@ class SubPrefeitura < ActiveRecord::Base
 	end
 
 	def limite_usuario_atingido
-		self.users.count > self.limite_de_usuarios
+		self.users.count == self.limite_de_usuarios
 	end
 
 end
