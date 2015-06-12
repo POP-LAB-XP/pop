@@ -61,7 +61,7 @@
 			<% unless current_user.nil? %>
 			<ul id="botoesAcaoNavBar" class="nav navbar-nav navbar-right remove-margin-bottom " >
 				<li>
-						<%= button_to( 'Nova Proposta',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoNovaPropostaNavBar") %>
+						<%= button_to( 'Criar',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoNovaPropostaNavBar") %>
 				</li>
 				<li>
 						<%= button_to( 'Apoiar',  new_proposta_path , :class => 'btn btn-default center-block ', :method => :get, id: "botaoApoiarNavBar") %>
