@@ -28,12 +28,36 @@ RSpec.describe VetosController, type: :controller do
       end
     end
   end
+
+  describe 'new' do
+    let!(:proposta){ FactoryGirl.build(:proposta) }
+
+    context 'quando estiver logado' do
+      before(:each) do
+          get :new, proposta_id: proposta.id
+      end
+      it 'o usuário pode acessar a página de criação de vetos' do
+        response.should be_success
+      end
+      it 'a proposta escolhida deve ser exibida' do
+        Proposta.stubs(:find_by_id)
+                .with(proposta.id)
+                .returns(proposta)
+      end
+    end
+  end
   
   describe 'create' do
     let!(:user){ FactoryGirl.build(:user) }
     let(:current_user) { user }
     let!(:proposta){ FactoryGirl.build(:proposta) }
     let!(:veto){ FactoryGirl.build(:veto) }
+    let!(:veto_incorreto){ 
+      FactoryGirl.build(:veto, 
+                        descricao: nil, 
+                        proposta_id: -1) 
+      }
+
     let!(:acao){ FactoryGirl.build(:acao) }
     let!(:mail){ Mail::Message.new }
        
@@ -42,16 +66,25 @@ RSpec.describe VetosController, type: :controller do
         "proposta_id" => "1"
       }
     }
+
+    let!(:veto_params_incorretos){
+      { "descricao" => nil, 
+        "proposta_id" => -1
+      }
+    }
   
     before(:each) do
         Veto.stubs(:create).returns(veto)
         Acao.expects(:create).returns(acao)
         PopMailer.stubs(:avisar_veto).returns(mail)
         mail.stubs(:deliver)
+      Acao.stubs(:insere_acao).returns(acao)
     end
 
     context 'quando criar veto' do
+
       before(:each) do
+        Veto.stubs(:create).returns(veto)
         post :create, veto: veto_params
       end
 
@@ -59,6 +92,19 @@ RSpec.describe VetosController, type: :controller do
           is_expected.to redirect_to veto  
       end
     end
+
+    context 'quando tentar criar veto com parametros incorretos' do
+      before(:each) do
+        Veto.stubs(:create).returns(veto_incorreto)
+        post :create, veto: veto_params_incorretos
+      end
+
+      it 'é esperado que ocorra um erro' do
+          expect(flash[:warning]).to be_present
+          flash[:warning].should eq("Não foi possível vetar a proposta!")
+      end
+    end
+
   end
 
 end

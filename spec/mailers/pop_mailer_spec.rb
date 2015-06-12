@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe PopMailer, type: :mailer do
+<<<<<<< HEAD
   describe 'cadastrar' do
     let(:user) { build(:user, email: 'teste@email.com') }
     let(:mail) { PopMailer.termos_email(user) }
@@ -90,5 +91,7 @@ RSpec.describe PopMailer, type: :mailer do
 
 
 
+=======
+>>>>>>> aumentar-cobertura-testes
 
 end

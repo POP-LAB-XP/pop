@@ -15,7 +15,7 @@ class VetosController < ApplicationController
       mailer.deliver
 			redirect_to @veto	
 		else
-			flash[:notice] = "Não foi possível vetar a proposta!"
+			flash[:warning] = "Não foi possível vetar a proposta!"
 			redirect_to :action => 'new', :proposta_id => @veto.proposta_id
 		end
   end
