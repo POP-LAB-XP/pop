@@ -6,9 +6,19 @@ describe Users::RegistrationsController, type: :controller do
 	before(:each) do
 		@request.env["devise.mapping"] = Devise.mappings[:user]
 		sign_in FactoryGirl.create(:user)
+		#@request.env['warden'].stub(:authenticate!).and_throw(:warden, {:scope => :user})
+		allow(controller).to receive(:authenticate_user!).and_return(true)
 	end
 
 	describe 'create' do
+		context 'quando uma subprefeitura é pesquisada' do
+			let!(:sub_prefeitura){ build(:sub_prefeitura) }
+			it "é esperado que a subprefeitura não exista" do
+				SubPrefeitura.stubs(:find_by_codigo).returns(nil)
+				expect(flash[:alert]).to be_present
+			end
+		end
+
 		context 'quando o limite de usuários da subprefeitura não foi atingido' do
 			let!(:sub_prefeitura){ build(:sub_prefeitura) }
 			let!(:codigo){'12345678'}
