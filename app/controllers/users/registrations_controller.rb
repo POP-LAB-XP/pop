@@ -5,6 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super do |resource|
         subPrefeitura = SubPrefeitura.find_by_codigo(params[:codigo])
+        
         unless subPrefeitura.present?
           flash[:alert] = "Código de subprefeitura inválido!"
         else
