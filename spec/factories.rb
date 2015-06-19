@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 FactoryGirl.define do  
-    
   factory :forum, aliases: [:forum_teste] do
     nome "teste forum"
   end
@@ -48,7 +47,6 @@ FactoryGirl.define do
     association :proposta, factory: :proposta, strategy: :build
     association :acao_tipo, factory: :acao_tipo_criar, strategy: :build
   end
-  
   factory :acao_vetar, class: Acao do
     association :user, factory: :user, strategy: :build
     association :proposta, factory: :proposta, strategy: :build

@@ -8,132 +8,132 @@
 
 
 tSaude = Tema.create({
-	nome: 'saúde'
-	})
+ nome: 'saúde'
+})
 
 tEducacao = Tema.create({
-	nome: 'educação'
-	})
+ nome: 'educação'
+})
 
 
 tTransporte = Tema.create({
-	nome: 'transporte'
-	})
+ nome: 'transporte'
+})
 
 tSeguranca = Tema.create({
-	nome: 'segurança'
-	})
+ nome: 'segurança'
+})
 
 tAssistenciaSocial = Tema.create({
-	nome: 'assistencia social'
-	})
+ nome: 'assistencia social'
+})
 
 tEsporte = Tema.create({
-	nome: 'esporte'
-	})
+ nome: 'esporte'
+})
 
 tMeioAmbiente = Tema.create({
-	nome: 'meio ambiente'
-	})
+ nome: 'meio ambiente'
+})
 
 tInfraEstrutura = Tema.create({
-	nome: 'infra estrutura'
-	})
+ nome: 'infra estrutura'
+})
 
 tServico = Tema.create({
-	nome: 'serviço'
-	})
+ nome: 'serviço'
+})
 
 tHabitacao = Tema.create({
-	nome: 'habitação'
-	})
+ nome: 'habitação'
+})
 
 tComercio = Tema.create({
-	nome: 'comércio'
-	})
+ nome: 'comércio'
+})
 
 tAmbienteUrbano = Tema.create({
-	nome: 'ambiente urbano'
-	})
+ nome: 'ambiente urbano'
+})
 
 tAtendimento = Tema.create({
-	nome: 'atendimento'
-	})
+ nome: 'atendimento'
+})
 
 tCrianca = Tema.create({
-	nome: 'criança'
-	})
+ nome: 'criança'
+})
 
 
 tAdolescente = Tema.create({
-	nome: 'adolecente'
-	})
+ nome: 'adolecente'
+})
 
 tIdoso = Tema.create({
-	nome: 'idoso'
-	})
+ nome: 'idoso'
+})
 
 
 tIluminacao = Tema.create({
-	nome: 'iluminação'
-	})
+ nome: 'iluminação'
+})
 
 tLixo = Tema.create({
-	nome: 'lixo'
-	})
+ nome: 'lixo'
+})
 
 tImposto = Tema.create({
-	nome: 'imposto'
-	})
+ nome: 'imposto'
+})
 
 tAgua = Tema.create({
-	nome: 'Agua'
-	})
+ nome: 'Agua'
+})
 
 tArvore = Tema.create({
-	nome: 'Arvore'
-	})
+ nome: 'Arvore'
+})
 
 tEscola = Tema.create({
-	nome: 'escola'
-	})
+ nome: 'escola'
+})
 
 tHospital = Tema.create({
-	nome: 'hospital'
-	})
+ nome: 'hospital'
+})
 
 forum = Forum.create({ nome: 'Teste'})
 
 sub_prefeitura = SubPrefeitura.create({ 
-	nome: 'SubPrefeitura de Teste', 
-	codigo: '12345678', 
-	limite_de_usuarios: 100, 
-	forum: forum,
-	cidade: 'São Paulo'
+ nome: 'SubPrefeitura de Teste', 
+ codigo: '12345678', 
+ limite_de_usuarios: 100, 
+ forum: forum,
+ cidade: 'São Paulo'
 })
 
 user = User.create({
-	email: "axleirner@gmail.com",
-	password: "12345678",
-	password_confirmation: "12345678",
-	sub_prefeitura: sub_prefeitura
+ email: "axleirner@gmail.com",
+ password: "12345678",
+ password_confirmation: "12345678",
+ sub_prefeitura: sub_prefeitura
 })
 
 user_pop = User.create({
-	email: "pop@ime.com",
-	password: "12345678",
-	password_confirmation: "12345678",
-	sub_prefeitura: sub_prefeitura
+ email: "pop@ime.com",
+ password: "12345678",
+ password_confirmation: "12345678",
+ sub_prefeitura: sub_prefeitura
 })
 
 
 (1..100).each do |i|
-	Proposta.create({
-	descricao: "Test " << i.to_s,
-	user: user,
-	tema_1: tArvore,
-	status: 1
-   })
+ Proposta.create({
+  descricao: "Test " << i.to_s,
+  user: user,
+  tema_1: tArvore,
+  status: 1
+ })
 end
 
 /Voto.create({
@@ -191,13 +191,13 @@ Voto.create({
 	proposta: p3
 })/
 acaoApoio = AcaoTipo.create({
-	nome: "Apoio"
+ nome: "Apoio"
 })
 acaoVeto = AcaoTipo.create({
-	nome: "Veto"
+ nome: "Veto"
 })
 acaoCriacao = AcaoTipo.create({
-	nome: "Criacao"
+ nome: "Criacao"
 })
 
 /Acao.create({
