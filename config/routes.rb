@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'vetos/show'
 
-  resources :vetos
+  resources :vetos, :only => [:show, :new, :create]
 
   post 'votos/create'
 
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   #   resources :products
  # post "/propostas/:id/new_voto" => "propostas#new_voto"
 
-  resources :propostas
+  resources :propostas, :only => [:new, :create, :index]
 
   # Example resource route with options:
   #   resources :products do

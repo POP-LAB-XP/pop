@@ -9,7 +9,7 @@
 <br>
 <div class = "row">
 	<div id="propostas-table" class= "col-sm-8 col-sm-offset-2">
-		<%= render(:partial => 'propostas', :object => @list) %>
+		<%= render(:partial => 'propostas', locals: {:list => @list}) %>
 	</div>
 </div>	
 

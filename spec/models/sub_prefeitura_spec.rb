@@ -24,11 +24,4 @@ RSpec.describe SubPrefeitura, type: :model do
 	 	sub_prefeitura.limite_usuario_atingido.should == true
 	  end
 	end
-
-	describe 'numero de usuarios' do
-		it "numero de usuario deve ser igual ao count de users" do
-			sub_prefeitura.numero_de_usuarios.should == sub_prefeitura.users.count
-		end
-	end
-
 end
