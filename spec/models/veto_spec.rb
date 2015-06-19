@@ -4,7 +4,7 @@ RSpec.describe Veto, type: :model do
   let(:veto) { build(:veto) }
 
   it "deve ter uma descricao" do
-    veto.descricao.should == "veto 1"
+  	veto.descricao.should == "veto 1"
   end
 
   it "a descricao nao deve ser nula" do
@@ -12,7 +12,7 @@ RSpec.describe Veto, type: :model do
   end
 
   it "deve ter usuario" do
-    user = build(:user)
+  	user = build(:user)
     veto.user.id.should == user.id
   end
 
@@ -21,7 +21,7 @@ RSpec.describe Veto, type: :model do
   end
 
   it "proposta do veto deve ser preenchida" do
-    proposta = build(:proposta)
+  	proposta = build(:proposta)
     veto.proposta.id.should == proposta.id
   end
 
@@ -30,7 +30,7 @@ RSpec.describe Veto, type: :model do
   end
 
   it "o tamanho da descricao deve ter menos do que 140 caracteres" do
-    #geramos uma string com mais do que 140 caracteres
+  	#geramos uma string com mais do que 140 caracteres
     veto = build(:veto, :descricao => "1" * 141 ).should_not be_valid
   end
 

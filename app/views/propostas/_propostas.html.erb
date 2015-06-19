@@ -1,5 +1,5 @@
 <ul class="list-group">
-		<% list.each do |proposta| %>
+		<% @list.each do |proposta| %>
 			<li class="list-group-item" data-toggle="collapse" data-target="#proposta_<%= proposta.id %>" aria-expanded="false" aria-controls="proposta_<%= proposta.id %>">
 				<div class="row" >
 					<% if(!proposta.esta_ativa)

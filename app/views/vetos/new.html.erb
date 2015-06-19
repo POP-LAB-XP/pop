@@ -2,7 +2,7 @@
 	Vetar proposta <%= @veto.proposta_id%>
 </div>
 
-<p><%= @veto.proposta_descricao %></p>
+<p><%= @veto.proposta.descricao %></p>
 
 <%= form_for @veto, url: vetos_path(@veto), html: { method: :post,class: 'form-horizontal' , id: 'NovoVetoForm'} do |f| %>
 

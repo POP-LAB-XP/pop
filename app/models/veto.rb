@@ -5,6 +5,4 @@ class Veto < ActiveRecord::Base
   validates :user, :presence => true
   validates :proposta, :presence => true, :uniqueness => true
   validates :descricao, length:{maximum: 140}, :presence => true
-
-  delegate :descricao, :to => :proposta, :prefix => true
 end

@@ -4,18 +4,18 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
-  validates_confirmation_of :password
+         validates_confirmation_of :password
 
-  belongs_to :sub_prefeitura
-  has_many :propostas
-  has_many :votos
-  validates :sub_prefeitura, :presence => true
-  has_many :acaos
+         belongs_to :sub_prefeitura
+         has_many :propostas
+         has_many :votos
+         validates :sub_prefeitura, :presence => true
 
   def count_user_actions
-    acoes_usuario_no_dia.count
+    Acao.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day))
+      .where("user_id = #{self.id}").count
   end
 
   def limite_acoes_atingido
@@ -23,12 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def usuario_realizou_acao_hoje( proposta)
-    acoes_usuario_no_dia.where( "proposta_id = #{proposta.id}").any?
-  end
-
-  private 
-
-  def acoes_usuario_no_dia 
-    self.acaos.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day))
+    Acao.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day))
+      .where("user_id = #{self.id}").where( "proposta_id = #{proposta.id}").any?
   end
 end

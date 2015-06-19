@@ -4,7 +4,7 @@ RSpec.describe Proposta, type: :model do
   let(:proposta) { build(:proposta) }
 
   it "deve ter uma descricao" do
-    proposta.descricao.should == "proposta 1"
+  	proposta.descricao.should == "proposta 1"
   end
 
   it "deve ter um tema1" do
@@ -28,15 +28,15 @@ RSpec.describe Proposta, type: :model do
   end
 
   it "tamanho alem do permitido da palavra-chave" do
-    proposta = build(:proposta, :palavra_chave => "123456789012345678901234567890123").should_not be_valid
+        proposta = build(:proposta, :palavra_chave => "123456789012345678901234567890123").should_not be_valid
   end
 
   it "tamanho permitido da palavra-chave" do
-    proposta = build(:proposta, :palavra_chave => "12345678901234567890123456789012").should be_valid
+        proposta = build(:proposta, :palavra_chave => "12345678901234567890123456789012").should be_valid
   end
 
   it "deve ter status Ativo (1) " do 
-    proposta.status.should == 1
+     proposta.status.should == 1
   end
 
   context "sempre" do
@@ -46,7 +46,7 @@ RSpec.describe Proposta, type: :model do
     let(:voto) { build(:voto, :user => user)}
     let(:voto2) { build(:voto, :user => user2)}
     it "deve ter email correto dos apoiadores" do
-      emails == proposta.get_emails_dos_apoiadores
+        emails == proposta.get_emails_dos_apoiadores
     end
   end
 end
