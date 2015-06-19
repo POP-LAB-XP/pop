@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
          has_many :propostas
          has_many :votos
          validates :sub_prefeitura, :presence => true
+         has_many :acaos
 
   def count_user_actions
     acoes_usuario_no_dia.count
@@ -28,7 +29,6 @@ class User < ActiveRecord::Base
   private 
 
   def acoes_usuario_no_dia 
-    Acao.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day))
-      .where("user_id = #{self.id}")
+    self.acaos.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day))
   end
 end
