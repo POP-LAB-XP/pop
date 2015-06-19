@@ -52,17 +52,6 @@ RSpec.describe VotosController, type: :controller do
               response.should redirect_to back
             end
 
-            it 'não pode votar numa proposta inválida' do
-              Proposta.expects(:find_by_id).returns(nil)
-
-              post :create, :id => "0"
-
-              expect(flash[:warning]).to be_present
-              flash[:warning].should eq("Proposta inválida!")
-
-              response.should redirect_to back
-            end
-
             it 'não pode votar se seu limite de ações for atingido' do
               Proposta.expects(:find_by_id).returns(proposta_normal)
 
@@ -95,18 +84,6 @@ RSpec.describe VotosController, type: :controller do
               response.should redirect_to back
             end
 
-            it 'não pode apoiar uma proposta vetada' do
-              Proposta.expects(:find_by_id).returns(proposta_vetada)
-			           current_user.stubs(:limite_acoes_atingido).returns(false)
-			           current_user.stubs(:usuario_realizou_acao_hoje).returns(false)
-
-              post :create, :id => proposta_vetada.id
-
-              expect(flash[:warning]).to be_present
-              flash[:warning].should eq("Você não pode apoiar uma proposta vetada!")
-
-              response.should redirect_to back
-            end
         end 
     end
 

@@ -39,6 +39,11 @@ RSpec.describe Proposta, type: :model do
      proposta.status.should == 1
   end
 
+  it "esta_ativa deve retornar true" do 
+     proposta.esta_ativa.should == true
+  end
+
+
   context "sempre" do
     let(:emails) { ["pop@pop.com", "pop2@pop.com"] }
     let(:user) { build(:user, :email => emails[0]) }
