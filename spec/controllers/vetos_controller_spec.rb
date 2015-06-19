@@ -48,9 +48,8 @@ RSpec.describe VetosController, type: :controller do
   end
   
   describe 'create' do
-    let!(:user){ FactoryGirl.build(:user) }
-    let(:current_user) { user }
-    let!(:proposta){ FactoryGirl.build(:proposta) }
+    let!(:user){ FactoryGirl.create(:user) }
+    let!(:current_user) { user }
     let!(:veto){ FactoryGirl.build(:veto) }
     let!(:veto_incorreto){ 
       FactoryGirl.build(:veto, 
@@ -59,7 +58,6 @@ RSpec.describe VetosController, type: :controller do
       }
 
     let!(:acao){ FactoryGirl.build(:acao) }
-    let!(:mail){ Mail::Message.new }
        
     let!(:veto_params){
       { "descricao" => "teste controller veto", 
@@ -76,8 +74,6 @@ RSpec.describe VetosController, type: :controller do
     before(:each) do
         Veto.stubs(:create).returns(veto)
         Acao.stubs(:create).returns(acao)
-        PopMailer.stubs(:avisar_veto).returns(mail)
-        mail.stubs(:deliver)
     end
 
     context 'quando criar veto' do
