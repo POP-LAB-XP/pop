@@ -19,5 +19,5 @@ class Acao < ActiveRecord::Base
         acao_tipo: acao_tipo	
 		})
   end
-
 end
+
