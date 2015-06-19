@@ -39,4 +39,14 @@ RSpec.describe Proposta, type: :model do
      proposta.status.should == 1
   end
 
+  context "sempre" do
+    let(:emails) { ["pop@pop.com", "pop2@pop.com"] }
+    let(:user) { build(:user, :email => emails[0]) }
+    let(:user2) { build(:user, :email => emails[1]) }
+    let(:voto) { build(:voto, :user => user)}
+    let(:voto2) { build(:voto, :user => user2)}
+    it "deve ter email correto dos apoiadores" do
+        emails == proposta.get_emails_dos_apoiadores
+    end
+  end
 end

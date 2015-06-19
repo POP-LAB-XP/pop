@@ -17,7 +17,7 @@ class PropostasController < ApplicationController
 	def create
 		if current_user.limite_acoes_atingido
  			flash[:warning] = "Proposta não foi criada. Limite de ações atingido!"
-
+			redirect_to new_proposta_path 
 		else
 			@proposta = Proposta.create(proposta_params)
 			@proposta.user_id = current_user.id
