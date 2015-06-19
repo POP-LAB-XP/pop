@@ -4,15 +4,15 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable
 
-         validates_confirmation_of :password
+  validates_confirmation_of :password
 
-         belongs_to :sub_prefeitura
-         has_many :propostas
-         has_many :votos
-         validates :sub_prefeitura, :presence => true
-         has_many :acaos
+  belongs_to :sub_prefeitura
+  has_many :propostas
+  has_many :votos
+  validates :sub_prefeitura, :presence => true
+  has_many :acaos
 
   def count_user_actions
     acoes_usuario_no_dia.count
