@@ -26,7 +26,7 @@ describe PropostasController, type: :controller do
         }
        
         let!(:proposta_params){
-           {"descricao"=>"teste controller proposta","tema_1_id"=>"1", "tema_2_id"=>"2", "palavra_chave"=>"key-word"}
+           {"descricao"=>"teste controller proposta","tema_principal_id"=>"1", "tema_opcional_id"=>"2", "palavra_chave"=>"key-word"}
 
         }
         let!(:acao){
@@ -67,7 +67,7 @@ describe PropostasController, type: :controller do
 
         context "quando a proposto tiver parâmetros errados" do
             let!(:proposta_params_invalid){
-                {"descricao"=>nil,"tema_1_id"=>"1", "tema_2_id"=>"2", "palavra_chave"=>"key-word"}
+                {"descricao"=>nil,"tema_principal_id"=>"1", "tema_opcional_id"=>"2", "palavra_chave"=>"key-word"}
             }
             let!(:proposta_invalid){
                 build(:proposta, proposta_params_invalid)

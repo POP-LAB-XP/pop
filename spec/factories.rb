@@ -30,8 +30,12 @@ FactoryGirl.define do
     nome "criar"
   end
 
-  factory :tema1, class: Tema do
-    nome "tema1"
+  factory :temaPrincipal, class: Tema do
+    nome "temaPrincipal"
+  end
+
+  factory :temaOpcional, class: Tema do
+    nome "temaOpcional"
   end
 
   factory :proposta do
@@ -39,8 +43,8 @@ FactoryGirl.define do
     palavra_chave "key word"
     status 1
     association :user, factory: :user, strategy: :build
-    association :tema_1, factory: :tema1, strategy: :build
-    association :tema_2, factory: :tema1, strategy: :build
+    association :tema_principal, factory: :temaPrincipal, strategy: :build
+    association :tema_opcional, factory: :temaOpcional, strategy: :build
   end
 
   factory :acao do

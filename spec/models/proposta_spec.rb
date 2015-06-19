@@ -8,7 +8,7 @@ RSpec.describe Proposta, type: :model do
   end
 
   it "deve ter um tema1" do
-    proposta.tema_1.should_not equal(nil)
+    proposta.tema_principal.should_not equal(nil)
   end
 
   it "descricao nao deve ser nula" do
@@ -20,11 +20,11 @@ RSpec.describe Proposta, type: :model do
   end
 
   it "proposta deve ter tema1" do
-    proposta = build(:proposta, :tema_1 => nil).should_not be_valid
+    proposta = build(:proposta, :tema_principal => nil).should_not be_valid
   end
 
   it "proposta pode nao ter tema2" do
-    proposta = build(:proposta, :tema_2 => nil).should be_valid
+    proposta = build(:proposta, :tema_opcional => nil).should be_valid
   end
 
   it "tamanho alem do permitido da palavra-chave" do

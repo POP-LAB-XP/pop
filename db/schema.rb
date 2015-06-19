@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522172223) do
+ActiveRecord::Schema.define(version: 20150619190017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,15 +40,21 @@ ActiveRecord::Schema.define(version: 20150522172223) do
     t.datetime "updated_at"
   end
 
+  create_table "poss", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "proposta", force: true do |t|
     t.string   "descricao"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tema_1_id"
-    t.integer  "tema_2_id"
-    t.string   "palavra_chave", limit: 32
-    t.integer  "votos_count",              default: 0
+    t.integer  "tema_principal_id"
+    t.integer  "tema_opcional_id"
+    t.string   "palavra_chave",     limit: 32
+    t.integer  "votos_count",                  default: 0
     t.integer  "status"
   end
 
