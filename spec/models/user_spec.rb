@@ -34,8 +34,12 @@ RSpec.describe User, type: :model do
                   build(:acao, :created_at => Time.now, :proposta => proposta), 
                   build(:acao, :created_at => Time.now, :proposta => proposta)]}
     let(:user_nao_limitado) {create(:user, :acaos => acoes, :id => 100)}
-    it  'eh experado que ele tenha realizado acoes' do
+    it  'eh esperado que ele tenha realizado acoes' do
       user_nao_limitado.usuario_realizou_acao_hoje(proposta).should == true
+    end
+
+    it 'eh esperado que a quantidade de acoes esteja correta' do
+      user_nao_limitado.count_user_actions.should == acoes.length
     end
   end
 
