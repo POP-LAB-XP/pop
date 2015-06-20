@@ -6,6 +6,7 @@ class Veto < ActiveRecord::Base
   validates :proposta, :presence => true, :uniqueness => true
   validates :descricao, length:{maximum: 140}, :presence => true
 
+  delegate :descricao, :to => :proposta, :prefix => true
   after_create :send_mail
 
   def veta_proposta
@@ -19,4 +20,5 @@ class Veto < ActiveRecord::Base
    mailer = PopMailer.avisar_veto(self.proposta, self)
    mailer.deliver
  end
+
 end

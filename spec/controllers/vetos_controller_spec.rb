@@ -49,7 +49,7 @@ RSpec.describe VetosController, type: :controller do
       end
     end
   end
-  
+
   describe 'create' do
     let!(:veto){ FactoryGirl.build(:veto) }
     let!(:proposta){ FactoryGirl.build(:proposta) }
@@ -60,7 +60,7 @@ RSpec.describe VetosController, type: :controller do
     }
 
     let!(:acao){ FactoryGirl.build(:acao) }
-
+    let!(:mail){ Mail::Message.new }
     let!(:veto_params){
       { "descricao" => "teste controller veto", 
         "proposta_id" => proposta.id
@@ -72,10 +72,12 @@ RSpec.describe VetosController, type: :controller do
         "proposta_id" => -1
       }
     }
-
+    
     before(:each) do
       Veto.stubs(:create).returns(veto)
       Acao.stubs(:create).returns(acao)
+      PopMailer.stubs(:avisar_veto).returns(mail)
+      mail.stubs(:deliver)
     end
 
     context 'quando criar veto' do
@@ -90,10 +92,6 @@ RSpec.describe VetosController, type: :controller do
         is_expected.to redirect_to veto  
       end
 
-      #it 'é esperado que seja mandado um email' do
-        #PopMailer.expects(:avisar_veto).returns(@mailer)
-        #@mailer.expects(:deliver)
-      #end
     end
 
     context 'quando tentar criar veto com parametros incorretos' do
