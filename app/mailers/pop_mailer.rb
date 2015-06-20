@@ -11,6 +11,5 @@ class PopMailer < ActionMailer::Base
 		@proposta = proposta
 		destinatarios = proposta.get_emails_dos_apoiadores
 		mail(bcc:destinatarios.join("; "), subject: '[POP] A proposta foi vetada!!' )
-		#mail(to: @veto.user.email, subject: '[POP] Voc^e vetou a proposta com sucesso' )
 	end
 end

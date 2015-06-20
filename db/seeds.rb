@@ -131,7 +131,7 @@ user_pop = User.create({
 	Proposta.create({
 	descricao: "Test " << i.to_s,
 	user: user,
-	tema_1: tArvore,
+	tema_principal: tArvore,
 	status: 1
    })
 end

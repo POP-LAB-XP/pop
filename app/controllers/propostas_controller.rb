@@ -40,7 +40,7 @@ class PropostasController < ApplicationController
     # permit list between create and update. Also, you can specialize
     # this method with per-user checking of permissible attributes.
     def proposta_params
-      params.require(:proposta).permit(:descricao, :palavra_chave, :tema_1, :tema_2, :tema_1_id, :tema_2_id, :page)
+      params.require(:proposta).permit(:descricao, :palavra_chave, :tema_principal, :tema_opcional, :tema_principal_id, :tema_opcional_id, :page)
     end
 end
 

@@ -45,9 +45,9 @@
 			    		<hr>
 			    		<div class="row" >
 			    			<div class = "col-lg-2"> Tema </div>
-			    			<div class = "col-lg-8"> <%=label_tag proposta.tema_1.nome%> 
-							<% unless proposta.tema_2.nil? %>
-				    			<br><%=label_tag proposta.tema_2.nome%> </div>
+			    			<div class = "col-lg-8"> <%=label_tag proposta.tema_principal.nome%> 
+							<% unless proposta.tema_opcional.nil? %>
+				    			<br><%=label_tag proposta.tema_opcional.nome%> </div>
 							<% end %>
 			    		</div>		
 			    	</div>

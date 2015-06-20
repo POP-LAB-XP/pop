@@ -5,4 +5,18 @@ class Veto < ActiveRecord::Base
   validates :user, :presence => true
   validates :proposta, :presence => true, :uniqueness => true
   validates :descricao, length:{maximum: 140}, :presence => true
+
+  after_create :send_mail
+
+  def veta_proposta
+    self.proposta.desabilitar
+    Acao.insere_acao(AcaoTipo.getVetar, self.proposta, self.user)	
+  end
+
+  private
+  
+  def send_mail
+   mailer = PopMailer.avisar_veto(self.proposta, self)
+   mailer.deliver
+ end
 end
