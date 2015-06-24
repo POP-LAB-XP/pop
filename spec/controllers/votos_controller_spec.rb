@@ -47,10 +47,12 @@ RSpec.describe VotosController, type: :controller do
 
         expect(flash[:notice]).to be_present
         flash[:notice].should eq("Voto efetuado com sucesso!")
-
+      end
+      
       it 'não pode votar se seu limite de ações for atingido' do
-        Proposta.expects(:find_by_id).returns(proposta_normal)
-
+        Proposta.stubs(:find_by_id).returns(proposta_normal)
+      end
+      
       it 'não pode votar se seu limite de ações for atingido' do
         Proposta.expects(:find_by_id).returns(proposta_normal)
 
@@ -79,8 +81,7 @@ RSpec.describe VotosController, type: :controller do
         #TODO nao funciona
         expect(flash[:warning]).to be_present
         flash[:warning].should eq("Você já apoiou essa proposta hoje!")
-
-        end 
+      end 
     end
-
+  end
 end
