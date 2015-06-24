@@ -11,6 +11,7 @@ class VotosController < ApplicationController
 			insere_acao_no_voto
 		end
 		redirect_to :back
+
   end
 
 

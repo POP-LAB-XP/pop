@@ -14,10 +14,10 @@ class Voto < ActiveRecord::Base
   end
 
   def self.insere_voto(user, proposta)	
-	Voto.create({
-        user: user,
-	    proposta: proposta
-	})
+    Voto.create({
+      user: user,
+      proposta: proposta
+    })
   end
 
 end

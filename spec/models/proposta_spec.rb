@@ -4,11 +4,11 @@ RSpec.describe Proposta, type: :model do
   let(:proposta) { build(:proposta) }
 
   it "deve ter uma descricao" do
-  	proposta.descricao.should == "proposta 1"
+    proposta.descricao.should == "proposta 1"
   end
 
   it "deve ter um tema1" do
-    proposta.tema_1.should_not equal(nil)
+    proposta.tema_principal.should_not equal(nil)
   end
 
   it "descricao nao deve ser nula" do
@@ -20,23 +20,23 @@ RSpec.describe Proposta, type: :model do
   end
 
   it "proposta deve ter tema1" do
-    proposta = build(:proposta, :tema_1 => nil).should_not be_valid
+    proposta = build(:proposta, :tema_principal => nil).should_not be_valid
   end
 
   it "proposta pode nao ter tema2" do
-    proposta = build(:proposta, :tema_2 => nil).should be_valid
+    proposta = build(:proposta, :tema_opcional => nil).should be_valid
   end
 
   it "tamanho alem do permitido da palavra-chave" do
-        proposta = build(:proposta, :palavra_chave => "123456789012345678901234567890123").should_not be_valid
+    proposta = build(:proposta, :palavra_chave => "123456789012345678901234567890123").should_not be_valid
   end
 
   it "tamanho permitido da palavra-chave" do
-        proposta = build(:proposta, :palavra_chave => "12345678901234567890123456789012").should be_valid
+    proposta = build(:proposta, :palavra_chave => "12345678901234567890123456789012").should be_valid
   end
 
   it "deve ter status Ativo (1) " do 
-     proposta.status.should == 1
+    proposta.status.should == 1
   end
 
   it "esta_ativa deve retornar true" do 
@@ -51,7 +51,7 @@ RSpec.describe Proposta, type: :model do
     let(:voto) { build(:voto, :user => user)}
     let(:voto2) { build(:voto, :user => user2)}
     it "deve ter email correto dos apoiadores" do
-        emails == proposta.get_emails_dos_apoiadores
+      emails == proposta.get_emails_dos_apoiadores
     end
   end
 end

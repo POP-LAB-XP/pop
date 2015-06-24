@@ -6,10 +6,10 @@ class Proposta < ActiveRecord::Base
   validates :palavra_chave, length:{maximum: 32}
   validates :user, :presence => true
 
-  belongs_to :tema_1, :class_name => "Tema"
-  belongs_to :tema_2, :class_name => "Tema"
+  belongs_to :tema_principal, :class_name => "Tema"
+  belongs_to :tema_opcional, :class_name => "Tema"
 
-  validates :tema_1, :presence => true
+  validates :tema_principal, :presence => true
 
   def self.order_por_votos
     order('status desc, votos_count desc, id')

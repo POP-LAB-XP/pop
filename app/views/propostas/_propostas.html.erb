@@ -1,5 +1,5 @@
 <ul class="list-group">
-		<% @list.each do |proposta| %>
+		<% list.each do |proposta| %>
 			<li class="list-group-item" data-toggle="collapse" data-target="#proposta_<%= proposta.id %>" aria-expanded="false" aria-controls="proposta_<%= proposta.id %>">
 				<div class="row" >
 					<% classe_glyphicon, estilo_glyphicon = define_classe_estilo_glyph(proposta) %>
@@ -36,9 +36,9 @@
 			    		<hr>
 			    		<div class="row" >
 			    			<div class = "col-lg-2"> Tema </div>
-			    			<div class = "col-lg-8"> <%=label_tag proposta.tema_1.nome%> 
-							<% unless proposta.tema_2.nil? %>
-				    			<br><%=label_tag proposta.tema_2.nome%> </div>
+			    			<div class = "col-lg-8"> <%=label_tag proposta.tema_principal.nome%> 
+							<% unless proposta.tema_opcional.nil? %>
+				    			<br><%=label_tag proposta.tema_opcional.nome%> </div>
 							<% end %>
 			    		</div>		
 			    	</div>
