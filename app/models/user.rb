@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     acoes_usuario_no_dia.where( "proposta_id = #{proposta.id}").any?
   end
 
+  def minhas_propostas_apoiadas
+    self.votos.map{|v| v.proposta}
+  end
+
   private 
 
   def acoes_usuario_no_dia 

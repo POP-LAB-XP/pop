@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
  get 'vetos/show'
 
+ get 'static/termos_uso'
+
+ get 'propostas/lista_propostas_do_usuario'
+
  resources :vetos, :only => [:show, :new, :create]
 
  post 'votos/create'
@@ -21,6 +25,7 @@ Rails.application.routes.draw do
 
  #get 'static_pages/welcome'
  root 'static#welcome'
+
  # The priority is based upon order of creation: first created -> highest priority.
  # See how all your routes lay out with "rake routes".
 

@@ -2,3 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#TituloTermosUso {
+	font-size: 2.5em;
+    text-align: center;
+	padding-right: 25px;
+	padding-left: 25px;
+	padding-bottom: 25px;	
+}
+
+@media screen and (max-width: 768px) {
+
+	#TituloTermosUso {
+		font-size: 1.5em;
+	}
+}

@@ -5,6 +5,10 @@ class PropostasController < ApplicationController
 		@list = Proposta.order_por_votos.page(params[:page]).per(10)
 	end
 
+  def lista_propostas_do_usuario 
+    current_user.minhas_propostas_apoiadas
+  end
+
 	def new
 		@proposta = Proposta.new
 		@lista_temas = Tema.all
