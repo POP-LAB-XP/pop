@@ -6,11 +6,11 @@ class Voto < ActiveRecord::Base
   validate :proposta_valida 
 
   def proposta_valida
-	if not self.proposta.present? 
-		errors.add(:proposta, "Proposta inválida!")
-	elsif not self.proposta.esta_ativa
-		errors.add(:proposta, "Você não pode apoiar uma proposta vetada!")
-	end  	
+  	if not self.proposta.present? 
+  		errors.add(:proposta, "Proposta inválida!")
+  	elsif not self.proposta.esta_ativa
+  		errors.add(:proposta, "Você não pode apoiar uma proposta vetada!")
+  	end  	
   end
 
   def self.insere_voto(user, proposta)	

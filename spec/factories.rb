@@ -38,9 +38,11 @@ FactoryGirl.define do
   end
 
   factory :proposta do
+    id 123
     descricao "proposta 1"
     palavra_chave "key word"
     status 1
+    codigo "200123"
     association :user, factory: :user, strategy: :build
     association :tema_principal, factory: :temaPrincipal, strategy: :build
     association :tema_opcional, factory: :temaOpcional, strategy: :build

@@ -11,6 +11,8 @@ class Proposta < ActiveRecord::Base
 
   validates :tema_principal, :presence => true
 
+  after_create :gerar_codigo
+
   def self.order_por_votos
     order('status desc, votos_count desc, id')
   end
@@ -30,5 +32,10 @@ class Proposta < ActiveRecord::Base
 
   def get_emails_dos_apoiadores
     self.votos.map{|v| v.user.email}
+  end
+
+  def gerar_codigo
+    self.codigo = (200000 + self.id).to_s
+    self.save
   end
 end
