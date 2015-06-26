@@ -2,7 +2,8 @@
 class PropostasController < ApplicationController
 
 	def index
-		@list = Proposta.order_por_votos.page(params[:page]).per(10)
+		#@list = Proposta.order_por_votos.page(params[:page]).per(10)
+    @list = Proposta.order_por_votos.page(params[:page]).per(10)
 	end
 
 	def new

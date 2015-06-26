@@ -1,7 +1,8 @@
-<% @i = 0 %>
+<%# TODO achar uma forma melhor de pegar o índice do item %>
+<% offset = (list.current_page - 1) * 10 + 1 %>
 
 <ul class="list-group">
-		<% list.each do |proposta| %>
+		<% list.each_with_index do |proposta, index| %>
 			
 			<li class="list-group-item" data-toggle="collapse" data-target="#proposta_<%= proposta.id %>" aria-expanded="false" aria-controls="proposta_<%= proposta.id %>">
 				<div class="row" >
@@ -37,7 +38,7 @@
 			    		<div class="row" >
 			    			<div class = "col-lg-2"> Rank: </div>
 			    			<div class = "col-lg-8"> <%=label_tag current_user.sub_prefeitura.nome%> <br> <%=label_tag current_user.sub_prefeitura.cidade%></div>
-			    			<div class = "col-lg-2"> #<%=label_tag proposta.get_ranking_subprefeitura %> <br> # <%= @i = @i + 1 %> </div>  
+			    			<div class = "col-lg-2"> #<%=label_tag proposta.get_ranking_subprefeitura %> <br> # <%= index + offset %> </div>  
 						</div>
 			    		<hr>
 			    		<div class="row" >
