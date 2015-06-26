@@ -38,6 +38,8 @@
 				</li>
 			</ul>
 
+
+
 			<ul class="nav navbar-nav navbar-right remove-margin-bottom" style="margin: 0 auto;">
 				
 				<li class="dropdown">
@@ -59,17 +61,21 @@
 				</li>
 			</ul>
 			<% unless current_user.nil? %>
-			<ul id="botoesAcaoNavBar" class="nav navbar-nav navbar-right remove-margin-bottom " >
-				<li>
-						<%= button_to( 'Criar',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoNovaPropostaNavBar") %>
+
+			<ul id="acoes_navbar" class="nav navbar-nav navbar-right remove-margin-bottom">
+				<li class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="acoes_botao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						Ações
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="acoes_botao">
+						<li><%= link_to "Criar", new_proposta_path, :method => :get %></li>
+						<li><%= link_to "Apoiar", new_proposta_path, :method => :get %></li>
+						<li><%= link_to "Vetar", new_proposta_path, :method => :get %></li>
+					</ul>
 				</li>
-				<li>
-						<%= button_to( 'Apoiar',  new_proposta_path , :class => 'btn btn-default center-block ', :method => :get, id: "botaoApoiarNavBar") %>
-				</li>
-				<li>
-						<%= button_to( 'Vetar',  new_proposta_path , :class => 'btn btn-default center-block', :method => :get, id: "botaoVetarNavBar") %>
-				</li>
-			</ul >
+			<ul>
+
 			<%end%>
 
 		</div>
