@@ -6,7 +6,7 @@
 <%= form_for @proposta, url: propostas_path(@proposta), html: { method: :post,class: 'form-horizontal' , id: 'NovaPropostaForm'} do |f| %>
 	<div class="form-group">
 	    <div class="col-sm-8  col-sm-offset-2">
-	      <%= f.text_field :descricao, :placeholder => "Descrição", :autofocus => true, :required => true, class: 'form-control' %>
+	      <%= f.text_area :descricao, :placeholder => "Descrição", :autofocus => true, :required => true, class: 'form-control', :rows => 5, :cols => 10%>
 	    </div>
 	</div>
 

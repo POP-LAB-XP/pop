@@ -17,7 +17,7 @@
 body{
 	
 	height: 100%;
-	background-color: gray !important;
+	background-color: white !important;
 }
 
 @media screen and (max-width: 800px) {
@@ -27,7 +27,7 @@ body{
 }
 
 #content-interno{
-	margin: 15em 25% 0 25% !important;
+	margin: 12em 25% 0 25% !important;
 	background-color: white !important;
 }
 
@@ -49,13 +49,13 @@ body{
 
 @media screen and (max-width: 800px) {
 	#content-interno {
-		margin: 20em 0% 0 0% !important;
+		margin: 12em 0% 0 0% !important;
 	}
 }
 
 @media screen and (max-width: 330px) {
 	#content-interno {
-		margin: 28em 25% 0 25% !important;
+		margin: 12em 0% 0 0% !important;
 	}
 }
 
@@ -94,10 +94,10 @@ body{
 }
 
 #botaoNovaPropostaNavBar {
-	margin-top: 1em;
-	background-color: #EC971F;
-	color: white;
-	border-color: white;
+	margin-top: 0.3em;
+	/*background-color: #EC971F;*/
+	background-color: #FFF;
+	color: #333;
 	height: 2.5em;
 	width:8em;
 	font-size: 1em;
@@ -182,6 +182,8 @@ float: right!important;
 
 .navbar > .alert {
 	margin-bottom: 0px !important;
+	padding: 5px !important;
+	text-align: center;
 }
 
 #botoesAcaoNavBar {
@@ -250,5 +252,86 @@ float: right!important;
 
 	#right-dropdown > li > a {
 		color: #262626;
+	}
+}
+
+#acoes_navbar {
+	margin: 0;
+	margin-top: 1.5em;
+	position: relative;
+}
+
+#acoes_botao {
+	float: right;
+	border-radius: 4px;
+	border-style: none;
+}
+#acoes_navbar .dropdown.open .dropdown-menu {
+	width: auto !important;
+	text-align: center !important;
+	height: auto !important;
+	background-color: white;
+	position: absolute !important;
+	margin-top: 0.8em !important;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176) !important;
+	left: -6px;
+}
+
+@media screen and (max-width: 462px) {
+	#acoes_botao {
+		width: 5em;
+	}
+	#acoes_navbar .dropdown.open .dropdown-menu {
+		width: auto !important;
+		min-width: 2em !important;
+		text-align: center !important;
+		height: auto !important;
+		background-color: white;
+		position: absolute !important;
+		margin-top: 0.8em !important;
+		box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176) !important;
+		left: -6px;
+	}
+
+}
+@media screen and (max-width: 379px) {
+	#acoes_botao {
+		width: 100%;
+		margin: 0 auto 1em;
+	}
+
+	#acoes_navbar {
+		width: 100%;
+		margin-top: 0;
+	}
+
+	#acoes_navbar .dropdown {
+		width: 100%;
+	}
+
+	#acoes_navbar .dropdown .open {
+		width: 100%;
+	}
+
+	#acoes_navbar .dropdown.open .dropdown-menu {
+		width: 100% !important;
+		text-align: center !important;
+		margin-top: 0.8em !important;
+		margin-bottom: 1em !important;
+		height: auto !important;
+		background-color: white;
+		box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176) !important;
+	}
+
+}
+
+@media screen and (max-width: 279px) {
+	.navbar-header {
+		padding-right: 0;
+		padding-left: 0;
+	}
+	.navbar-brand {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
 	}
 }
