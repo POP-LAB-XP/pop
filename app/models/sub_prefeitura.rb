@@ -7,4 +7,8 @@ class SubPrefeitura < ActiveRecord::Base
     self.users.count == self.limite_de_usuarios
   end
 
+  def relaciona_propostas
+  	Proposta.joins(:user).where('users.sub_prefeitura_id = ?', self.id)
+  end
+
 end

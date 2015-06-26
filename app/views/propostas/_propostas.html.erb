@@ -1,5 +1,8 @@
+<% @i = 0 %>
+
 <ul class="list-group">
 		<% list.each do |proposta| %>
+			
 			<li class="list-group-item" data-toggle="collapse" data-target="#proposta_<%= proposta.id %>" aria-expanded="false" aria-controls="proposta_<%= proposta.id %>">
 				<div class="row" >
 					<% if(!proposta.esta_ativa)
@@ -32,15 +35,9 @@
 			    		 	<%=label_tag proposta.descricao%> 
 			    		<hr>
 			    		<div class="row" >
-			    			<div class = "col-lg-2"> Votos: </div>
-			    			<div class = "col-lg-8"> <%=label_tag current_user.sub_prefeitura.nome%> <br> <%=label_tag current_user.sub_prefeitura.cidade%> </div>
-			    			<div class = "col-lg-2"> <%= proposta.votos.count %> <br> <%= proposta.votos.count %> </div>  
-						</div>
-			    		<hr>
-			    		<div class="row" >
 			    			<div class = "col-lg-2"> Rank: </div>
 			    			<div class = "col-lg-8"> <%=label_tag current_user.sub_prefeitura.nome%> <br> <%=label_tag current_user.sub_prefeitura.cidade%></div>
-			    			<div class = "col-lg-2"> # <br> # </div>  
+			    			<div class = "col-lg-2"> #<%=label_tag proposta.get_ranking_subprefeitura %> <br> # <%= @i = @i + 1 %> </div>  
 						</div>
 			    		<hr>
 			    		<div class="row" >

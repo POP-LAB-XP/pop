@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class Proposta < ActiveRecord::Base
   belongs_to :user
+  has_one :sub_prefeitura, :through => :user
+
   has_many :votos
   validates :descricao, length:{maximum: 255}, :presence => true
   validates :palavra_chave, length:{maximum: 32}
@@ -28,6 +30,13 @@ class Proposta < ActiveRecord::Base
   def desabilitar
     self.status = 0
     self.save
+  end
+
+  def get_ranking_subprefeitura
+    self.sub_prefeitura.relaciona_propostas
+        .where('votos_count > ?', self.votos_count)
+        .order(:id)
+        .count + 1
   end
 
   def get_emails_dos_apoiadores

@@ -67,4 +67,7 @@ gem 'quiet_assets', group: :development
 
 gem 'metric_fu'
 
+gem "table_print"
+ 
+
 

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Proposta, type: :model do
   let(:proposta) { build(:proposta) }
+  let(:sub_prefeitura) { build(:sub_prefeitura) }
 
   it "deve ter uma descricao" do
     proposta.descricao.should == "proposta 1"
@@ -49,6 +50,13 @@ RSpec.describe Proposta, type: :model do
 
   it "código deve se relacionar com id" do
     proposta.codigo.should == (200000 + proposta.id).to_s
+  end
+
+  it "Deve ter um ranking de acordo com a sua subprefeitura" do
+    #sub_prefeitura.stubs(:relaciona_propostas).returns([])
+    #proposta.stubs(:sub_prefeitura).returns(:sub_prefeitura)
+
+    proposta.get_ranking_subprefeitura.should be_present
   end
 
   context "sempre" do
