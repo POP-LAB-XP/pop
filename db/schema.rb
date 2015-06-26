@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619204633) do
+ActiveRecord::Schema.define(version: 20150626182628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150619204633) do
     t.string   "palavra_chave",     limit: 32
     t.integer  "votos_count",                  default: 0
     t.integer  "status"
+    t.string   "codigo"
   end
 
   add_index "proposta", ["tema_opcional_id"], name: "index_proposta_on_tema_opcional_id", using: :btree

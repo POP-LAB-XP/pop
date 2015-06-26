@@ -40,9 +40,16 @@ RSpec.describe Proposta, type: :model do
   end
 
   it "esta_ativa deve retornar true" do 
-     proposta.esta_ativa.should == true
+    proposta.esta_ativa.should == true
   end
 
+  it "deve ter um código" do
+    proposta.codigo.should be_present
+  end
+
+  it "código deve se relacionar com id" do
+    proposta.codigo.should == (200000 + proposta.id).to_s
+  end
 
   context "sempre" do
     let(:emails) { ["pop@pop.com", "pop2@pop.com"] }
