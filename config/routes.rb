@@ -18,6 +18,8 @@ Rails.application.routes.draw do
  #get 'interface/index'
 
  get 'static/index'
+ get 'static/termos_uso'
+ get 'static/fale_conosco'
 
  #get 'static_pages/welcome'
  root 'static#welcome'
