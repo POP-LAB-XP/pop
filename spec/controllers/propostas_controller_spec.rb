@@ -15,6 +15,29 @@ describe PropostasController, type: :controller do
         response.should be_success
       end
     end
+
+    context 'quando for acessar as 10 mais do pop' do
+      let!(:user){ FactoryGirl.create(:user)}
+      let!(:top10){ []}
+      let!(:list){ assigns(:list)}
+      before(:each) do
+        @request.env["devise.mapping"] = Devise.mappings[:user]
+	sign_in user
+	top10 = []
+	for i in 1..10
+	  p = Proposta.create( :descricao => 'desc'<< i.to_s, :palavra_chave => 'top', :tema_principal_id => '1', :tema_opcional_id => '1')
+	  top10.append( p)
+	  for i in 1..30
+	    Voto.create( :user => user, :proposta => p)
+	  end
+	end
+	get :toppop
+      end
+    
+      it 'a pagina deve renderizar as 10 propostas mais votadas do site' do
+	(list).should include top10	
+      end
+    end
   end
   
   describe 'criar' do

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
  get 'vetos/show'
 
+ get 'propostas/toppop' 
+
  resources :vetos, :only => [:show, :new, :create]
 
  post 'votos/create'
