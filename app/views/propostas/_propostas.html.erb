@@ -15,10 +15,10 @@
 						end %>
 					<div class = "col-lg-2 col-xs-2"><span class="<%= classe_glyphicon %>" style="<%= estilo_glyphicon %>" aria-hidden="true"></span></div>
 
-					<div class = "col-lg-8 col-xs-8"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+					<div class = "col-lg-8 col-xs-8">
 					[<%=label_tag proposta.codigo %>]
-					
 					<%=label_tag proposta.descricao.truncate(15) %>
+					<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
 					</div>	
 					<div class = "col-lg-2 col-xs-2">
 						<span class="badge"><%= proposta.votos.count %></span>
