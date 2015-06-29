@@ -37,7 +37,7 @@
 			    		<hr>
 			    		<div class="row" >
 			    			<div class = "col-lg-2"> Rank: </div>
-			    			<div class = "col-lg-8"> <%=label_tag current_user.sub_prefeitura.nome%> <br> <%=label_tag current_user.sub_prefeitura.cidade%></div>
+			    			<div class = "col-lg-8"> <label><%= current_user.sub_prefeitura.nome %> </label> <br> <%=label_tag current_user.sub_prefeitura.cidade%></div>
 			    			<div class = "col-lg-2"> #<%=label_tag proposta.get_ranking_subprefeitura %> <br> # <%= index + offset %> </div>  
 						</div>
 			    		<hr>
@@ -45,7 +45,7 @@
 			    			<div class = "col-lg-2"> Tema </div>
 			    			<div class = "col-lg-8"> <%=label_tag proposta.tema_principal.nome%> 
 							<% unless proposta.tema_opcional.nil? %>
-				    			<br><%=label_tag proposta.tema_opcional.nome%> </div>
+				    			<br><%=label_tag proposta.tema_opcional.nome %> </div>
 							<% end %>
 			    		</div>		
 			    	</div>

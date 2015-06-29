@@ -102,15 +102,20 @@ tHospital = Tema.create({
  nome: 'hospital'
 })
 
-forum = Forum.create({ nome: 'Cenário 1'})
+forum = Forum.create({ nome: 'Colégio Equipe'})
 
-sub_prefeitura = SubPrefeitura.create({ 
- nome: 'Colégio Equipe', 
- codigo: '12345678', 
- limite_de_usuarios: 2000, 
- forum: forum,
- cidade: 'São Paulo'
-})
+("A".."Z").each { |letter| 
+	sub_prefeitura = SubPrefeitura.create({ 
+	 nome: 'Sala ' + letter, 
+	 codigo: '12345678', 
+	 limite_de_usuarios: 2000, 
+	 forum: forum,
+	 cidade: 'São Paulo'
+	})
+}
+
+#Sexala A
+sub_prefeitura = SubPrefeitura.first
 
 user = User.create({
  email: "axleirner@gmail.com",
