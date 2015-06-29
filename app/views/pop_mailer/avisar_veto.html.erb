@@ -4,14 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p> Ola </p>
-    <p>A proposta <%= @proposta.id %> foi vetada.</p>
+    <p> Olá! </p>
+    <p>A proposta <strong><%= @proposta.id %></strong> foi vetada.</p>
     <p><%= @proposta.descricao %></p>
-    <p>  
-      O motivo pelo veto foi: <br>
-      <%= @veto.descricao %>
+    <p>O motivo do veto foi: <br>
+      <strong><%= @veto.descricao %></strong>
     </p>
-    
     <p>Tenha um bom dia!</p>
   </body>
 </html>

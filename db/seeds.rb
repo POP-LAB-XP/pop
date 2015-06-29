@@ -87,11 +87,11 @@ tImposto = Tema.create({
 })
 
 tAgua = Tema.create({
- nome: 'Agua'
+ nome: 'água'
 })
 
 tArvore = Tema.create({
- nome: 'Arvore'
+ nome: 'árvores'
 })
 
 tEscola = Tema.create({
@@ -102,12 +102,12 @@ tHospital = Tema.create({
  nome: 'hospital'
 })
 
-forum = Forum.create({ nome: 'Teste'})
+forum = Forum.create({ nome: 'Cenário 1'})
 
 sub_prefeitura = SubPrefeitura.create({ 
- nome: 'SubPrefeitura de Teste', 
+ nome: 'Colégio Equipe', 
  codigo: '12345678', 
- limite_de_usuarios: 100, 
+ limite_de_usuarios: 2000, 
  forum: forum,
  cidade: 'São Paulo'
 })
@@ -126,70 +126,13 @@ user_pop = User.create({
  sub_prefeitura: sub_prefeitura
 })
 
-
-(1..100).each do |i|
-	Proposta.create({
-	descricao: "Test " << i.to_s,
+Proposta.create({
+	descricao: "Primeira proposta do POP!",
 	user: user,
 	tema_principal: tArvore,
 	status: 1
-   })
-end
+ })
 
-/Voto.create({
-	user: user,
-	proposta: p1
-})
-
-Voto.create({
-	user: user,
-	proposta: p1
-})
-
-Voto.create({
-	user: user,
-	proposta: p1
-})
-
-Voto.create({
-	user: user,
-	proposta: p1
-})
-
-Voto.create({
-	user: user,
-	proposta: p1
-})
-
-Voto.create({
-	user: user,
-	proposta: p1
-})
-
-Voto.create({
-	user: user,
-	proposta: p2
-})
-
-Voto.create({
-	user: user,
-	proposta: p2
-})
-
-Voto.create({
-	user: user,
-	proposta: p3
-})
-
-Voto.create({
-	user: user,
-	proposta: p3
-})
-
-Voto.create({
-	user: user,
-	proposta: p3
-})/
 acaoApoio = AcaoTipo.create({
  nome: "Apoio"
 })
@@ -200,49 +143,3 @@ acaoCriacao = AcaoTipo.create({
  nome: "Criacao"
 })
 
-/Acao.create({
-	user:user,
-	acao_tipo:acaoCriacao,
-	proposta:p1
-})
-Acao.create({
-	user:user,
-	acao_tipo:acaoCriacao,
-	proposta:p1
-})
-Acao.create({
-	user:user,
-	acao_tipo:acaoCriacao,
-	proposta:p1
-})
-Acao.create({
-	user:user,
-	acao_tipo:acaoCriacao,
-	proposta:p1
-})
-Acao.create({
-	user:user,
-	acao_tipo:acaoCriacao,
-	proposta:p1
-})
-Acao.create({
-	user:user,
-	acao_tipo:acaoCriacao,
-	proposta:p1
-})
-Acao.create({
-	user:user,
-	acao_tipo:acaoCriacao,
-	proposta:p1
-})
-Acao.create({
-	user:user,
-	acao_tipo:acaoCriacao,
-	proposta:p1
-})
-Acao.create({
-	user:user,
-	acao_tipo:acaoCriacao,
-	proposta:p1
-})
-/

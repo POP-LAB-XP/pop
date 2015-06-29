@@ -4,10 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Bem vindo ao POP!!!!  <%= @user.email %></h1>
+    <h1>Bem vindo ao POP, <%= @user.email %>!</h1>
     <p>
-      Seu cadastro foi realizado com sucesso  pop-lab-xp.heroku.com.
-      O seu usuario é: <%= @user.email %>.<br>
+      Seu cadastro foi realizado com sucesso no <a href="http://pop-lab-xp.heroku.com">POP</a>!
+    </p>
+    <p>
+      O seu usuario é: <%= @user.email %>.
     </p>
     <p>Tenha um bom dia!</p>
   </body>
