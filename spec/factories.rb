@@ -43,6 +43,7 @@ FactoryGirl.define do
     palavra_chave "key word"
     status 1
     codigo "200123"
+    sub_prefeitura { FactoryGirl.build(:sub_prefeitura) }
     association :user, factory: :user, strategy: :build
     association :tema_principal, factory: :temaPrincipal, strategy: :build
     association :tema_opcional, factory: :temaOpcional, strategy: :build
