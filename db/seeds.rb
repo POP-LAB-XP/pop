@@ -107,7 +107,7 @@ forum = Forum.create({ nome: 'Colégio Equipe'})
 ("A".."Z").each { |letter| 
 	sub_prefeitura = SubPrefeitura.create({ 
 	 nome: 'Sala ' + letter, 
-	 codigo: '12345678', 
+	 codigo: letter + '12345678', 
 	 limite_de_usuarios: 2000, 
 	 forum: forum,
 	 cidade: 'São Paulo'
