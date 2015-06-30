@@ -37,8 +37,22 @@
 			    		<hr>
 			    		<div class="row" >
 			    			<div class = "col-lg-2"> Rank: </div>
-			    			<div class = "col-lg-8"> <label><%= proposta.sub_prefeitura.nome %> </label> <br> <%=label_tag proposta.sub_prefeitura.cidade%></div>
-			    			<div class = "col-lg-2"> #<%=label_tag proposta.get_ranking_subprefeitura %> <br> # <%= index + offset %> </div>  
+			    			<div class = "col-lg-6 col-lg-offset-1">
+			    				<p>
+			    					<label><%= proposta.sub_prefeitura.nome %> </label>
+			    				</p>
+			    				<p>
+			    					<%=label_tag proposta.sub_prefeitura.cidade%>
+			    				</p>
+			    			</div>
+			    			<div class = "col-lg-2"> 
+			    				<p>
+			    					#<%=label_tag proposta.get_ranking_subprefeitura %>
+			    				</p>
+			    				<p>
+			    					# <%= index + offset %> 
+			    				</p>  
+			    			</div>
 						</div>
 			    		<hr>
 			    		<div class="row" >
