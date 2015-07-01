@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
  get 'propostas/meus_apoios'
 
+ get 'propostas/top_subprefeitura'
+
  resources :vetos, :only => [:show, :new, :create]
 
  post 'votos/create'

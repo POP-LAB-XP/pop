@@ -67,10 +67,22 @@ describe PropostasController, type: :controller do
     before(:each) do
         @request.env["devise.mapping"] = Devise.mappings[:user]
         sign_in current_user
-        #Proposta.stubs(:create).with(proposta_params).returns(proposta)
         get :meus_apoios 
     end
     it 'o usuário pode acessar a lista de propostas que ele apoiou' do
+      response.should be_success
+    end
+  end
+
+  describe 'lista top subprefeitura' do
+    let!(:current_user) {FactoryGirl.create(:user)}
+
+    before(:each) do
+        @request.env["devise.mapping"] = Devise.mappings[:user]
+        sign_in current_user
+        get :top_subprefeitura
+    end
+    it 'o usuário pode acessar a lista de propostas mais votadas da sua subprefeitura' do
       response.should be_success
     end
   end
