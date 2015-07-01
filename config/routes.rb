@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
  get 'propostas/toppop' 
 
+ get 'propostas/novasdasemana'
+
  resources :vetos, :only => [:show, :new, :create]
 
  post 'votos/create'

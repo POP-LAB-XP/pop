@@ -19,6 +19,10 @@ class Proposta < ActiveRecord::Base
     order('status desc, votos_count desc, id')
   end
 
+  def self.order_mais_da_semana
+    where('created_at >= :sete_dias_atras', :sete_dias_atras => Time.now - 7.days).order('status desc, votos_count desc, id').limit(10)
+  end
+
   def esta_ativa
     if(self.status == 1)
       return true

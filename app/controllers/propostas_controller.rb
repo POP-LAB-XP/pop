@@ -3,7 +3,7 @@ class PropostasController < ApplicationController
 
 	def index
 		#@list = Proposta.order_por_votos.page(params[:page]).per(10)
-    @list = Proposta.order_por_votos.page(params[:page]).per(10)
+		@list = Proposta.order_por_votos.page(params[:page]).per(10)
 	end
 
 	def new
@@ -17,28 +17,31 @@ class PropostasController < ApplicationController
 
 	def create
 		if current_user.limite_acoes_atingido
-      flash[:warning] = "Proposta não foi criada. Limite de ações atingido!"
-      redirect_to new_proposta_path 
-    else
-     @proposta = Proposta.create(proposta_params)
-     @proposta.user_id = current_user.id
-     @proposta.status = 1
-     if @proposta.save
-      acao_criar = AcaoTipo.getCriar
-      Acao.insere_acao( acao_criar, @proposta, current_user)
-      Voto.insere_voto( current_user, @proposta)
-      redirect_to propostas_path
-    else
-      flash[:warning] = "Não foi possível criar proposta!"
-      redirect_to new_proposta_path 
-    end
-  end
+			flash[:warning] = "Proposta não foi criada. Limite de ações atingido!"
+			redirect_to new_proposta_path 
+		else
+			@proposta = Proposta.create(proposta_params)
+			@proposta.user_id = current_user.id
+			@proposta.status = 1
+			if @proposta.save
+				acao_criar = AcaoTipo.getCriar
+				Acao.insere_acao( acao_criar, @proposta, current_user)
+				Voto.insere_voto( current_user, @proposta)
+				redirect_to propostas_path
+			else
+				flash[:warning] = "Não foi possível criar proposta!"
+				redirect_to new_proposta_path 
+			end
+		end
+	end
 
-end
+	def toppop
+		@list = (Proposta.order_por_votos).page(params[:page])
+	end
 
-  def toppop
-    @list = (Proposta.order_por_votos)[0..9]
-  end
+	def novasdasemana
+		@list_semana = Proposta.order_mais_da_semana.page(params[:page])
+	end
 
 private
     # Using a private method to encapsulate the permissible parameters
