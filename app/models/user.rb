@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def minhas_propostas_apoiadas
-    self.votos.map{|v| v.proposta}
+    self.votos.map{|v| v.proposta}.uniq
   end
 
   private 

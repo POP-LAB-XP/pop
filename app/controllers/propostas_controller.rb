@@ -5,8 +5,8 @@ class PropostasController < ApplicationController
 		@list = Proposta.order_por_votos.page(params[:page]).per(10)
 	end
 
-  def lista_propostas_do_usuario 
-    current_user.minhas_propostas_apoiadas
+  def meus_apoios 
+    @list = Kaminari.paginate_array(current_user.minhas_propostas_apoiadas).page(params[:page]).per(10)
   end
 
 	def new

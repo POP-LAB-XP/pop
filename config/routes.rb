@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
  get 'static/termos_uso'
 
- get 'propostas/lista_propostas_do_usuario'
+ get 'propostas/meus_apoios'
 
  resources :vetos, :only => [:show, :new, :create]
 

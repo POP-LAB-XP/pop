@@ -24,16 +24,11 @@ describe PropostasController, type: :controller do
         @request.env["devise.mapping"] = Devise.mappings[:user]
         sign_in current_user
         #Proposta.stubs(:create).with(proposta_params).returns(proposta)
-        get :lista_propostas_do_usuario 
+        get :meus_apoios 
     end
-    it 'o usuario pode acessar a lista de propostas que ele apoiou' do
-        propostas_do_usuario = lista_propostas_do_usuario
-        votos_user = Voto.find_by_id(user_id: current_user.id)
-        votos_user.proposta.each do |prop_do_voto|
-          propostas_do_usuario.include?(prop_do_voto)
-        end  
-      
-      end
+    it 'o usuário pode acessar a lista de propostas que ele apoiou' do
+      response.should be_success
+    end
   end
   
   describe 'criar' do
