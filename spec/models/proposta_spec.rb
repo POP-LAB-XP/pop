@@ -48,7 +48,8 @@ RSpec.describe Proposta, type: :model do
   end
 
   it "código deve se relacionar com id" do
-    proposta.codigo.should == (200000 + proposta.id).to_s
+    proposta.gerar_codigo
+    proposta.codigo.should eq( (200000 + proposta.id).to_s)
   end
 
   it "Deve ter um ranking de acordo com a sua subprefeitura" do

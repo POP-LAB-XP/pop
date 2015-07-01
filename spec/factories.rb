@@ -38,7 +38,7 @@ FactoryGirl.define do
   end
 
   factory :proposta do
-    id 123
+    sequence (:id)
     descricao "proposta 1"
     palavra_chave "key word"
     status 1

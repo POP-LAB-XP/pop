@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Veto, type: :model do
   describe 'build' do
-    let(:veto) { build(:veto) }
+    let(:proposta){ build(:proposta)}
+    let(:veto) { build(:veto, :proposta => proposta) }
     it "deve ter uma descricao" do
       veto.descricao.should == "veto 1"
     end
@@ -17,7 +18,6 @@ RSpec.describe Veto, type: :model do
       veto = build(:veto, :user_id => nil).should_not be_valid
     end
     it "proposta do veto deve ser preenchida" do
-      proposta = build(:proposta)
       veto.proposta.id.should == proposta.id
     end
     it "a proposta nao pode ser nula" do
