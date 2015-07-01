@@ -28,6 +28,7 @@ describe PropostasController, type: :controller do
       let!(:top10){ []}
       let!(:notop){ []}
       before(:each) do
+         Rails.cache.clear
         j = Proposta.maximum("votos_count").to_i 
 	    for i in 1..10
           top10 << FactoryGirl.create( :proposta, :descricao => 'pop'<< i.to_s, :palavra_chave => 'pop')
@@ -55,6 +56,35 @@ describe PropostasController, type: :controller do
       it 'as propostas devem aparecer em ordem decrescente de votos' do
         expect(assigns(:list)).to eq(top10.reverse)
       end
+      it 'o usuário pode acessar a lista de propostas mais apoiadas do pop' do
+        response.should be_success
+      end
+    end
+  end
+
+  describe 'lista meus apoios' do
+    let!(:current_user) {FactoryGirl.create(:user)}
+
+    before(:each) do
+        @request.env["devise.mapping"] = Devise.mappings[:user]
+        sign_in current_user
+        get :meus_apoios 
+    end
+    it 'o usuário pode acessar a lista de propostas que ele apoiou' do
+      response.should be_success
+    end
+  end
+
+  describe 'lista top subprefeitura' do
+    let!(:current_user) {FactoryGirl.create(:user)}
+
+    before(:each) do
+        @request.env["devise.mapping"] = Devise.mappings[:user]
+        sign_in current_user
+        get :top_subprefeitura
+    end
+    it 'o usuário pode acessar a lista de propostas mais votadas da sua subprefeitura' do
+      response.should be_success
     end
   end
   

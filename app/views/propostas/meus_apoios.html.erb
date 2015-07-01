@@ -1,0 +1,31 @@
+<% content_for :title do %>
+  POP | Propostas
+<% end %>
+<% content_for :content_title do %>
+    Meus apoios 
+<% end %>
+<br>
+<br>
+<br>
+<div class = "row">
+	<div id="propostas-table" class= "col-sm-8 col-sm-offset-2">
+		<%= render(:partial => 'propostas', locals: {:list => @list}) %>
+	</div>
+</div>	
+
+<div class ="row" style="display:none;">
+	<div class= "col-md-offset-4 col-md-4">
+		<p class="pagination">
+			<%= paginate @list %>
+		</p> 
+	</div>
+</div>	
+
+
+
+<script>
+	// Update pagination link
+	<% if @list.last_page? %>
+	  $('.pagination').html("");
+	<% end %>
+</script>

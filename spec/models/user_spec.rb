@@ -42,5 +42,4 @@ RSpec.describe User, type: :model do
       user_nao_limitado.count_user_actions.should == acoes.length
     end
   end
-
 end
