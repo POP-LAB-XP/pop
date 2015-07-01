@@ -16,6 +16,47 @@ describe PropostasController, type: :controller do
       end
     end
   end
+
+  describe 'toppop' do
+    let!(:user){ FactoryGirl.create(:user)}
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+	  sign_in user
+    end
+
+    context 'quando houver 10 ou mais propostas' do
+      let!(:top10){ []}
+      let!(:notop){ []}
+      before(:each) do
+        j = Proposta.maximum("votos_count").to_i 
+	    for i in 1..10
+          top10 << FactoryGirl.create( :proposta, :descricao => 'pop'<< i.to_s, :palavra_chave => 'pop')
+	      notop << FactoryGirl.create( :proposta, :descricao => 'notpop'<< i.to_s, :palavra_chave => 'nopop')
+          j = j+1
+	      for i in 1..j
+	        FactoryGirl.create( :voto, :proposta => top10.last)
+          end
+	    end
+	    get :toppop
+      end
+
+      it 'as 10 propostas mais votadas do site devem aparecer' do
+        expect(assigns(:list)-top10).to be_empty 
+      end
+
+      it 'exatamente 10 propostas devem aparecer' do
+        expect(assigns(:list).count).to eq(10)
+      end
+
+      it 'propostas que não estão no top10 de votos do site não devem aparecer' do
+        expect((assigns(:list)-notop).count).to eq(10)
+      end
+
+      it 'as propostas devem aparecer em ordem decrescente de votos' do
+        expect(assigns(:list)).to eq(top10.reverse)
+      end
+    end
+  end
   
   describe 'criar' do
     let!(:current_user){

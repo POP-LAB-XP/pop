@@ -33,7 +33,12 @@ class PropostasController < ApplicationController
       redirect_to new_proposta_path 
     end
   end
+
 end
+
+  def toppop
+    @list = (Proposta.order_por_votos)[0..9]
+  end
 
 private
     # Using a private method to encapsulate the permissible parameters
