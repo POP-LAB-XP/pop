@@ -14,7 +14,7 @@ RSpec.describe VotosController, type: :controller do
     let!(:proposta_vetada){
       build(:proposta, :status => 0, :id => 1)
     }
-        let!(:acao){
+    let!(:acao){
       build(:acao_vetar)
     }
     let!(:voto){
