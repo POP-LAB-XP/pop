@@ -133,7 +133,7 @@ user_pop = User.create({
 
 Proposta.create({
 	descricao: "Primeira proposta do POP!",
-	user: user,
+	user_id: user.id,
 	tema_principal: tArvore,
 	status: 1
  })

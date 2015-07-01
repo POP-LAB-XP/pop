@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
  get 'propostas/top_subprefeitura'
 
+ get 'propostas/novasdasemana'
+
+
  resources :vetos, :only => [:show, :new, :create]
 
  post 'votos/create'
