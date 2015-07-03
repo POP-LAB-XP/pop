@@ -6,9 +6,9 @@ class PropostasController < ApplicationController
 		@list = Proposta.order_por_votos.page(params[:page]).per(10)
 	end
 
-  def meus_apoios 
-    @list = Kaminari.paginate_array(current_user.minhas_propostas_apoiadas).page(params[:page]).per(10)
-  end
+  	def meus_apoios 
+    	@list = Kaminari.paginate_array(current_user.minhas_propostas_apoiadas).page(params[:page]).per(10)
+  	end
 
 	def new
 		@proposta = Proposta.new
@@ -40,16 +40,16 @@ class PropostasController < ApplicationController
 	end
 
 	def toppop
-		@list = (Proposta.order_por_votos).page(params[:page])
+		@list = (Proposta.order_por_votos)[0..9]
 	end
 
 	def novasdasemana
-		@list_semana = Proposta.order_mais_da_semana.page(params[:page])
+		@list_semana = (Proposta.order_mais_da_semana)[0..9]
 	end
 
-  def top_subprefeitura 
-    @list = current_user.sub_prefeitura.relaciona_propostas.page(params[:page]).per(10)
-  end
+  	def top_subprefeitura 
+    	@list = (current_user.sub_prefeitura.ordena_propostas_subprefeitura).page(params[:page]).per(10)
+  	end
 
 private
     # Using a private method to encapsulate the permissible parameters
@@ -59,4 +59,4 @@ private
     def proposta_params
       params.require(:proposta).permit(:descricao, :palavra_chave, :tema_principal, :tema_opcional, :tema_principal_id, :tema_opcional_id, :page)
     end
-  end
+ end
