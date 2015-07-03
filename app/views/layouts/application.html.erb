@@ -22,20 +22,16 @@
 				<li class="dropdown">
 					<button class="btn btn-default dropdown-toggle glyphicon glyphicon-align-justify" type="button" id="salsichaMenu" data-toggle="dropdown" aria-expanded="true"></button>
                     <ul id="left-dropdown" class="dropdown-menu" role="menu">
-                    <li><a href="#">Meus interesses</a></li>
-						<li><a href="/propostas/toppop">(+) Cidade</a></li>
 						<li><a href="/propostas/meus_apoios">Meus apoios</a></li>
-						<li><a href="/propostas/top_subprefeitura">(+) <%= current_user.sub_prefeitura.nome%></a></li>
+						<li><a href="/propostas/toppop">Top 10</a></li>
 						<li><a href="/propostas">(+) Votadas</a></li>
+						<li><a href="/propostas/top_subprefeitura">(+) <%= current_user.sub_prefeitura.nome%></a></li>
 						<li><a href="/propostas/novasdasemana">(+) Semana</a></li>
-						<li><a href="#">Mapa</a></li>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Extrato</a></li>
 					</ul>
 				</li>
 				<li>
 					<div class="navbar-header">
-						<a class="navbar-brand" id="popBrand"href="#">POP</a>
+						<a class="navbar-brand" id="popBrand"href="/propostas">POP</a>
 					</div>
 				</li>
 			</ul>
@@ -48,10 +44,8 @@
 					<li>
 						<button class="btn btn-default dropdown-toggle glyphicon glyphicon-option-vertical" type="button" id="salsichaMenu" data-toggle="dropdown" aria-expanded="true"></button>
 						<ul id="right-dropdown" class="dropdown-menu" role="menu">
-							<li><a href="#">Minha Conta</a></li>
 							<li><a href="/static/termos_uso">Termos de Uso</a></li>
 							<li><a href="/static/fale_conosco">Fale Conosco</a></li>
-							<li><a href="#">Como Funciona</a></li>
 							<li class="divider"></li>
 							<% if user_signed_in? %>
 								<li><%= link_to "Sair", destroy_user_session_path, :method => :delete %></li>
