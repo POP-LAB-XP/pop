@@ -56,6 +56,10 @@ RSpec.describe Proposta, type: :model do
     proposta.get_ranking_subprefeitura.should be_present
   end
 
+  it "Deve retornar uma lista de propostas do ranking da subprefeitura" do
+    Proposta.order_mais_da_semana.should be_present
+  end  
+
   context "sempre" do
     let(:emails) { ["pop@pop.com", "pop2@pop.com"] }
     let(:user) { build(:user, :email => emails[0]) }

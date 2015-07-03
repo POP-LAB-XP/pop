@@ -1,5 +1,5 @@
 <%# TODO achar uma forma melhor de pegar o índice do item %>
-<% offset = (list.current_page - 1) * 10 + 1 %>
+<%# offset = (list.current_page - 1) * 10 + 1 %>
 
 <ul class="list-group">
 		<% list.each_with_index do |proposta, index| %>
@@ -50,7 +50,7 @@
 			    					#<%=label_tag proposta.get_ranking_subprefeitura %>
 			    				</p>
 			    				<p>
-			    					# <%= index + offset %> 
+			    					#0<%#= index + offset %> 
 			    				</p>  
 			    			</div>
 						</div>
