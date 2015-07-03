@@ -28,7 +28,6 @@ describe PropostasController, type: :controller do
       let!(:top10){ []}
       let!(:notop){ []}
       before(:each) do
-        Rails.cache.clear
         j = Proposta.maximum("votos_count").to_i 
 	    for i in 1..10
           top10 << FactoryGirl.create( :proposta, :descricao => 'pop'<< i.to_s, :palavra_chave => 'pop')
@@ -75,7 +74,7 @@ describe PropostasController, type: :controller do
       let!(:top10){ []}
       let!(:notop){ []}
       before(:each) do
-        Rails.cache.clear
+        
         j = Proposta.maximum("votos_count").to_i 
       for i in 1..10
         notop << FactoryGirl.create( :proposta, :descricao => 'notpop'<< i.to_s, :palavra_chave => 'nopop')
