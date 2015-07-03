@@ -21,7 +21,7 @@
 
 					<div class = "col-lg-8 col-xs-8">
 					[<%=label_tag proposta.codigo %>]
-					<%=label_tag proposta.descricao.truncate(15) %>
+					<%=label_tag proposta.descricao %>
 					<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
 					</div>	
 					<div class = "col-lg-2 col-xs-2">
@@ -31,10 +31,6 @@
 
 				<div class="collapse" id="proposta_<%= proposta.id %>">
 			    	<div class="well"> 
-			    		PROPOSTA:<%=label_tag proposta.id%>
-			    		 	<br>			
-			    		 	<%=label_tag proposta.descricao%> 
-			    		<hr>
 			    		<div class="row" >
 			    			<div class = "col-lg-2"> Rank: </div>
 			    			<div class = "col-lg-6 col-lg-offset-1">
