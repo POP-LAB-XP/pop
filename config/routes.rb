@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
  get 'static/termos_uso'
 
+ get 'static/termos_de_uso_sem_navbar'
+
  get 'propostas/meus_apoios'
 
  get 'propostas/top_subprefeitura'
@@ -25,6 +27,11 @@ Rails.application.routes.draw do
  #devise_for :users
   devise_for :users, controllers: { registrations: "users/registrations" }
 
+ unauthenticated :user do
+  scope "/static" do
+    resources :static, only: ['static/termos_de_uso_sem_navbar']
+  end
+end
  #devise_for :users, :controllers => { :registrations => "registrations" }
  #get 'interface/index'
 

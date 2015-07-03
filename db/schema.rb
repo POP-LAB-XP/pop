@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150626182628) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
   
   create_table "proposta", force: true do |t|
     t.string   "descricao"
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150626182628) do
   add_index "proposta", ["tema_principal_id"], name: "index_proposta_on_tema_principal_id", using: :btree
   add_index "proposta", ["user_id"], name: "index_proposta_on_user_id", using: :btree
 
+  
   create_table "sub_prefeituras", force: true do |t|
     t.string   "nome"
     t.string   "codigo"
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150626182628) do
     t.datetime "updated_at"
   end
 
+  
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -96,6 +99,7 @@ ActiveRecord::Schema.define(version: 20150626182628) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["sub_prefeitura_id"], name: "index_users_on_sub_prefeitura_id", using: :btree
 
+  
   create_table "vetos", force: true do |t|
     t.string   "descricao"
     t.integer  "user_id"
