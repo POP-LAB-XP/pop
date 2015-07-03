@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20150626182628) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
   
   create_table "proposta", force: true do |t|
     t.string   "descricao"

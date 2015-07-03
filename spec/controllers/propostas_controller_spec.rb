@@ -28,12 +28,11 @@ describe PropostasController, type: :controller do
       let!(:top10){ []}
       let!(:notop){ []}
       before(:each) do
-         Rails.cache.clear
         j = Proposta.maximum("votos_count").to_i 
 	    for i in 1..10
           top10 << FactoryGirl.create( :proposta, :descricao => 'pop'<< i.to_s, :palavra_chave => 'pop')
-	      notop << FactoryGirl.create( :proposta, :descricao => 'notpop'<< i.to_s, :palavra_chave => 'nopop')
-          j = j+1
+          notop << FactoryGirl.create( :proposta, :descricao => 'notpop'<< i.to_s, :palavra_chave => 'nopop')
+          j = j + 1
 	      for i in 1..j
 	        FactoryGirl.create( :voto, :proposta => top10.last)
           end
@@ -56,9 +55,60 @@ describe PropostasController, type: :controller do
       it 'as propostas devem aparecer em ordem decrescente de votos' do
         expect(assigns(:list)).to eq(top10.reverse)
       end
+
       it 'o usuário pode acessar a lista de propostas mais apoiadas do pop' do
         response.should be_success
       end
+      
+    end
+  end
+
+  describe 'novasdasemana' do
+    let!(:user){ FactoryGirl.create(:user)}
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+    sign_in user
+    end
+
+    context 'quando houver 10 ou mais propostas' do
+      let!(:top10){ []}
+      let!(:notop){ []}
+      before(:each) do
+        
+        j = Proposta.maximum("votos_count").to_i 
+      for i in 1..10
+        notop << FactoryGirl.create( :proposta, :descricao => 'notpop'<< i.to_s, :palavra_chave => 'nopop')
+      end
+      for i in 1..10
+        top10 << FactoryGirl.create( :proposta, :descricao => 'pop'<< i.to_s, :palavra_chave => 'pop')
+        j = j + 1
+        for i in 1..j
+          FactoryGirl.create( :voto, :proposta => top10.last)
+          end
+      end
+      get :novasdasemana
+      end
+
+      it 'as 10 propostas mais recentes do site devem aparecer' do
+        expect(assigns(:list_semana) - top10).to be_empty
+      end
+
+      it 'exatamente 10 propostas devem aparecer' do
+        expect(assigns(:list_semana).count).to eq(10)
+      end
+
+      it 'propostas que não estão no top10 de votos do site não devem aparecer' do
+        expect((assigns(:list_semana)-notop).count).to eq(10)
+      end
+
+      it 'as propostas devem aparecer em ordem decrescente de votos' do
+        expect(assigns(:list_semana)).to eq(top10.reverse)
+      end
+
+      it 'o usuário pode acessar a lista de propostas mais apoiadas do pop' do
+        response.should be_success
+      end
+
     end
   end
 

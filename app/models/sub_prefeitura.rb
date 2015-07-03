@@ -11,4 +11,8 @@ class SubPrefeitura < ActiveRecord::Base
   	Proposta.joins(:user).where('users.sub_prefeitura_id = ?', self.id)
   end
 
+  def ordena_propostas_subprefeitura
+  	Proposta.joins(:user).where('users.sub_prefeitura_id = ?', self.id).order('status desc, votos_count desc, id')
+  end  
+
 end
