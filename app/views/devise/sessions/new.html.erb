@@ -26,6 +26,218 @@
 <div class="form-group">
   <div class="col-sm-offset-4 col-sm-4">
       <%= button_to('Cadastro', new_user_registration_path, :class => 'btn btn-default center-block', :method => :get) %><br />
-      <%= button_to('Termos de Uso', '/static/termos_de_uso_sem_navbar', :class => 'btn btn-default center-block', :method => :get)  %><br />
+      <!--<%= button_to('Termos de Uso', :onclick => 'termos_uso_display()', :class => 'btn btn-default center-block', :method => :get)  %><br />-->
+      <input type="button" onclick="termos_uso_display()" value="Termos de Uso">
+
+      <script>
+      function termos_uso_display () {
+      		var terminhos = document.getElementById ("terminhos");
+      		if (terminhos.style.display == "block") {
+      			terminhos.style.display = "none";
+      		}
+      		else {
+      			terminhos.style.display = "block";	
+      		}
+      }
+      </script>
   </div>
 </div>	
+<div id="terminhos" class="btn btn-default" style="display: none; width: 100%; margin-top: 3em; float: left; font-size: 8px;">
+    <pre style="text-align: left; line-height: 6px; font-size: 9px;">
+1. DO FUNCIONAMENTO DO SISTEMA
+
+1.1. O POP é um sistema de coleta, sistematização e divulgação de informação concebido 
+
+pela INDX Assessoria e Planejamento LTDA, doravante designado administradora do 
+
+sistema. 
+
+1.2. O POP foi desenhado para colher e ordenar propostas de grupos de pessoas. 
+
+1.3. Sua metodologia utiliza-se do auto reporte como meio de alimentação de uma base de 
+
+dados modelada coletivamente pelos próprios agentes consultados. 
+
+1.4. Essa tecnologia consiste em um sistema de coleta e divulgação de informações em que 
+
+uma proposta anônima é registrada e publicada, e pode receber votos de endosso 
+
+diários, do seu autor ou de outras pessoas. 
+
+1.5. Do mesmo modo, uma proposta pode ser contestada por meio do registro e da 
+
+publicação de uma nova sugestão, divergente, igualmente endossável pelo seu autor ou 
+
+por terceiros, ou por meio de um veto. 
+
+1.6. Proposições, apoios e vetos constituem ações. A cada usuário é conferido um número 
+
+limitado de ações por dia, induzindo o usuário a escolher quais propostas irá apoiar, 
+
+contestar ou vetar, preferencialmente naquele período.
+
+1.7. As votações são contabilizadas diariamente e de maneira cumulativa, de modo que a 
+
+disponibilização de resultados parciais influencia o processo de votação continuamente.  
+
+2. DAS COMUNIDADES
+
+2.1. Comunidades são conjuntos de usuários anônimos
+
+2.2. Gestores são usuários não anônimos registrados perante o administrador do sistema, 
+
+responsáveis pela gestão de comunidades e pela publicação de suas propostas
+
+2.3. O conjunto de propostas de uma comunidade é definido pelo conjunto de apoios de 
+
+seus membros
+
+2.4. Universo é o conjunto composto por todos os usuários do sistema
+
+2.5. Comunidade Aberta é o conjunto composto por todos os usuários não pertencentes à 
+
+comunidades semi-abertas ou fechadas
+
+2.6. Em uma Comunidade Aberta qualquer usuário realiza propostas e qualquer usuário 
+
+pode apoia-las
+
+2.7. Em uma Comunidade Aberta a responsabilidade das propostas é da própria comunidade
+
+2.8. Comunidade Semi-Aberta é o conjunto composto por todos os usuários pertencentes a 
+
+um grupo sob responsabilidade editorial de um gestor de comunidade semi-aberta
+
+2.9. Em Comunidades Semi Abertas somente seus membros realizam propostas e qualquer 
+
+usuário pode apoia-las
+
+2.10. Comunidade Fechada é o conjunto composto por todos os usuários pertencentes a um 
+
+grupo sob responsabilidade editorial de um gestor de comunidade fechada
+
+2.11. Em uma Comunidade Fechada somente seus membros realizam propostas e somente 
+
+usuários pertencentes àquela comunidade podem apoia-las 
+
+3. DO SISTEMA DE VOTAÇÃO
+
+3.1. Se um pleito for inédito ele constituirá um registro de uma proposta, caso contrário fará 
+
+referência à um pleito existente resultando num voto de endosso, ou de apoio. 
+
+3.2. Uma identidade poderá votar somente um número limitado de vezes ao dia em um 
+
+pleito unitário, seja como voto de registro, como voto de endosso ou como veto de uma 
+
+proposta. 
+
+3.3. Os pleitos se diferenciarão por grafia e os votos de endosso, ou apoios, por identidade, 
+
+território de origem ou tempo. 
+
+3.4. Todo pleito (proposta) é anônimo e tem como atributo o território ou comunidade de 
+
+origem, o momento em que foi criado e o seu texto;
+
+3.5. A totalização do sistema é diária e acumulada: votos realizados em um dia serão 
+
+contabilizados no dia do voto, assim como, na totalização acumulada daquela data em 
+
+diante.
+
+3.6. Totalizações podem ser realizadas por comunidade, conjuntos de comunidades ou por 
+
+Universo;
+
+4. DA REALIZAÇÃO DE VETOS E RESPONSABILIDADE DO CONTEÚDO VEICULADO
+
+4.1. Qualquer proposta pode ser vetada por usuários de uma comunidade. 
+
+4.2. Propostas vetadas são retiradas da amostra de propostas e são encaminhadas ao gestor 
+
+da comunidade em que foi criada
+
+4.3. Ao vetar uma proposta, o vetante será obrigado a identificar-se perante o gestor do 
+
+sistema. 
+
+4.4. Quando uma proposta é vetada o autor daquela proposta e usuários que a apoiaram 
+
+receberão uma notificação do veto realizado. 
+
+4.5. Uma proposta vetada pode ser sustentada pelo gestor da comunidade originária do veto 
+
+ou por usuários dessa mesma comunidade. Em ambos os casos é prerrogativa para tal a 
+
+identificação dos mesmos, e admissão do ônus legal sobre o conteúdo da proposta 
+
+vetada; 
+
+4.6. Fica a cargo do gestor da comunidade a definição de procedimentos para sustentação e 
+
+veto de propostas. 
+
+4.6.1. Recomenda-se a constituição de câmaras externas de arbitragem, e conforme o 
+
+4.6.2. Propostas vetadas em definitivo deverão ser retiradas da lista de propostas, 
+
+caso, o uso do aparato legal tradicional, para deliberação quanto ao mérito da 
+
+solicitação de veto. 
+
+independentemente do número de apoios que tiverem, e passarão a figurar na 
+
+lista de propostas vetadas.  
+
+poderão receber novos vetos. 
+
+4.6.3. Propostas sustentadas serão reconduzidas à lista de propostas publicadas e não 
+
+4.7. É prerrogativa do gestor da comunidade sustentar ou vetar em definitivo uma proposta. 
+
+5. DO USO DO SISTEMA 
+
+5.1. Não serão permitidas ofensas pessoais de qualquer natureza, discurso de violência, 
+
+conteúdo sexualmente explicito, fraude, calúnia (art. 138 do Código Penal), difamação 
+
+(art. 139 do Código Penal), injúria (art. 140 do Código Penal) ou ameaça (art. 147 do 
+
+Código Penal).
+
+5.2. As propostas e opiniões contendo conteúdo injurioso, difamatório, calunioso, 
+
+discriminatório, pornográfico ou preconceituoso não deverão ser postadas e serão 
+
+retiradas do sistema quando recebidas e/ou quando denunciadas, ou forem objeto de 
+
+veto. 
+
+5.3. Postagens contendo conteúdo sexual só serão aceitas quando versarem sobre direito à 
+
+opção sexual, garantidas as condições dispostas no parágrafo anterior. 
+
+5.4. Não são admitidas postagens de caráter eleitoral. 
+
+5.5. Procure postar conteúdos que sejam efetivamente relevantes à sua comunidade ou à 
+
+sociedade.
+
+6. DISPOSIÇÕES GERAIS 
+
+6.1. As informações submetidas no decorrer do uso dessa plataforma poderão ser utilizadas 
+
+para fins comerciais, a não ser que estabelecido o contrário em instrumento particular 
+
+firmado entre o gestor de uma comunidade e o administrador do sistema. 
+
+6.2. O administrador do sistema não se responsabiliza pelo conteúdo publicado no decorrer 
+
+da utilização da plataforma. A responsabilidade do conteúdo publicado no decorrer da 
+
+sua utilização é única e exclusivamente do gestor da comunidade que a utiliza, conforme 
+
+estabelecido no item 4.7, acima. 
+	</pre>
+</div>

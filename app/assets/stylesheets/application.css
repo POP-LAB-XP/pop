@@ -37,6 +37,12 @@ body{
 	height: 55em;
 }
 
+@media screen and (max-width: 473px) {
+	#content-interno-sem-navbar {
+		margin: 3em 0% 0 0% !important;
+	}
+}
+
 #v-v-rapidao {
 	margin-top: 1.4em;
 }

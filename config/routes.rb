@@ -27,11 +27,6 @@ Rails.application.routes.draw do
  #devise_for :users
   devise_for :users, controllers: { registrations: "users/registrations" }
 
- unauthenticated :user do
-  scope "/static" do
-    resources :static, only: ['static/termos_de_uso_sem_navbar']
-  end
-end
  #devise_for :users, :controllers => { :registrations => "registrations" }
  #get 'interface/index'
 
