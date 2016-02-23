@@ -2,6 +2,7 @@ LANG="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 source 'https://rubygems.org'
 
+ruby "2.2.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
@@ -68,6 +69,3 @@ gem 'quiet_assets', group: :development
 gem 'metric_fu'
 
 gem "table_print"
- 
-
-
